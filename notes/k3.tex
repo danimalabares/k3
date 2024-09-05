@@ -1,0 +1,234 @@
+\input{/Users/daniel/github/config/preamble.sty}
+
+\begin{document}
+
+{\Huge k3}
+
+\section{Class 1}
+
+The most important invariant of a k3 surface is \href{https://en.wikipedia.org/wiki/Intersection_form_of_a_4-manifold}{intersection form}.
+
+There are three classes of manifolds
+\begin{enumerate}
+	\item Smooth manifolds
+\end{enumerate}
+
+\[\begin{tikzcd}
+	\text{smooth manifolds}\arrow[r,"\text{forgetful functor} "]&\text{PL manifold}\arrow[r]&\text{Topological manifolds}   
+\end{tikzcd}\]
+
+Donaldson: contiunally many non-equivalent smooth structures on $\mathbb{R}^{4}$. K3 surfaces has countably many smooth structures and only one of them is compatible with complex structure.
+
+\begin{defn}
+	Intersection form. Given a quadratic form on a lattice $V_{\mathbb{Z}}=\mathbb{Z}^n$, so 
+	 \[q:V_{\mathbb{Z}}\times V_{\mathbb{Z}}\to \mathbb{Z}\]
+	 is \textit{\textbf{unimodular}} if 
+	 \[V_{\mathbb{Z}}\overset{q}{\longrightarrow} \operatorname{Hom}(V_{\mathbb{Z}},\mathbb{Z})\]
+	 is an isomorphism.
+\end{defn}
+
+\begin{thm}[Universal coefficients formula]\leavevmode
+	\[H_{n-1}(M,\mathbb{Z})=\mathbb{Z}^{b_{n-1}(M)}\oplus T_{n-1}(M)\]
+	\[h^n(M,\mathbb{Z})=\mathbb{Z}^{b_{n}(M)}\oplus T_{n-1}(M)\]
+\end{thm}
+
+\begin{coro}
+	$H^2(X,\mathbb{Z})$ is torsion free if $\pi_{1}(X) =0$ because 
+\end{coro}
+
+\begin{defn}
+	\textit{\textbf{Signature}} is $m-n$ if $q$ has signature $(m,n)$.
+\end{defn}
+
+\begin{thm}[Rokhlm-Wu?]\leavevmode
+	Signature is divisible by 16 for simply-connected (something else).
+\end{thm}
+
+\begin{remark}
+	The methods used in surgery break down in smooth case because strange topological objects like infinite sums of spheres arise.
+\end{remark}
+
+\begin{thm}[Freedman, 1982]
+	There are as many 4-manifolds as there are intersection forms. $M$ simply connected 4 manifold homotopy class is uniquely determined by intersection dorm. Moreover, for every unimodular form there exists a unique $M$ with this intersection form.
+\end{thm}
+
+\begin{thm}[Donaldson, 1986]\leavevmode
+	$M$ smooth compact manifold with positive definite odd intersection form $q$. Then
+	\[\begin{pmatrix} 1&0&0\\0&1&0\\0&0&0&1 \end{pmatrix} \]
+\end{thm}
+
+\begin{defn}
+	Bilinear symmetric form is \textit{\textbf{indefinite}} if it is not positive definite nor negative definite.
+\end{defn}
+
+\begin{thm}[Classification of unimodular symmetric bilinear forms]\leavevmode
+	Odd are diagonalizable, while even are related to special Lie group $E_8$.
+\end{thm}
+
+\begin{defn}
+	A \textit{\textbf{K3 surface}} is a K\"ahler complex surface $M$ with $b_1=0$ (simply connected) and $c_1(M,\mathbb{Z})=0$.
+\end{defn}
+
+Kodaira did what Andr\'e Weil couldn'g classify.
+
+ \begin{thm}
+	K3 surfaces have trivial canonical bundle $K_{M}=\Lambda^2(\Omega^1M)$.
+\end{thm}
+
+\section{Class 2}
+
+$G$ topological group. \textit{\textbf{Principal $G$ bundle}} is a space with free $G$-action such that the quotient $E/G$ is Housdorff. There are several conditions that make this work. And then you have $\operatorname{Homo t o py}(X,BG)=$equivalence classes of $G$-bundles.
+Vector bundles of a manifold are the same as maps from $X$ to $B\operatorname{U}(n)$.
+
+Vector bundles up to stable equivalence are classified basically by Chern classes, so by the cohomology in $H^\bullet(B\operatorname{U})=Q[c_1,c_2,\ldots,c_n$.
+
+Now look at the loop space of $X$. Then $H^{\bullet}(\Omega X)$ is a free graded commutative algebra. Loop space has the interesting property that $\Omega \operatorname{U}=B\operatorname{U}$ and $\Omega B\operatorname{U}=\operatorname{U}$.
+
+\subsection{Bialgebras}
+
+Let $A$ be a superalgebra (graded with antisymmetric product). Then we ask the axiom of coassociativity and that .
+
+\begin{example}
+	$G$ group, and $C(G)$ the ring of  $k$-valued functions $C(G\times G)=C(G)\times C(G)$ so
+	\begin{align*}
+		G\times G &\longrightarrow G \\
+		C(G) &\longmapsto C(G)\otimes C(G)
+	\end{align*}
+	
+\end{example}
+
+\subsection{H-spaces}
+
+\begin{defn}
+	$H$-space is a space $M$ with a map $\mu:M\times M\\to M$that is homotopy associative,
+	\[\begin{tikzcd}
+		M\times M\times M\arrow[r,"\mu\times \operatorname{id}"]\arrow[d,"\operatorname{id}\times \mu"]&M\times M\arrow[d,"\mu"]\\
+		M\times M\arrow[r,"\mu"]&M
+	\end{tikzcd}\]
+	which is homotopy commutative. And with homotopy unit.
+\end{defn}
+
+So it's like a homotopy algebra?
+
+\begin{example}
+	The loop space.
+\end{example}
+
+\subsection{Bialgebras of finite type}
+
+\begin{defn}
+	A bialgebra $A$ is of \textit{\textbf{finite type}} if it is the direct sum of $A=\bigoplus_{i\geq 0} A^i $ supercommutative and each $A^1$ is finite dimensional.
+\end{defn}
+
+\begin{remark}
+	Free commutative algebra is polynomial algebra
+\end{remark}
+
+\begin{defn}
+	$A=\mathbb{C}[x_1,\ldots,x_n,\ldots]\otimes \Lambda^\bullet(a_1,\ldots,a_n,\ldots)$ is a graded commutative free algebra. In the slides: it is $\operatorname{Sym}_{\operatorname{gr}}V^*$ where $V^*$ is a graded vector space.
+\end{defn}
+
+\begin{thm}[Hopf]\leavevmode
+	A graded commutative bialgebra of finite type over $k$ of 0 characteristic is free graded commutative as a $k$ algebra.
+\end{thm}
+
+\subsection{The cohomology algebra of U(n)}
+
+\begin{claim}
+	The cohomology algebra $H^{*}(\operatorname{U}(n),\mathbb{Q})$ is a free graded commutative algebra with generators in degrees $1,3,5,\ldots,2n-1$.
+\end{claim}
+
+\begin{proof}[Demostra\c c\~ao]
+	Induction.  $\operatorname{U}(1)$ is clear because it is a circle. Then do Serre spectral sequence. Differentials vanish on the second page because there's only nonzero groups on even degrees! And we get that $E_2^{p_1}=H^{p}(S^{2n-1})\otimes H^{q}(\operatorname{U}(n-1))$. And then the sequence converges to that of the total space which is $\operatorname{U}(n)$.
+\end{proof}
+
+\subsection{Grassman manifolds}
+
+\begin{defn}
+	The \textit{\textbf{fundamental bundle}} $B_{\operatorname{fun}}$ is a rank $n$ vector bundle over $\operatorname{Gr}(n,m)$.
+\end{defn}
+
+\begin{claim}
+	$B$, $B'$ vector bundles of rank $n$, $m-n$, $B\oplus B'$
+	\[\varphi:X\to \operatorname{Gr}(m,n)\]
+	\[\varphi (x)=B_x\subset B_x\oplus B_x'=\mathbb{K}^m\]
+	then $B=\varphi^* B_{\operatorname{fun}}$.
+\end{claim}
+
+\begin{thm}\leavevmode
+	If you have $B$ as a bundle on a manifold $X$ then $B\oplus B'$ is trivial for some bundle $B'$.
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	Embed the total space in a large enough euclidean space.
+\end{proof}
+
+\begin{defn}
+	$\operatorname{Gr}(n,\infty)=\operatorname{Gr}(n)$ is $\bigcup_{m=n_1}^\infty\operatorname{Gr}(n,m)=\operatorname{Gr}(n) $
+\end{defn}
+
+\begin{coro}
+	For every bundle  $B$ of rank $n$ there is a function $\varphi:X\to \operatorname{Gr}(n)$ such that $B=\varphi^*B_{\operatorname{fun}}$.
+\end{coro}
+
+Take a bundle $E\to X$ and $G$ acts freely on $E$ so $E$ principal $G$ bundle. Classifying space  $BG$
+
+\begin{thm}[Atiyah-Bott]\leavevmode
+	Classifying space is unique up to homotopy equivalence.
+\end{thm}
+
+\subsection{Stiefel spaces}
+
+\begin{defn}
+	$\mathbb{K}^\infty$ is the direct limit of $\mathbb{K}^n$ so its just the direct sum $\bigoplus_{i=n}^\infty\mathbb{K} $. Stiefel space is the space of orthonormal $n$-frames.
+\end{defn}
+
+If we prove that Stiefel is contractible we obtain our classifying space so let's prove that. We have a fibration
+
+\[\operatorname{U}(n)\hookrightarrow \operatorname{St}(n,\infty)\to \operatorname{Gr}(n,\infty)\]
+
+\begin{thm}
+	$\operatorname{St}(n)$ is contractible.
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item Locally trivial fibration with contractible fiber and base $Y\to X$ then $Y$ is contractible, this is so trivial.
+
+		\item Fibration $ \operatorname{St}(n)\to \operatorname{St}(n-1)$ with fiber $S^\infty$ 
+
+		\item Show that $S^\infty$ is contractible.
+
+		\item And then some map $\mathbb{R}$ that is not surjective, and construct homotopy of identity to a constant map.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+	If $X_{\infty}=\bigcup X_{i} $ is the inductive limit of contractible cellular spaces then it is contractible. Use Whitehead theorem.
+\end{exercise}
+
+\begin{thm}[Important]\leavevmode
+	$\operatorname{Gr}(\infty)=B\operatorname{U}$.
+\end{thm}
+
+\subsection{Stable equivalence}
+
+\begin{defn}
+	Vector bundles $V$,  $W$ are stable equivalent if  $V\oplus A\cong W\cong B$ for trivial vector bundles  $A$ and $B$.
+\end{defn}
+
+Homotopy classes of equivalent vector bundles are in coorespondance with…
+
+\begin{thm}
+	$B\operatorname{U}$ is $H$-space.
+\end{thm}
+
+\begin{coro}
+	$H^* (B\operatorname{U},\mathbb{Q})$ is a free supercommutative algebra.
+\end{coro}
+
+\begin{claim}
+	$H^*(B\operatorname{U}$ is a free polynomial algebra generated by classes $c_1,c_2,\ldots$ in all even degrees.
+\end{claim}
+\end{document}
+
