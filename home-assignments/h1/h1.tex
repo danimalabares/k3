@@ -1,5 +1,4 @@
-\input{/Users/daniel/github/config/preamble-por.sty}
-\input{/Users/daniel/github/config/thms-por.sty}
+\input{/Users/daniel/github/config/preamble.sty}
 
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
@@ -10,19 +9,82 @@
 	\begin{minipage}{1\textwidth}
 		K3 surfaces \hfill Daniel González Casanova Azuela
 		
-		{\small Profs. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
 	\end{minipage}
 \end{minipage}\vspace{.2cm}\hrule
 
 \vspace{10pt}
 {\huge Home assignment 1: Riemann-Roch formula in dimension 1}
 
+(Partial progress)
+
 \begin{manualexercise}{1}
 	Prove that the ring $\mathcal{O}_1$ of germs of holomorphic functions on $\mathbb{C}$is a principal ideal ring.
 \end{manualexercise}
 
 \begin{proof}[Solution]\leavevmode
-	$\mathcal{O}_1$ is isomorphic to the coordinate ring of the variety $\mathbb{C}$, which is just $\mathbb{C}[x]$.
+	I assume that $\mathcal{O}_1$ is the ring of germs of holomorphic functions about $0\in\mathbb{C}$. I will use \cite{gri}, Chapter 0, section \textit{Weierstrass Theorems and Corollaries}. A \textit{\textbf{Weierstrass polynomial}} in $w$ is a function
+	\[w^d+a_1w^{d-1}+\ldots+a_d(z),\qquad a_i(0)=0.\]
+%and its coefficient functions may be defined using the Residue Theorem so that $g$ is holomorphic near 0 and vanishes on the same set as $f$. Moreover, the quotient $h =\frac{f}{g}$ is holomorphic near 0 and outside the zero set of both $f$ and $g$ and has only removable singularities, so it can be extended to a holomorphic function. Anyway this shows that if $f$ is not identically zero in the $w$-axis, then it can be written uniquely as $f=g\cdot h$. This is just the preparation for
+
+\begin{thm}[Weierstrass Division Theorem]\leavevmode
+	Let $g(z,w)\in\mathcal{O}_{n-1}[w]$ be a Weierstrass polynomial of degree $k$ in $w$. Then for any $f\in\mathcal{O}_n$ we can write
+	\[f=g\cdot h+r\]
+	with $r(z,w)$ a polynomial of degree $<k$ in $w$.
+\end{thm}
+In words, we can express the germ of a holomorphic function around 0 as the the product of a Weierstrass polynomial of degree $k$ times some holomorphic function plus a polynomial of degree $<k$.
+
+Then the proof is just mimicking the \href{https://proofwiki.org/wiki/Polynomial_Forms_over_Field_form_Principal_Ideal_Domain}{proof} that the usual polynomial ring is a principal ideal domian.
+
+Let $J$ be an ideal of $\mathcal{O}_1$ and $g\in J$ be a Weierstrass polynomial of lowest degree. Then by Weierstrass Division Theorem we get $h,r\in\mathcal{O}_1$ such that $f=g\cdot h+r$ but by the choice of $g$ we see $r$ must be zero. This means $J=\left<g\right> $.
+\end{proof}
+
+\begin{manualexercise}{1.7}
+	Let $X$ be a complex manifold and $\operatorname{Pic}(X)$ the set of equivalence classes of vector bundles, equipped with multiplicative structure induced by the tensor product. The group $\operatorname{Pic}(X)$ is called the \textit{\textbf{Picard group}}of $X$.
+	\begin{enumerate}[label=\alph*.]
+		\item Prove that the cohomology group $H^{1}(X,\mathcal{O}^*_X)$ is naturally identified with $\operatorname{Pic}(X)$.
+\iffalse		\item Consider the \textit{\textbf{exponential exact sequence}}
+			\[\begin{tikzcd}
+				0\arrow[r]&0\arrow[r]&\mathbb{Z}_X\arrow[r]&\mathcal{O}_X\arrow[r]&0
+			\end{tikzcd}\]
+			where $\mathbb{Z}_X$ denotes the constant sheaf. The corresponding long exact sequence
+			\[\begin{tikzcd}[column sep=small]
+				\cdots\arrow[r]&H^{1}(X,\mathcal{O}_X)\arrow[r]&H^{1}(X,\mathcal{O}^*_X)\arrow[r]&H^{2}(X,\mathbb{Z})\arrow[r]&\cdots
+			\end{tikzcd}\]
+			takes a line bundle $[L]\in\operatorname{Pic}(X)=H^{1}(X,\mathcal{O}^*_X)$ to an element $c_1(L)\in H^{2}(X,\mathbb{Z})$ called the \textit{\textbf{first Chern class of $L$}}. PRove that a non-trivial bundle $L$ with $c_1(L)=0$ on a compact complex curve has no holomorphic sections.
+
+		\item (*) [content…]\fi
+	\end{enumerate}
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+	\item Recall that a line bundle $L$ may be reconstructed from the gluing functions $g_{\alpha\beta}:U_\alpha \cap U_\beta\to \mathbb{C}^*$, which can be thought as changes of coordinates on each fiber. These functions satisfy the consistency condition that  $g_{\gamma\beta}g_{\beta\gamma}=g_{\gamma\alpha}$ on $U_\alpha\cap U_\beta\cap U_{\gamma}$.
+
+		On the other hand, a cochain in \v Cech cohomology is an assigment of an element $g_{\alpha\beta}\in \mathcal{O}^*_X$ for every intersection $U_\alpha\cap U_\beta$. Elements of $H^{1}(X,\mathcal{O}^*_X)$ are cocycles, meaning that coboundary operator vanishes. For 1-cocycles this is typically written as $(g_{\beta\gamma}-g_{\alpha\gamma}+\gamma_{\alpha\beta})|_{U_\alpha\cap U_\beta\cap U_\gamma}=0$. In multiplicative notation this just says that $g_{\beta\gamma}g^{-1}_{\alpha\gamma}\gamma_{\alpha\beta}=1$ which equivalent to the consistency condition for gluing functions.
+	\end{enumerate}
+\end{proof}
+
+\begin{manualexercise}{1.8}
+	Let $\mathbb{C}$ be a complex curve and $F$ a coherent sheaf on $\mathbb{C}$.
+	\begin{enumerate}[label=\alph*.]
+		\item Prove that the restriction of $F$ to a certain open set $U\subset C$ is isomorphic to a vector bundle. Prove that the rank of this vector bundle is independant on the choice of $U$ when $\mathbb{C}$ is irreducible. This number is called the \textit{\textbf{rank}} of $F$.
+	\end{enumerate}	
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item (From \href{https://math.stackexchange.com/questions/2725664/vector-bundle-locally-free-sheaf}{StackExchange}) I show how to construct a vector bundle from a \textit{locally free} sheaf. Given an open cover $U_i$ such that $\mathcal{F}(U_i)$ is free for all $i$, we just need to find gluing functions $g_{ij}:U_i\cap U_j\to \operatorname{GL}(n,\mathbb{C}) $.
+
+		From the definition of locally free, we have isomorphisms $f_i:\mathcal{F}(U_i)\to \mathcal{O}^n_{U_i}$. Restricting to the intersection $U_i\cap U_j$ we may define the functions
+	\[f_{ij}=f_j|_{U_i\cap U_j}\circ f_i|_{U_i\cap U_j}^{-1} :\mathcal{O}^n_{U_i}|_{U_i\cap U_j}\to \mathcal{O}^n_{U_j}|_{U_i\cap U_j}.\]
+	The claim in StackExchange is that every such map is induced by a gluing function, but I still cannot see why.
+
+	\iffalse\begin{remark}
+		(\href{https://math.stackexchange.com/questions/2597356/vector-bundle-associated-to-a-locally-free-sheaf}{StackExchange}) The equivalence of the categories of vector bundles and locally free sheaves is given by the functor
+		\[\mathcal{E}\mapsto \operatorname{Spec}(\operatorname{Sym}(\mathcal{E})),\quad E\mapsto \Gamma^\vee_{E/X^\bullet}\]
+	\end{remark}\fi
+	\end{enumerate}
 \end{proof}
 
 \end{document}
