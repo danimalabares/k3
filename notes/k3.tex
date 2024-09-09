@@ -251,16 +251,15 @@ where
 \subsection{Hopf algebra}
 
 \begin{defn}
-	A bialgebra is a \textit{\textbf{Hopf algebra}} when it is also equipped with an antipode map such that the following diagram commutes
-			\[\begin{tikzcd}
-			H\otimes H\otimes H \arrow[r,"m\otimes \operatorname{id}"]\arrow[d,"\operatorname{id}\otimes m"]&H\otimes H\arrow[d,"m"]\\
-			H\otimes H\arrow[r,"m"]&H
-		\end{tikzcd}\]
-	\item[\textbf{A2}] Unitality.
-		\[\begin{tikzcd}
-			H\cong H\otimes \mathbb{C}\arrow[r,"\opertatorame{id}\otimes u"]\arrow[rr,bend right,"\opertatorame{id}",swap]&H\otimes H\arrow[r,"m"]&H
-		\end{tikzcd}\]
-\end{defn}
+	A bialgebra is a \textit{\textbf{Hopf algebra}} when it is also equipped with an antipode map ($S$) such that the following diagram commutes
+\[\begin{tikzcd}
+	&H\otimes H\arrow[rr,"S\otimes \operatorname{id}"]&&H\otimes H\arrow[rd,"m"]\\
+	H\arrow[ur,"\Delta"]\arrow[dr,swap,"\Delta"]\arrow[rr,"\eta"]&&\mathbb{C}\arrow[rr,"u"]&&H\\
+								     &H\otimes H\arrow[rr,"\operatorname{id}\otimes S"]&&H\otimes H\arrow[ur]
+\end{tikzcd}\]
+[diagram from quantum group minicourse notes]
+
+	\end{defn}
 
 \begin{example}
 	The cohomology of the loop space, $H^{\bullet}(\Omega X)$.
@@ -339,7 +338,7 @@ where
 
 \begin{defn}
 	A \textit{\textbf{filtration on algebra}} is
-	\[A^\bullet  \supset  F_1A^\bullet\supsetF_2A^\bullet\supset\ldots\]
+	\[A^\bullet  \supset  F_1A^\bullet\supset F_2A^\bullet\supset\ldots\]
 	such that
 	 \[F_i A^\bullet F_j\subset F_{i+j}A^\bullet\]
 \end{defn}
