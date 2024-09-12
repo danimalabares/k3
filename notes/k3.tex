@@ -177,6 +177,22 @@ Take a bundle $E\to X$ and $G$ acts freely on $E$ so $E$ principal $G$ bundle. C
 	Classifying space is unique up to homotopy equivalence.
 \end{thm}
 
+\subsubsection{The fundamental bundle}
+
+In class 4 I finally understood that
+
+\begin{defn}
+	The \textit{\textbf{fundamental bundle}} on the Grassmanian  $\operatorname{Gr}(n)$ (the Grassmanian is this space where points are linear spaces) is the vector bundle such that the fiber of one point (which is a vector space) is the vector space that is the point. It's very tautological.
+\end{defn}
+
+\begin{thm}[Did we prove this?]\leavevmode
+	Let $B$ be a vector bundle of rank $n$ on a cellular space $X$. Then there exists a continuous map $\varphi:X\to \operatorname{Gr}(n)$ such that $ B$ is isomorphic to the pullback $\varphi^*B_{\operatorname{fun}}$ of the fundamental bundle.
+\end{thm}
+
+\begin{remark}
+	In fact $\operatorname{Gr}(n)$ is the classifying space of vector bundles of rank $n$, in the sense that isomorphism classes of vector bundles of maps $\varphi:X\to \operatorname{Gr}(n)$.
+\end{remark}
+
 \subsection{Stiefel spaces}
 
 \begin{defn}
@@ -470,6 +486,149 @@ and so
 
 \section{Class 4}
 
+\subsection{Reminder}
+
+For each rank $n$ bundle $B$ on $X$ there exists $\varphi_B:X\to \operatorname{Gr}(n,\infty)=B\operatorname{U}(n)$ such that $\varphi^* _B(B_{\operatorname{f un}}=B$.
+
+The infinite grassmanian is classifying space for (?) stable bundles.
+
+Some more review about $H$-space structure, primitive elements, a comment on last exercise of homework 2.
+
+Chern classes of $\mathcal{O}(1)$ are hyperplane sections: $c_i(\mathcal{O}(1))=1+[H]$.
+
+\subsection{The splitting principle}
+
+\begin{exercise}
+	Prove that $BU(1)=\mathbb{C}P^\infty$.
+\end{exercise}
+
+\begin{proof}[Solution]\leavevmode
+	Hopf fibration on $S^\infty$? It's easier, take $n=1$, it's just by  definition.
+\end{proof}
+
+\begin{defn}
+	The \textit{\textbf{fundamental bundle}} on $BU(1)^n$ has fiber
+	\[\ell_1\oplus \ell_2\oplus \ldots\ell_n\]
+	where $\ell_i\in BU(1)$ are product $\ell_1\times \ell_2\times \ldots\times \ell_n$.
+\end{defn}
+
+\begin{remark}
+	Chern classes of $B_{\operatorname{f un}}$ are uniquely determined by axioms, because every factor has Chern classes, and fibers are just sums, and pullbacks preserve sums…
+	\[B_{\operatorname{f un}}=\bigoplus_{i} \pi_i \mathcal{O}(1) \]
+	where
+	\[pi_i:BU(1)^n\to BU(1)\]
+	is a projection.
+\end{remark}
+
+\begin{remark}
+	$H^{\bullet}(BU(1))^n=\mathbb{Z}[z_1,\ldots,zn$ 
+	Here at least I remember that the cohomology of $\mathbb{C}P^{\infty}$ is just polynomials so it looks reasonable that the $n$-th power is polynomials in more cariables.
+\end{remark}
+
+\begin{thm}[Splitting principle]\leavevmode
+	Let $\varphi_{\operatorname{f un}}:BU(1)^n\to BU$, the \textit{\textbf{fundamental map}}, it induces embedding on cohomology up to degree $2n$. For all primer generator $\sigma_i\in H^{2}(BU)$, $\varphi_{\operatorname{f un}}(\sigma_1)=\lambda \sum_{i}z_i^k$ with $\lambda\neq 0$.
+
+	So
+	\[\begin{tikzcd}
+		BU(1)^n \arrow[r]& BU\\
+		X\arrow[u]\arrow[ur]
+	\end{tikzcd}\]
+	
+\end{thm}
+
+\begin{remark}
+	\href{https://en.wikipedia.org/wiki/Classifying_space_for_U(n)}{Wiki} Thus, the set of isomorphism classes of circle bundles over a manifold $M$ are in one-to-one correspondence with the homotopy classes of maps from $M$ to $\mathbb{C}P^{\infty}$
+\end{remark}
+
+\begin{thm}
+	Chern classes are unique (uniquely determined by axioms).
+\end{thm}
+
+\begin{proof}\leavevmode 
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item Every bundle is obtained as pullback of the fundamental bundle. So for $A\in H^{\bullet}(BU)$ and $B$ bundle on $X$, $A(B)=\varphi^*_{B}(A)\subset H^{\bullet}(X)$ so $c_i(B)$ are obtained as pullbacks of $ c$ in the fundamental bundle.
+
+		\item \[BU(1)^\infty \overset{\varphi_{\operatorname{f un}}}{\longrightarrow}BU\]
+			pullback of fundamental bundle is fundamental. (This map is defined from the former by induction).
+			\[\varphi^*_{\operatorname{fu n}}(c_i(B_{\operatorname{f un}})=c_i(B_{\operatorname{f un}}\text{ on $BU$} )\]
+			The Chern classes of the fundamental bundle are already known. Since $\varphi^*_{\operatorname{f un}}$ is injective by the splitting principle we are done.
+	\end{enumerate}
+\end{proof}
+
+\subsection{Primitive generators of $H^{*}(BU)$}
+
+Recall the $H$-space multiplication:
+\begin{align*}
+	BU\times BU  &\longrightarrow BU \\
+	L_1\times L_2 &\longmapsto L_1\oplus L_2
+\end{align*}
+and the comultiplication
+\[\Delta :H^{\bullet}(BU)\to H^{\bullet}(BU)\]
+Generators of $H^{\bullet}(BU)$ are $c_{h_1},c_{h_2},\ldots$ with $c_{h_i}\in H^{2i}(BU)$ and we have the comultiplication $\Delta(c_{h_i})=c_{h_i}\otimes 1+1\otimes c_{h_i}$.
+
+\begin{remark}
+	\[\varphi=(\varphi_1,\varphi_2):X\to BU\times BU\]
+	and we can compose so we have
+	\[\varphi\circ \mu:X\to BU\]
+	what does this map do?
+	\begin{align*}
+		\varphi\circ \mu: X &\longrightarrow BU \\
+		\varphi^* (B_{\operatorname{fun}} &\longmapsto B_1\\
+		(\varphi\circ \mu)^* (B_{\operatorname{ fu n}})&=B_1\oplus B_2
+	\end{align*}
+	So then we have
+	\begin{align*}
+		\varphi^*&:H^{\bullet}(BU)\otimes H^{\bullet}(BU)\to H^{\bullet}(X)\\
+		\Delta &:H^{\bullet}(BU)\to H^{\bullet}(BU)\otimes H^{\bullet}(BU)\\
+		\Delta \circ \varphi^*&:H^{\bullet}(BU)\to H^{\bullet}(X)
+	\end{align*}
+\end{remark}
+
+\begin{coro}
+		For every $x \in H^{\bullet}(BU)$
+		\[X(B_1\oplus B_2)=\Delta(x)(B_1,B_2)\]
+	\end{coro}
+
+	\begin{coro}
+		If $x\in H^{*}(BU)$ is primitive, then $x(B_1\oplus B_2)=x(B_1)\oplus X(B_2)$.
+	\end{coro}
+
+	\begin{proof}
+		$\Delta(x)=x\otimes 1+1\otimes x$ so $\Delta(x)$ evaluated on $(B_1,B_2)$
+	\end{proof}
+
+	\begin{remark}
+	We will construct the full Chern class $c_*(B)$ as a pullback of a class $C\in H^{*}(BU)$.
+\end{remark}
+
+\begin{remark}
+Then take exponential. Let $\chi_i\in H^{2i}(BU)$ be a primitive generator. Use Hopf theorem to see that it is unique by a constant. Snce $\chi_i(B_1\oplus B_2)=\chi_i(B_1)+\chi_i(B_2)$, the class $C=e^{\sum_{i}a_i\chi_i}=1+\ldots+\frac{\chi_n}{n!}+\ldots$ satisfies the Whitney formula.
+
+To construct Chern classes satisfying the axioms it remains to arrange the coefficients $a_i$ in such a way that $C(\mathcal{O}(1))=1+[H]$ I think this means hyperplane section.
+\end{remark}
+
+\begin{lemma}
+An embedding
+	\[BU(1)\overset{\varphi}{\hookrightarrow}BU\]
+	with $\chi_i\in H^{2i}(BU)$ primitive generator. Then $\varphi^*(\chi_i)\neq 0$
+\end{lemma}
+
+\begin{proof}
+	$H^{\bullet}(BU)=$ symmetric polynomials in $H^{i}(BU(1))^n$, $\varphi_{\operatorname{fun}}(x_N)=x\sum_{i=1}^nz_i^k$ so $\varphi (x_k)=\lambda x_1^k$.
+\end{proof}
+
+\begin{remark}
+	$\varphi^* (c_i(B_{\operatorname{fun}})=c_i(\mathcal{O}(1)=1+[H]$
+\end{remark}
+
+\begin{thm}
+	Choose generators $\chi_i\in H^{2}(BU)$ primitive. Then $\varphi^* (\sum_{i}\chi_i=\log(1+[H])$ where the logarith is a formal power series, namely $\sum_{i=1}^\infty\frac{H^n}{n!}(-1)^n$.
+
+	That means $c(B_{\operatorname{fun}})=\operatorname{exp}\left(\sum_{\chi_i}\right)$.
+\end{thm}
+	
+	
+\section{Class 5}
 
 
 \end{document}

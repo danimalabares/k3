@@ -3,6 +3,8 @@
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
 
+\setcounter{secnumdepth}{0}
+
 \begin{document}
 
 \begin{minipage}{\textwidth}
@@ -14,159 +16,39 @@
 \end{minipage}\vspace{.2cm}\hrule
 
 \vspace{10pt}
-{\huge Home assignment 1: Riemann-Roch formula in dimension 1}
+{\huge Home assignment 2: spectral sequences}
 
-(Partial progress)
+\setcounter{section}{2}
+\subsection{The monodromy of Gauss-Manin local system}
 
-\begin{manualexercise}{1}
-	Prove that the ring $\mathcal{O}_1$ of germs of holomorphic functions on $\mathbb{C}$is a principal ideal ring.
+\begin{manualdef}{2.1}
+	Let $\pi:E\to B$ be a locally trivial fibration with fiber $F$. The family of cohomology of fibers of $\pi$ is locally trivial, {\color{magenta}(what does this mean precisely?)} but it might have \textit{\textbf{the monodromy}}. In other words, the group $\pi_{1}(B)$ naturally acts on the algebra $H^{*}(F)$ by autmorphisms. To obtain this action, take a loop in $B$ and trivialize the family $ \pi$ along small intervals of this loop; this gives an identification of $H^{*}(F)$ with itself, which might be non-trivial.
+\end{manualdef}
+
+\begin{remark}[Understanding the monodromy action of cohomology]
+	(From \href{https://math.stackexchange.com/questions/2845794/monodromy-on-cohomology}{StackExchange}) Let $f:X\to U$ be a proper surjective submersion and fix $u_0\in U$.
+
+	For any path $\gamma \subset U_j$, there is a canonical diffeomorphism $\varphi_\gamma:f^{-1}(\gamma(0))\to f^{-1}(\gamma(1))$, using $\psi_j$ (by a theorem of Ehresmann, all the fibers of $f$ are diffeomorphic).
+
+	Now, for any loop $\gamma$, split $\gamma$ into paths $\gamma_i\subset U_i$ and you can compose these diffeomorphisms to get a diffeomorphism
+	 \[\phi_{\gamma_n}\circ \ldots\circ \varphi_{\gamma_1}:f^{-1}(u_0)\to f^{-1}(\gamma(u_0))\]
+	 It induces a map on homology: you can check that it is well defined up to homotopy.
+\end{remark}
+
+\begin{manualexercise}{2.1}
+	Let $ \phi^* :\mathbb{Z}\to \operatorname{Aut}(H^*(F))$ be an automorphism induced by a homeomorphism $\phi:F\to F$. Construct a locally trivial family over a circle with monodromy in cohomology induced by $\phi^*$. 
 \end{manualexercise}
 
-\begin{proof}[Solution]\leavevmode
-	I assume that $\mathcal{O}_1$ is the ring of germs of holomorphic functions about $0\in\mathbb{C}$. I will use \cite{gri}, Chapter 0, section \textit{Weierstrass Theorems and Corollaries}. A \textit{\textbf{Weierstrass polynomial}} in $w$ is a function
-	\[w^d+a_1w^{d-1}+\ldots+a_d(z),\qquad a_i(0)=0.\]
-%and its coefficient functions may be defined using the Residue Theorem so that $g$ is holomorphic near 0 and vanishes on the same set as $f$. Moreover, the quotient $h =\frac{f}{g}$ is holomorphic near 0 and outside the zero set of both $f$ and $g$ and has only removable singularities, so it can be extended to a holomorphic function. Anyway this shows that if $f$ is not identically zero in the $w$-axis, then it can be written uniquely as $f=g\cdot h$. This is just the preparation for
+\paragraph{Interpretation} Given an action $\phi^*:\mathbb{Z}=\pi_{1}(S^1) \to \operatorname{Aut}(H^{*}(F))$, construct a fibre bundle such that $\phi^*$ is the monodromy action on cohomology.
 
-\begin{thm}[Weierstrass Division Theorem]\leavevmode
-	Let $g(z,w)\in\mathcal{O}_{n-1}[w]$ be a Weierstrass polynomial of degree $k$ in $w$. Then for any $f\in\mathcal{O}_n$ we can write
-	\[f=g\cdot h+r\]
-	with $r(z,w)$ a polynomial of degree $<k$ in $w$.
-\end{thm}
-In words, we can express the germ of a holomorphic function around 0 as the the product of a Weierstrass polynomial of degree $k$ times some holomorphic function plus a polynomial of degree $<k$.
-
-Then the proof is just mimicking the \href{https://proofwiki.org/wiki/Polynomial_Forms_over_Field_form_Principal_Ideal_Domain}{proof} that the usual polynomial ring is a principal ideal domian.
-
-Let $J$ be an ideal of $\mathcal{O}_1$ and $g\in J$ be a Weierstrass polynomial of lowest degree. Then by Weierstrass Division Theorem we get $h,r\in\mathcal{O}_1$ such that $f=g\cdot h+r$ but by the choice of $g$ we see $r$ must be zero. This means $J=\left<g\right> $.
-\end{proof}
-
-\begin{manualexercise}{1.2}[Invariant factors theorem]
-	Let $R$ be a principal ideal ring. Prove that any finitely-generated $R$-module is a direct sum of cyclic $R$-modules. Use this result to deduce the Jordan normal form theorem, and to classify the finitely-generated abelian groups.	
-\end{manualexercise}
-
-\begin{proof}[Solution]\leavevmode
-	I follow \cite{dummit} to prove that
-	 \begin{thm}\leavevmode
-		Let $R$ be a principal ideal \textit{domain} and let $M$ be a finitely generated $R$-module. Then 
-		\[M\cong  R^r\oplus R/(a_1)\oplus R/(a_2)\oplus \ldots\oplus R/(a_m)\]
-		for some integer $r\geq 0$ and nonzero elements $a_1,a_2,\ldots,a_m$ of $R$ which are not units in $R$ and which satisfy the divisibility relation
-		\[a_1|a_2|\ldots|a_m\]
-	\end{thm}
-	which strongly relies on
-	\begin{thm}[4]
-		Let $R$ be a PID, $M$ a a free $R$-module of finite rank $n$ and $N$ a submodule of $M$. Then $N$ is a free module of rank $m\leq n$ and there exists a basis $y_1,y_2,\ldots,y_n$ of $M$ such that $a_1y_1,a_2y_2,\ldots,a_my_m$ is a basis of $N$, where $a_1,a_2,\ldots,a_m$ are nonzero elements of $R$ with the divisibility relations
-		\[a_1|a_2|\ldots|a_m.\]
-	\end{thm}
-whose proof is rather involved.
-
-\begin{proof}[Proof of Invariant factors theorem]
-		Choose a basis $\{x_i\}_{i=1}^n$ of $M$. Consider the free module $R^n$ along with a basis $\{b_i\}_{i=1}^n$. The homomorphism $\pi:R^n\to M$, $b_i\mapsto x_i$ is surjective, so we get $R^n/\ker \pi\cong M$.
-
-		Apply Theorem 4 for the module $R^n$ and its submodule $\ker \pi$. We get a basis $\{y_i\}_{i=1}^n$ of $R^n$ such that $\{a_iy_i\}_{i=1}^m$ is a basis of $\ker \pi$ for $a_i\in R$ for $i=1,\ldots,m$ such that $a_1|\ldots|a_m$. Then
-\[M\cong R^n/\ker \pi=(Ry_1\oplus \ldots\oplus Ry_n\Big/(Ra_1y_1\oplus \ldots\oplus Ra_my_m).\]
-It remains to show that the quotient on the right-hand side of last equation is in fact the desired decomposition of $M$.
-
-Consider the map
-\[Ry_1\oplus \ldots\oplus Ry_n \quad \longrightarrow \quad R/(a_1)\oplus \ldots\oplus R/(a_m)\oplus R^{n-m}\]
-given by
-\[(\alpha_1y_1,\ldots,\alpha_ny_n)\quad \longmapsto\quad (\alpha_1+(a_1),\ldots,\alpha_m+(a_m),\alpha_{m+1},\ldots,a_n)\]
-The kernel of this map is the set of elements which $\alpha_i\in(a_i)$ for all $i=1,\ldots,m$. Thus we can write the kernel as 
-\[Ra_1y_1\oplus \ldots\oplus Ra_my_m.\]
-	\end{proof}
-
-	\begin{remark}
-		Looks like I didn't use the divisibility condition $a_1|\ldots|a_m$.
-	\end{remark}
-
-	Now let's deduce the Jordan normal form theorem using again  \cite{dummit}. For this we fix a vector space $V$ over a field $F$ and a linear transformation $T$. This  makes $V$ into an $F[x]$-module by substitution of the variable $x$ by $T$.
-
-	The \textit{\textbf{invariant factors}} are the elements $a_i$ from the last theorem, which in our present case can be shown to be monic polynomials $a_i(x)$ satisfying $a_1(x)|\ldots|a_n(x)$. Further, these elements are associated to the so-called  \textit{\textbf{elementary divisors}}, which concern another similar formulation of the Invariant factors theorem. The elementary divisors are powers of the irreducible components of the $a_i(x)$.
-
-	If we assume that the  $a_i(x)$ factor into linear polynomials, the elementary divisors can be written as $(x-\lambda)^k$, where $\lambda$ is one of the eigenvalues of $T$ (we consider only one of the eigenvalues at this point since we are constructing \textit{one} of Jordan blocks of $T$ ).
-
-	Using the Invariant factors theorem for elementary divisors, we see that $V$ is the direct sum of finitely many cyclic modules of the form $F[x]/(x-\lambda)^k$. Such quotients have basis $\bar{x}^{k-1},\bar{x}^{k-2},\ldots,\bar{x},1$. Now we observe that the polynomials
-	\[(\bar{x}-\lambda)^{k-1},(\bar{x}-\lambda)^{k-2},\ldots,\bar{x}-\lambda,1\]
-are also a basis. This follows since expanding the latter in terms of the $\bar{x}_i$ gives a triangular matrix, which makes it invertible, so it's a valid change of coordinates.
-
-Nex we observe that action of multiplication by $x$, which is the same as applying $T$, maps these basis elements in the quotient as follows:
-\begin{align*}
-	1&\mapsto 1\bar{x}=\lambda\cdot 1+\bar{x}-\lambda\\
-	(\bar{x}-\lambda)&\mapsto \bar{x}^2-\lambda\bar{x}=x\lambda\cdot (\bar{x}-\lambda)+(\bar{x}-\lambda)^2\\
-	\vdots & \\
-	(\bar{x}-\lambda)^{k-2}&\mapsto \lambda\cdot (\bar{x}-\lambda)^{k-2}+(\bar{x}-\lambda)^{k-1}\\
-	(\bar{x}-\lambda)^{k-1}&\mapsto \lambda\cdot (\bar{x}-\lambda)^{k-1}+(\bar{x}-\lambda)^k
-\end{align*}
-(where I'm not sure how to compute the last two). The last expression simplifies further since $(\bar{x}-\lambda)^k=0$ in the quotient, so that multiplication of $x$ by the basis element $( \bar{x}-\lambda)^{k-1}$ is barely multiplication by $\lambda$. In sum, we have constructed the  \textit{\textbf{Jordan block}}
-\[J_{\lambda}=\begin{pmatrix} \lambda &1\\
-&\lambda\\
-&&\ddots&1\\
-&&&\lambda\\
-&&&&1\\
-&&&&\lambda
-\end{pmatrix} \]
-applying this procedure to the rest of the cyclic components of $V$ we obtain the  matrix representation
- \[\begin{pmatrix} J_1\\
- &J_2\\
- &&\ddots\\
- &&&J_t\end{pmatrix} \]
-of $T$.
-
-Finally, the classification of finitely generated abelian groups follows by direct application of the Invariant factors theorem choosing $R=\mathbb{Z}$, since abelian groups are in correspondence with $\mathbb{Z}$-modules.
-
-
-
+\begin{proof}
+	Consider the standard torus fibration $T^2\to S^1$. Any path in the circle can be thought of as an number $ n \in\mathbb{Z}$. Perhaps the induced automorphism on cohomology is precisely the map $\mathbb{Z}\ni a \mapsto na\in\mathbb{Z}$. But I'm not looking for an automorphism of $\mathbb{Z}$… I need an automorphism of $H^\bullet(S^1)\cong \mathbb{Z}\oplus \mathbb{Z}$…
 
 
 \end{proof}
 
-
-\begin{manualexercise}{1.7}
-	Let $X$ be a complex manifold and $\operatorname{Pic}(X)$ the set of equivalence classes of vector bundles, equipped with multiplicative structure induced by the tensor product. The group $\operatorname{Pic}(X)$ is called the \textit{\textbf{Picard group}}of $X$.
-	\begin{enumerate}[label=\alph*.]
-		\item Prove that the cohomology group $H^{1}(X,\mathcal{O}^*_X)$ is naturally identified with $\operatorname{Pic}(X)$.
-\iffalse		\item Consider the \textit{\textbf{exponential exact sequence}}
-			\[\begin{tikzcd}
-				0\arrow[r]&0\arrow[r]&\mathbb{Z}_X\arrow[r]&\mathcal{O}_X\arrow[r]&0
-			\end{tikzcd}\]
-			where $\mathbb{Z}_X$ denotes the constant sheaf. The corresponding long exact sequence
-			\[\begin{tikzcd}[column sep=small]
-				\cdots\arrow[r]&H^{1}(X,\mathcal{O}_X)\arrow[r]&H^{1}(X,\mathcal{O}^*_X)\arrow[r]&H^{2}(X,\mathbb{Z})\arrow[r]&\cdots
-			\end{tikzcd}\]
-			takes a line bundle $[L]\in\operatorname{Pic}(X)=H^{1}(X,\mathcal{O}^*_X)$ to an element $c_1(L)\in H^{2}(X,\mathbb{Z})$ called the \textit{\textbf{first Chern class of $L$}}. PRove that a non-trivial bundle $L$ with $c_1(L)=0$ on a compact complex curve has no holomorphic sections.
-
-		\item (*) [content…]\fi
-	\end{enumerate}
+\begin{manualexercise}{last}
+	Generators here (horizontal), generators there (vertical, 1,3,5), "Extend generators by Leibniz rule, and then they just kill everyting"
 \end{manualexercise}
-
-\begin{proof}[Solution]\leavevmode
-	\begin{enumerate}[label=\alph*.]
-	\item Recall that a line bundle $L$ may be reconstructed from the gluing functions $g_{\alpha\beta}:U_\alpha \cap U_\beta\to \mathbb{C}^*$, which can be thought as changes of coordinates on each fiber. These functions satisfy the consistency condition that  $g_{\gamma\beta}g_{\beta\gamma}=g_{\gamma\alpha}$ on $U_\alpha\cap U_\beta\cap U_{\gamma}$.
-
-		On the other hand, a cochain in \v Cech cohomology is an assigment of an element $g_{\alpha\beta}\in \mathcal{O}^*_X$ for every intersection $U_\alpha\cap U_\beta$. Elements of $H^{1}(X,\mathcal{O}^*_X)$ are cocycles, meaning that coboundary operator vanishes. For 1-cocycles this is typically written as $(g_{\beta\gamma}-g_{\alpha\gamma}+\gamma_{\alpha\beta})|_{U_\alpha\cap U_\beta\cap U_\gamma}=0$. In multiplicative notation this just says that $g_{\beta\gamma}g^{-1}_{\alpha\gamma}\gamma_{\alpha\beta}=1$ which equivalent to the consistency condition for gluing functions.
-	\end{enumerate}
-\end{proof}
-
-\begin{manualexercise}{1.8}
-	Let $\mathbb{C}$ be a complex curve and $F$ a coherent sheaf on $\mathbb{C}$.
-	\begin{enumerate}[label=\alph*.]
-		\item Prove that the restriction of $F$ to a certain open set $U\subset C$ is isomorphic to a vector bundle. Prove that the rank of this vector bundle is independant on the choice of $U$ when $\mathbb{C}$ is irreducible. This number is called the \textit{\textbf{rank}} of $F$.
-	\end{enumerate}	
-\end{manualexercise}
-
-\begin{proof}[Solution]\leavevmode
-	\begin{enumerate}[label=\alph*.]
-		\item (From \href{https://math.stackexchange.com/questions/2725664/vector-bundle-locally-free-sheaf}{StackExchange}) I show how to construct a vector bundle from a \textit{locally free} sheaf. Given an open cover $U_i$ such that $\mathcal{F}(U_i)$ is free for all $i$, we just need to find gluing functions $g_{ij}:U_i\cap U_j\to \operatorname{GL}(n,\mathbb{C}) $.
-
-		From the definition of locally free, we have isomorphisms $f_i:\mathcal{F}(U_i)\to \mathcal{O}^n_{U_i}$. Restricting to the intersection $U_i\cap U_j$ we may define the functions
-	\[f_{ij}=f_j|_{U_i\cap U_j}\circ f_i|_{U_i\cap U_j}^{-1} :\mathcal{O}^n_{U_i}|_{U_i\cap U_j}\to \mathcal{O}^n_{U_j}|_{U_i\cap U_j}.\]
-	The claim in StackExchange is that every such map is induced by a gluing function, but I still cannot see why.
-
-	\iffalse\begin{remark}
-		(\href{https://math.stackexchange.com/questions/2597356/vector-bundle-associated-to-a-locally-free-sheaf}{StackExchange}) The equivalence of the categories of vector bundles and locally free sheaves is given by the functor
-		\[\mathcal{E}\mapsto \operatorname{Spec}(\operatorname{Sym}(\mathcal{E})),\quad E\mapsto \Gamma^\vee_{E/X^\bullet}\]
-	\end{remark}\fi
-	\end{enumerate}
-\end{proof}
-
-\printbibliography
 
 \end{document}

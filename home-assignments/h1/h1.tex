@@ -142,6 +142,29 @@ Finally, the classification of finitely generated abelian groups follows by dire
 	\item Recall that a line bundle $L$ may be reconstructed from the gluing functions $g_{\alpha\beta}:U_\alpha \cap U_\beta\to \mathbb{C}^*$, which can be thought as changes of coordinates on each fiber. These functions satisfy the consistency condition that  $g_{\gamma\beta}g_{\beta\gamma}=g_{\gamma\alpha}$ on $U_\alpha\cap U_\beta\cap U_{\gamma}$.
 
 		On the other hand, a cochain in \v Cech cohomology is an assigment of an element $g_{\alpha\beta}\in \mathcal{O}^*_X$ for every intersection $U_\alpha\cap U_\beta$. Elements of $H^{1}(X,\mathcal{O}^*_X)$ are cocycles, meaning that coboundary operator vanishes. For 1-cocycles this is typically written as $(g_{\beta\gamma}-g_{\alpha\gamma}+\gamma_{\alpha\beta})|_{U_\alpha\cap U_\beta\cap U_\gamma}=0$. In multiplicative notation this just says that $g_{\beta\gamma}g^{-1}_{\alpha\gamma}\gamma_{\alpha\beta}=1$ which equivalent to the consistency condition for gluing functions.
+
+
+		\item 
+
+		\item Hopf surfaces.
+			\[\begin{tikzcd}
+			\mathbb{C}^2\setminus \mathbb{Z}=\left<\alpha\right> \arrow[d,"\mathbb{C}^* /\left<\alpha\right> "]\\
+			\mathbb{C}P^{1}
+			\end{tikzcd}\]
+		now $H^{2}(\text{Hopf surface} )=0$. Topologically it is $S^1\times S^3$.
+
+		Here's why it won't work on K3 surfaces:
+		\begin{align*}
+			a&\in H^{0}(L)\\
+			c_1(L)&=[\mathcal{D}]\in H^{2}(M,\mathbb{Z})\\
+			\mathcal{D}\text{ zero divisor of de ?}\\
+			\int_{\mathcal{D}}\omega^{n-1}&=\left<[\mathcal{D}],\omega^{n-1}\right> =0
+		\end{align*}
+		So this statement tells you that Euler number is the same as its first Chern class.
+
+		That
+		\[e(L_1\otimes L_2)=e(L_1)+e(L_2)\]
+		follows from taking zero sections on $L_2$, on $L_2$ and then tensor product goes to addition.
 	\end{enumerate}
 \end{proof}
 
@@ -159,6 +182,14 @@ Finally, the classification of finitely generated abelian groups follows by dire
 		From the definition of locally free, we have isomorphisms $f_i:\mathcal{F}(U_i)\to \mathcal{O}^n_{U_i}$. Restricting to the intersection $U_i\cap U_j$ we may define the functions
 	\[f_{ij}=f_j|_{U_i\cap U_j}\circ f_i|_{U_i\cap U_j}^{-1} :\mathcal{O}^n_{U_i}|_{U_i\cap U_j}\to \mathcal{O}^n_{U_j}|_{U_i\cap U_j}.\]
 	The claim in StackExchange is that every such map is induced by a gluing function, but I still cannot see why.
+
+	The question indeed is to show why a coherent sheaf can be locally expressed as a locally free sheaf. We cover the manifold with sheafs that look like exercise 1.3. And that basically says that the sheaf is locally a direct sum of free and a finite number of torsion quotients $\mathcal{O}_X/\mathfrak{m}^{d_i}$.
+
+	So
+	\[\begin{tikzcd}
+		0\arrow[r]&\text{Torsion} \arrow[r]&\mathcal{F}\arrow[r]&(\mathcal{F}^{**}\arrow[r]&0
+	\end{tikzcd}\]
+	where $\mathcal{F}^* =\mathcal{H}\operatorname{om}(\mathcal{F},0)$.
 
 	\iffalse\begin{remark}
 		(\href{https://math.stackexchange.com/questions/2597356/vector-bundle-associated-to-a-locally-free-sheaf}{StackExchange}) The equivalence of the categories of vector bundles and locally free sheaves is given by the functor
