@@ -107,6 +107,30 @@ that could be non-zero. The same will happen for all odd-index diferentials.
 	is exact.
 \end{manualexercise}
 
+\iffalse\begin{proof}[Solution]\leavevmode
+	We know that
+	\begin{align*}
+		\beta\in\operatorname{img} \pi^*& \iff \beta c=\alpha(\pi c),\qquad \alpha\in H^{2}(B), c\text{ chain in } E\\
+		\beta\in\ker \tau^*&\iff \beta c=0, \qquad\qquad  \forall c \text{ chain in }F 
+	\end{align*}
+	Looks like any $\beta\in \operatorname{img} \pi^*$ will be zero on the chains of $F$ because the projection will collapse them to points (but I'm not sure that a cochain representing the cohomology class will vanish on a point just because it's a point…).
+\end{proof}\fi
+
+\begin{proof}[Outline of solution]\leavevmode
+	In \href{https://ncatlab.org/nlab/show/Serre+long+exact+sequence}{nLab} we see how to construct such an exact sequence using certain connectedness assumptions on the base and the fiber. The idea is similar to Gysin and Wang exact sequences below: connectedness and Hurewicz theorem make the first cohomology groups (except the 0-th) vanish just like in the case of the sphere.
+
+	More explicitly, if the base is $(n_1-1)$ connected and the fiber is $(n_2-1)$-connected,
+	\begin{align*}
+		H^{k}(B)&=0,\qquad 0<k<n_1\\
+		H^{k}(F)&=0,\qquad 0<k<n_2
+	\end{align*}
+This means that the only possible non-vanishing differential is on the $k$-th page and on the form
+\[d_k:E_k^{k,0}=H^k(B)\quad \longrightarrow \quad E_k^{0,k-1?}H^k(F)\]
+	As in my proofs below, to extend this to an exact sequence involving the cohomology of the total space we use the convergence of the spectral sequence (the $E_{\infty}$ terms) and the associated filtration.
+
+	This exact sequence begins at the $?$-th group and ends at the 0-th cohomology. (The other way around)
+\end{proof}
+
 \addcontentsline{toc}{subsection}{Exercise 2.8}
 \begin{manualexercise}{2.8}
 	Let $F=S^k$, that is, $\pi:E\to B$is a sphere bundle. Prove that all differentials $d_{k+1}$ vanish. Construct the \textit{\textbf{Gysin exact sequence}} 
@@ -165,7 +189,7 @@ which means that $E^{k+1}=E^\infty$. Since $E^{k+1}=\ker d_{k+1}/\operatorname{i
 is analogous to exercise 2.8.\fi
 Like in Exercise 2.8 we see that the only non-zero differentials are
 \[d_k:H^{0}(S^k)\otimes H^{k+p}\longrightarrow H^{k}(S^k)\otimes H^{p+1}(F)\]
-since $E_{2}=E_k$ is of the form
+because $E_{2}=E_k$ looks like this:
 \[\begin{tikzcd}[row sep=tiny]
 H^{0}(S^k)\otimes H^{k+1}(F)\arrow[rrddd,"d_k"]&\cdots & H^k(S^k)\otimes H^{k+1}(F)\\
 	H^{0}(S^k)\otimes H^{k}(F)  \arrow[rrddd,"d_{k}"]&\cdots &H^{k}(S^k)\otimes H^{k}(F)\\
