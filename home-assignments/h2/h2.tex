@@ -47,6 +47,123 @@
 
 \end{proof}
 
+\section{Leray-Serre spectral sequence}
+
+\addcontentsline{toc}{subsection}{Exercise 2.4}
+\begin{manualexercise}{2.4}
+	Let $\pi:E\longrightarrow B$ be a fibration with the fiber a torus. Assume the $d_2=0$. Prove that all differentials vanish.
+\end{manualexercise}
+
+\begin{proof}
+	Since $d_2=0$, we have that $E_3^{p,q}=E_2^{p,q}$. Then 
+	\[d_3:H^{p}(B)\otimes H^{q}(T)\longrightarrow H^{p+3}(B)\otimes H^{q-2}(T),\] so the only way it could be non-zero is for $q=2$, which implies that 
+	\begin{align*}
+		H^p(B)\otimes H^{2}(T)\cong H^{p+3}(B)\otimes H^{0}(T)&\iff H^{p}(B)\cong H^{p+3}(B)
+	\end{align*}
+But I don't see why this couldn't happen…
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Exercise 2.5}
+\begin{manualexercise}{2.5}
+	Let $\pi:E\to B$ be a fibration with the fiber a torus. Assume that the pullback map $\pi^* :H^2(B)\to H^{2}(E)$ is injective. Prove that all differentials $d_i$ vanish.
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	Recall that since  we are taking coefficients in a field, 
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Exercise 2.8}
+\begin{manualexercise}{2.8}
+	Let $F=S^k$, that is, $\pi:E\to B$is a sphere bundle. Prove that all differentials $d_{k+1}$ vanish. Construct the \textit{\textbf{Gysin exact sequence}} 
+	\[\begin{tikzcd}[column sep=small]
+		\cdots\arrow[r]&H^{p}(B)\arrow[r]&H^{p+k+1}(B)\arrow[r,"\pi^*"]&H^{p+k+1}(E)\arrow[r]&H^{p+1}(B)\arrow[r]&\cdots
+	\end{tikzcd}\]
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	(This argument is adapted from the construction of Wang exact sequence found in \href{https://en.wikipedia.org/wiki/Spectral_sequence#Wang_sequence}{Wikipedia}). We have that $E_2^{p,q}=H^{p}(B)\otimes H^{q}(S^k)$ can only be non-zero for $q=0,k$. This means that the only non-zero differentials are of the form
+	\[d_{k+1}:E_2^{p,k}\cong H^{p}(B)\longrightarrow E_2^{p+k+1,0}\cong H^{p+k+1}(B)\]
+	\[\begin{tikzcd}[column sep=tiny]
+	H^{0}(B)\otimes H^{k}(S^k)  \arrow[rrdd,"d_{k+1}"]&H^{1}(B)\otimes H^{k}(S^k)\arrow[rrdd,"d_{k+1}"]&\cdots &H^{k}(B)\otimes H^{k}(S^k)\\
+	\vdots &&&\vdots \\
+	H^{0}(B)\otimes H^{0}(S^k)&\cdots&H^{k+1}(B)\otimes H^{0}(S^k)&H^{k+2}(B)\otimes H^{0}(S^k) 
+\end{tikzcd}\]
+which means that $E^{k+1}=E^\infty$. Since $E^{k+1}=\ker d_{k+1}/\operatorname{img} d_{k+1}$, we can write
+	\[\begin{tikzcd}[row sep=tiny]
+		0\arrow[r]&\ker d_{k+1}\arrow[d,equals]\arrow[r]&H^{p}(B)\arrow[r,"d_{k+1}"]&H^{p+k+1}(B)\arrow[r]&\operatorname{coker} d_{k+1}\arrow[r]\arrow[d,equals]&0\\
+			  & \frac{\ker d_{k+1}}{\operatorname{img} d_{k+1}}\arrow[d,equals]&&&\frac{E^{p+k+1,0}}{\operatorname{img} d_{k+1}}\arrow[d,equal]\\
+			  & E_{k+1}^{p,k}\arrow[d,equal]&&& E_{k+1}^{p+k+1,0}\arrow[d,equal]\\
+		& E_\infty^{p,k}&&& E_\infty^{p+k+1,0}
+	\end{tikzcd}\]
+	This is the "first half" of the Gysin sequence. For the other half we must compute the $E_{\infty}$ terms. We use the filtration
+	\[H^{n}(E)=F^0H^n\supset F^1H^n\supset  \ldots \supset F^nH^n\]
+	that we know to satisfy
+	\[E^{p,q}_{\infty}\cong \frac{F^pH^{p+q}}{F^{p+1}H^{p+q}}.\]
+	We may write (I'm not completely sure why this works)
+	\[\begin{tikzcd}[row sep=small]
+		0\arrow[r]&E_{\infty}^{p+k+1,0}\arrow[d,equal]\arrow[r]&H^{p+k+1}(E)\arrow[r]&E^{p+1,k}_\infty\arrow[d,equal]\arrow[r]&0\\
+			  &\frac{F^{p+k+1}H^{p+k+1}}{F^{p+k+2}H^{p+k+1}}&&\frac{F^{p+1}H^{p+k+1}}{F^{p+2}H^{p+k+1}}
+	\end{tikzcd}\]
+	Putting this together with the first sequence we computed, we get that
+	\[\begin{tikzcd}[column sep=small]\leavevmode \arrow[r]&E^{p,k}_{\infty}\arrow[r]&H^{p}(B)\arrow[r,"d_{k+1}"]&H^{p+k+1}(B)\arrow[r]& E^{p+k+1,0}_\infty\arrow[r]&H^{p+k+1}(E)\arrow[r]& E_{\infty}^{p+1,k}\arrow[r]&\leavevmode\end{tikzcd}\]
+	and we simply remove the $E_{\infty}$ terms to get the Gysin sequence
+	\[\begin{tikzcd}\leavevmode \arrow[r]&H^{p}(B)\arrow[r,"d_{k+1}"]&H^{p+k+1}(B)\arrow[r]&H^{p+k+1}(E)\arrow[r]&H^{p+1}(B)\arrow[r]&\leavevmode\end{tikzcd}\]
+	\begin{remark}
+		I still cannot see why the map $H^{p+k+1}(B)\to H^{p+k+1}(E)$ is the map induced by the projection.
+	\end{remark}
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Exercise 2.11}
+\begin{manualexercise}{2.11}
+	Let $\pi:E\to B$ be a fibration with $B=S^k$. Prove that all differentials except $d_k$ vanish. Construct an exact sequence
+	\[\begin{tikzcd}[column sep=small]
+		\cdots\arrow[r]&H^{p+k}(F)\arrow[r,"\tilde{d}_k"]&H^{p}(F)\arrow[r,"\mu"]&H^{p+k}(E)\arrow[r]&H^{p+k+1}(F)\arrow[r]&\cdots
+	\end{tikzcd}\]
+	where $\mu$ is multiplication by $\pi^*\operatorname{Vol}_{S^k}$ and $\tilde{d}_{k}$ is equal to $d_k$ after the identification $H^{p}(F)=H^{k}(S^k)\otimes H^{p}(F)=E^{k,p}_2$
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+\iffalse The argument to construct the Wang exact sequence
+\[\begin{tikzcd}[column sep=small]
+	\cdots\arrow[r]&H_{q}(F)\arrow[r]&H_{q}(E)\arrow[r]&H_{q-n}(F)\arrow[r]&H_{q-1}(F)\arrow[r]&H_{q-1}(E)\arrow[r]&H_{q-n-1}(F)\arrow[r]&\cdots
+\end{tikzcd}\]
+is analogous to exercise 2.8.\fi
+Like in Exercise 2.8 we see that the only non-zero differentials are
+\[d_k:H^{0}(S^k)\otimes H^{k+p}\longrightarrow H^{k}(S^k)\otimes H^{p+1}(F)\]
+since $E_{2}=E_k$ is of the form
+\[\begin{tikzcd}[row sep=tiny]
+H^{0}(S^k)\otimes H^{k+1}(F)\arrow[rrddd,"d_k"]&\cdots & H^k(S^k)\otimes H^{k+1}(F)\\
+	H^{0}(S^k)\otimes H^{k}(F)  \arrow[rrddd,"d_{k}"]&\cdots &H^{k}(S^k)\otimes H^{k}(F)\\
+	\vdots &&\vdots \\
+	%H^{0}(S^k)\otimes H^{3}(F)&\cdots &H^{k}(S^k)\otimes H^{3}(F)\\
+	H^{0}(S^k)\otimes H^{2}(F)&\cdots &H^{k}(S^k)\otimes H^{2}(F)\\
+	H^{0}(S^k)\otimes H^{1}(F)&\cdots&H^k(S^k)\otimes H^{1}(F)\\
+	H^{0}(S^k)\otimes H^{0}(F)&\cdots&H^{k}(S^k)\otimes H^{0}(F) 
+\end{tikzcd}\]
+Again like in Exercise 2.8 we obtain a sequence
+\[\begin{tikzcd}
+	0\arrow[r]&E_{\infty}^{0,q}\arrow[r]& H^{q}(F)\arrow[r,"d_k"]&H^{q-k+1}(F)\arrow[r]& E^{k,q-k+1}_{\infty}\arrow[r]&0
+\end{tikzcd}\]
+\begin{remark}
+	The exercise has the map $H^{p+k}(F)\overset{\tilde{d}_{k}}{\longrightarrow} H^{p}(F)$, but my computations suggest it should be $H^{p+k}(F)\overset{\tilde{d}_k}{\longrightarrow}H^{p+1}(F)$.
+\end{remark}
+Then we compute the $E_{\infty}$ terms using a filtration
+\[H^{n}(E)=F^0H^n\supset F^1H^n\supset  \ldots \supset F^nH^n,\qquad E_\infty^{p,q}=\frac{F^pH^{p+q}}{F^{p+1}H^{p+q}}\]
+which yields
+\[\begin{tikzcd}
+	0\arrow[r]&E^{k-1,q-k+1}_{\infty}\arrow[r]&H^{q}(E)\arrow[r]&E^{0,q}_{\infty}\arrow[r]&0
+\end{tikzcd}\]
+and then we get
+\[\begin{tikzcd}[column sep=small]
+	\cdots\arrow[r]&H^{q}(E)\arrow[r]&H^{q}(F)\arrow[r]&H^{q-k+1}(F)\arrow[r]&H^{q+1}(E)\arrow[r]&H^{q+1}(F)\arrow[r]&\cdots
+\end{tikzcd}\]
+\begin{remark}
+	As in Exercise 2.8, I don't know why the map $H^{q-k+1}(F)\to H^{q+1}(E)$ should be multiplication by the volume form of $S^k$.
+\end{remark}
+
+
+\end{proof}
+
 \begin{manualexercise}{last}
 	Generators here (horizontal), generators there (vertical, 1,3,5), "Extend generators by Leibniz rule, and then they just kill everyting"
 \end{manualexercise}
