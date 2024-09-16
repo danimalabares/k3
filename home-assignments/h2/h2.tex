@@ -72,6 +72,33 @@ But I don't see why this couldn't happen…
 	I'm not sure how to use the hypothesis since I usually deal with the total space after computing the $E_\infty$ page via the filtration…
 \end{proof}
 
+\addcontentsline{toc}{subsection}{Exercise 2.6}
+\begin{manualexercise}{2.6}
+	Let $\pi:E\to B$ be a fibration with the fiber a complex projective space. Assume that $d_2=0$ and $d_3=0$. Prove that all differentials $d_i$ vanish.
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	Since a complex projective space hascohomology equal to the coefficients in even dimensions and 0 in odd dimensions, we have the following second page of the spectral sequence:
+	\begin{align*}
+\begin{array}{c|cccccccc}
+	\vdots &&&&&&&&\\
+	6&H^0(B)&H^1(B)&H^{2}(B)&H^{3}(B)&H^{4}(B)&H^{5}(B)&&\\
+	5&&&&&&&&\\
+	4&H^0(B)&H^1(B)&H^{2}(B)&H^{3}(B)&H^{4}(B)&H^{5}(B)&&\\
+	3&&&&&&&&\\
+	2&H^0(B)&H^1(B)&H^2(B)&H^{3}(B)&H^{4}(B)&H^{5}(B)&&\\
+	1&&&&&&&&\\
+	0&H^0(B)&H^1(B)&H^2(B)&H^3(B)&H^4(B)&H^{5}(B)&\cdots &\\
+	\hline
+	 &0&1&2&3&4&5&\cdots&
+\end{array}
+\end{align*}
+It is immediate that $d_4$ is also zero, meaning that $E_2=E_3=E_4=E_5$. However the case of $d_5$ is not so obvious since we get a map
+\[d_5:H^{0}(B)\to H^{5}(B)\]
+that could be non-zero. The same will happen for all odd-index diferentials.
+
+\end{proof}
+
 \addcontentsline{toc}{subsection}{Exercise 2.8}
 \begin{manualexercise}{2.8}
 	Let $F=S^k$, that is, $\pi:E\to B$is a sphere bundle. Prove that all differentials $d_{k+1}$ vanish. Construct the \textit{\textbf{Gysin exact sequence}} 
