@@ -1,0 +1,141 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 3: the splitting principle}
+
+\addcontentsline{toc}{subsection}{Exercise 3.1}
+\begin{manualexercise}{3.1}
+	Let $\mathbb{C}P^\infty=\mathcal{Gr}(1,\infty)$ be the union $\bigcup_{i} \mathbb{C}P^i$ where all maps $\mathbb{C}P^1\hookrightarrow \mathbb{C}P^2\hookrightarrow \mathbb{C}P^3\hookrightarrow \ldots$ are hyperplane embeddings. Prove that there exists a principal $\operatorname{U}(n) $-bundle over $\mathbb{C}P^\infty$ with contractible total space. Prove that the cohomoogy of $\mathbb{C}P^\infty$ is a polynomial algebra with one generator in $H^{2}(\mathbb{C}P^\infty)$
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	(Based on \cite{hatvb}) The principal $\operatorname{U}(1)$-bundle we are looking for is just the infinite case of the Hopf fibration $S^1\hookrightarrow S^{2n+1}\to \mathbb{C}P^{n}$. Namely,
+\[\begin{tikzcd}
+	S^1=\operatorname{U}(1) \arrow[r,hook]& S^\infty\arrow[r,"p"]&\mathbb{C}P^{\infty}
+\end{tikzcd}\]
+where $p$ sends a point in $S^\infty$ to its equivalence class just like in the finite case. Local trivializations of this bundle are given by taking the coordinate chart $z_i\neq 0$ andgiving an homeomorphism $[z_0,z_1,\ldots ]\mapsto \big( [z_0,z_1,\ldots],z_i/|z_i| \big)$. This shows that the fiber is $\operatorname{U}(1)$. $S^\infty$ is contractible from lectures.
+
+Given that $H^{\bullet}(\mathbb{C}P^n)=\mathbb{Z}[x]/(x^{n+1})$ for $x$ of degree 2 (which may be seen by K\"unnet or by \href{https://github.com/danimalabares/homotopy-theory/blob/main/exercises/exercises.pdf}{direct computations}), to find $H^{\bullet}(\mathbb{C}P^\infty)$ we just notice that the inclusion $\mathbb{C}P^{i}\hookrightarrow \mathbb{C}P^\infty$ induces an isomorphism in cohomology (this can be seen via long exact sequence in relative cohomology, the quotient $\mathbb{C}P^\infty/\mathbb{C}P^{i}$ has trivial cohomology for small $i$). This means that the $i$-th cohomology group of $\mathbb{C}P^\infty$ is the degree-$i$ polynomials.
+\end{proof}
+
+\begin{defn}
+	The \textit{\textbf{fundamental bundle}} on $\mathbb{C}P^\infty=BU(1)$ is $B_{\operatorname{fun}}$, isomorphic to $\mathcal{O}(1)$ on each $\mathbb{C}P^{n}\subset \mathbb{C}P^\infty$.
+\end{defn}
+
+\iffalse\addcontentsline{toc}{subsection}{Exercise 3.2}
+\begin{manualexercise}{3.2}
+	Let $X$ be a compact CW-cpasce. Prove that any line bundle on  $X$ is isomorphic to $\phi^*(B_{\operatorname{fun}})$ for some continuous map $\phi :X\to BU(1)$
+\end{manualexercise}\fi
+
+\addcontentsline{toc}{subsection}{Exercise 3.3}
+\begin{manualexercise}{3.3}
+	Let $B_{\operatorname{fun}}$ be the \textit{\textbf{fundamental vector bundle}} on $\mathcal{Gr}(n)$, which has fiber $W$ at any point of $\mathcal{Gr}(n)$ corresponding to a subspace $W\subset \mathbb{C}^\infty$. Let $X$ be a CW-space. Prove that any vector bundle on $X$ is isomorphic to $\phi^*(B_{\operatorname{fun}})$ for some continuous map $\phi :X\longrightarrow \mathcal{Gr}(n)$.
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+ Suppose $p:E\to X$ is a vector bundle. To define $\phi$ we will associate every $x \in X$ with a linear subspace of $\mathbb{C}^\infty$ using the fiber $p^{-1}(x)$.
+
+ Choose a trivializing countable open cover of $X$ and a partition of unity $\varphi_i$. For any vector in $E$ define a map
+  \[E\ni v\longmapsto(\varphi_1(p(v))g_1(v),\varphi_2(p(v))g_2(v),\ldots )\in\mathbb{C}^\infty\]
+where $g_i:p^{-1}(U_i)\to \mathbb{C}^n$ gives the coordinates of the vector (it is the projection on the second factor of the trivialization $p^{-1}(U_i)\cong U_i\times \mathbb{C}^n$). We have extended the $g_i$ to maps on all of $E$.
+
+Notice that this map is injective on the fibers of $p$ and that only finitely many of the coordinates in $\mathbb{C}^\infty$ are non-zero. Thus the image of a fiber $p^{-1}(x)$ is a $n$-dimensional linear subspace of $\mathbb{C}^\infty$, that is, an element of $\mathcal{Gr}(n)$. Define $\phi(x)$ to be such an element of $\mathcal{Gr}(n)$.
+
+It follows by construction that $\phi^* (B_{\operatorname{fun}})= E$:
+\begin{align*}
+	B_{\operatorname{fun}}&=\left\{(\ell,v)\in\mathcal{Gr}(n)\times \mathbb{C}^\infty:v\in\ell\right\}\\
+	\implies  \phi^* (B_{\operatorname{fun}})&=\left\{ \big( x,(\ell,v) \big) :\phi(x)=\ell , v\in\ell\right\} \\
+	&=\left\{(x,v):v\in\ell=\phi(x)=p^{-1}(x)\right\}\\
+	&=E
+\end{align*}
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Exercise 3.4}
+\begin{manualexercise}{3.4}
+	Let $ \Phi:(BU(1))^n\longrightarrow \mathcal{Gr}(n)$ be a morphism such that the pullback of the fundamental bundle is the direct sum of $n$ line bundles, obtained by lifting $\mathcal{O}(1)$ from each factor $BU(1)$. A complex vector bundle is called \textit{\textbf{split}} if it is obtained as a direct sum of complex line bundles. Prove that a vector bundle $B$ on $X$ is split if and only if $\phi_B:X\longrightarrow \mathcal{Gr}(n)$ is factorized through $\Phi$.
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	Implication $\impliedby$ is trivial. The other implication is also simple since if $B =B_1\oplus \ldots \oplus B_k$, we have for every $i$ a map $\phi_{B_i}$ and then $\phi_B=\Phi\circ \left(\bigoplus_{i} \phi_{B_i} \right)$.
+	\[\begin{tikzcd}
+		\bigoplus_{i} B_i\arrow[d]&\bigoplus_{i} \mathcal{O}(1)\arrow[d]& B_{\operatorname{fun}}\arrow[d]\\
+		X\arrow[r,swap,"\bigoplus_{i} \phi_{B_i}" ]&(BU(1))^n\arrow[r,"\Phi",swap]&\mathcal{Gr}(n)
+	\end{tikzcd}\]
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Exercise 3.5}
+\begin{manualexercise}{3.5}\leavevmode 
+	\begin{enumerate}[label=\alph*.]
+		\item Let $\mathfrak{F}(V)\cong \mathbb{P}^{n-1}\times \mathbb{P}^{n-2}\times \ldots \times \mathbb{P}^1$ be the space of all orthogonal bases in $V=\mathbb{C}^{n+1}$ up to independent rescaling of each of the vectors (the \textit{\textbf{flag space}}; we will denote it by $\mathfrak{F}$). Denote by $\mathfrak{S}$ the smooth, locally trivial bundle over $\mathcal{Gr}(n)$, with the fiber the flag space $\mathfrak{F}(V)$ in each subspace $V\in\mathcal{Gr}(n)$. Prove that the pullback of the fundamental bundle $B_{\operatorname{fun}}$ to $\mathfrak{S}$ is split.
+
+		\item Prove that the induced map $H^* (\mathcal{Gr}(n),\mathbb{Q})\to H^*(\mathfrak{S},\mathbb{Q})$ is injective.
+
+		\item Deduce that $H^*(\mathfrak{S},\mathbb{Q})$ as  $H^{*}(\mathcal{Gr}(n),\mathbb{Q})$-module is isomorphic to $H^{*}(\mathcal{Gr}(n),\mathbb{Q})\otimes H^{*}(\mathfrak{F})$.
+	\end{enumerate}
+\end{manualexercise}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Let $\phi :\mathfrak{S}\to \mathcal{Gr}(n)$ be the bundle descibed above. We wish to show that $\phi^{*}(B_{\operatorname{fun}})$ is split:
+\[\begin{tikzcd}
+	\phi^*B_{\operatorname{fun}}\arrow[d]&B_{\operatorname{fun}}\arrow[d]\\
+	\mathfrak{S}\arrow[r,"\phi "]&\mathcal{Gr}(n)
+\end{tikzcd}\]
+			According to the last exercise, this ammounts to showing that there is a factorization
+			\[\begin{tikzcd}
+				\mathfrak{S}\arrow[rr,bend right, swap, "\phi "]\arrow[r,"\psi"]&(BU(1))^n\arrow[r,"\Phi"]&\mathcal{Gr}(n)
+			\end{tikzcd}\]
+		I finally realized that $\mathfrak{S}$ is the Stiefel manifold $V_n(\mathbb{C}^k)$, the space of $n$-frames in $\mathbb{R}^{k}$. It is projected onto $\mathcal{Gr}(n,k)\subset \mathcal{Gr}(n)$ by mapping a frame to the linear space it spans, hence with fiber the space of orthonormal bases of $n$ vectors, ie. $\mathfrak{F}$. Then we have a natural factorization:
+		\[\begin{tikzcd}[ row sep =tiny]
+			\mathfrak{S}\arrow[r]&(BU(1))^n\cong (\mathbb{C}P^{\infty})^n\arrow[r]&\mathcal{Gr}(n)\\
+			\{v_1,\ldots,v_n\} \arrow[maps to,r ]&([v_1],\ldots,[v_n])\arrow[r,maps to]&\operatorname{span}([v_1],\ldots,[v_n])
+		\end{tikzcd}\]
+		
+		\item This can be seen using a statement (similar to Exercise 3.4) called Leray-Hirsch isomorphism (see \cite{hatcher}, thm. 4D.1 or \href{https://en.wikipedia.org/wiki/Leray%E2%80%93Hirsch_theorem#The_Leray%E2%80%93Hirsch_isomorphism}{wikipedia}), where we see $H^{*}(E)$ as an $H^{*}(B)$-module.
+
+				More precisely, suppose that the cohomology groups of the fibers $H^{n}(F)$ of a fiber bundle are finitely generated modules and that there are elements $c_j\in H^{*}(E)$ whose pullback under the inclusion are a basis of $H^*(F)$. Then the map
+				\begin{align*}
+					H^{*}(E)\otimes H^{*}(F) &\longrightarrow H^{*}(E) \\
+					\sum_{ij}b_i\otimes i^*(c_j) &\longmapsto \sum_{ij}p^* (b_{i}) \smile c_j
+				\end{align*}
+			is an isomorphism. This means that $ H^{*}(E)$ is a $H^{*}(B)$-module with basis $\{c_j\}$.
+
+		Applying this to the bundle $\mathfrak{S}\to \mathcal{Gr}(n)$, we see that $H^{*}(\mathcal{Gr}(n),\mathbb{Q})$ is just the inclusion of the coefficients in the module.
+				
+\iffalse
+			(Idea.) Corollary 2.2.2 in \cite{chark} suggests that the map $H^{*}(\mathcal{Gr}(n),\mathbb{Q})\longrightarrow H^{*}(\mathfrak{S},\mathbb{Q})$ may be seen as the inclusion of the $H^{*}(\mathcal{Gr}(n),\mathbb{Q})$-module summand associated to $1=x^0_{E}$ with respect to the isomorphism
+			\begin{align*}
+			H^{*}(\mathcal{Gr}(n),\mathbb{Q})\{1,x_{\mathfrak{S}},x_{\mathfrak{S}}^2,\ldots,x_{\mathfrak{S}}^{n-1}\} &\longrightarrow H^{*}(\mathfrak{S},\mathbb{Q})\\
+			\sum_{i=0}^{d-1}y_i\cdot x^i_E&\longmapsto \sum_{i=0}^{d-1}p^*(y_i)\smile  x^i_E
+ \end{align*}
+ with $x_{\mathfrak{S}}$ the Euler class of the canonical bundle of $\mathcal{Gr}(n)$. The proof that this map is an isomorphism does not use spectral sequences, and the case for a non-compact base space is not included.
+\fi
+
+\begin{remark}
+	The proof in Hatcher of this theorem is rather involved and does not use spectral sequences.
+\end{remark}
+
+\item (Idea.) Show that all differentials in the Leray-Serre spectral sequence vanish due to the even-dimensional cell decomposition of $\mathfrak{F}$. Supposing that the monodromy action is trivial, \href{https://mathoverflow.net/questions/338859/when-is-the-cohomology-of-a-fiber-bundle-a-tensor-product}{we should} obtain the desired isomorphism.
+
+A cell decomposition of $V_n(\mathbb{C}^k)$, of which $\mathfrak{F}=V_n(\mathbb{C}^n)$ is a prticular case,  is found in \cite{moshtang} or \cite{james}. It might be simpler to identify $\mathfrak{F}$ with $\operatorname{U}(n)$, but constructing the desired decomposition was still not straightforward.
+	\end{enumerate}
+\end{proof}
+
+\printbibliography
+
+\end{document}

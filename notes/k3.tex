@@ -193,6 +193,54 @@ In class 4 I finally understood that
 	In fact $\operatorname{Gr}(n)$ is the classifying space of vector bundles of rank $n$, in the sense that isomorphism classes of vector bundles of maps $\varphi:X\to \operatorname{Gr}(n)$.
 \end{remark}
 
+\subsubsection{The canonical bundle}
+
+When doing homework 3 I found this very nice on Hatcher, Vector bundles and K3:
+
+\begin{defn}
+	The \textit{\textbf{canonical bundle}} $p:E\to \mathbb{R}P^{n}$ has as its total space $E$ the subspace of $\mathbb{R}P^{n}\times \mathbb{R}^{n+1}$ consisting of pairs $(\ell,v$ with $v\in\ell$ and $p(\ell,v)=\ell$. There is also an infinite-dimensional projective space $\mathbb{R}P^{\infty}$ which is the union of the finite-dimensional projective spaces $\mathbb{R}P^{n}$ under the inclusions $\mathbb{R}P^{n}\hookrightarrow \mathbb{R}P^{n+1}$ coming from natural inclusions $\mathbb{R}^{n+1}\hookrightarrow \mathbb{R}^{n+2}$. The inclusions $\mathbb{R}P^{n}\hookrightarrow \mathbb{R}P^{n+1}$ induce corresponding inclusions of canonical line bundles, and the union of all these is a canonical line bundle over $\mathbb{R}P^{\infty}$.
+
+	A natural generalization is the Grassmanian $\mathcal{Gr}(k,n)$ along with a canonical $k$-dimensional vector bundle over it consisting of pairs $(\ell,v)$ where $\ell$ is a poin the Grassmanian and  $v$ is a vector in $\ell$.
+\end{defn}
+
+\subsubsection{What this classification space should mean}
+
+Remember that
+\begin{defn}[Representable functor]
+	Let $\mathcal{C}$ be a category. A functor $F:\mathcal{C}^{\operatorname{op}}\to \operatorname{Sets}$ is called \textit{\textbf{representable}} if there exists an object $B=B_{F}$ in $\mathcal{C}$ with the property that there is a \textit{natural} isomorphism of functors
+	\[\varphi:\mathcal{C}(-,B_{F})\to F\]
+	where $\mathcal{C}(-,B_{F})$ is the set of arrows from $-$ to $B_{F}$.
+
+	One ussually expresses the naturality condition for a map $f:X\to Y$ with the following diagram:
+
+	\[\begin{tikzcd}
+		\mathcal{C}(X,B)\arrow[r,"\varphi_{X}"]\arrow[d,"f^{*}"]&F(X)\arrow[d,"f^{*}"]\\
+		\mathcal{C}(Y,B)\arrow[r,"\varphi_{Y}"]&F(Y)
+	\end{tikzcd}\]
+\end{defn}
+
+And in homotopy theory I have studied that
+
+\begin{thm}[Brown representability theorem]
+	Let $F$ be a contravariant functor from the homotopy category of parallel connected CW-complexes to pointed sets. If $F$ satisfies conditions (i) and (ii) above (for any pointed connected CW-complexes $X_{i}$, $A$, $B$, $C$), then $F$ is representable.
+\end{thm}
+
+\begin{remark}[So what is a classifying space?]
+	The theorem says that there is a space $B=B_{F}$ (itself a pointed CW-complex) for which there is a natural isomorphism
+	\[\varphi :[X,B_{F}]_{*}\overset{\cong }{\longrightarrow}F(X)\]
+	for any pointed CW-complex $X$. This space $B_{F}$ is called a \textit{\textbf{classifying space}} for $F$. Recall also that when such $\varphi$ exists, it is completely determined by a \textit{generic} element $\gamma\in F(B_{F})$.
+
+	The classifying space together with the genereic element is unique up to homotopy.
+\end{remark}
+
+\begin{remark}
+	$H^{n}(-,G)$ is represented by  $K(G,n)$ together with a chosen element in $H^{n}(K(G,n),G)$
+\end{remark}
+
+But anyway. We see in \href{https://en.wikipedia.org/wiki/Classifying_space_for_U(n)#Case_of_line_bundles}{wiki} that for the case of homework 3 bundle  $S^1\to S^\infty\to \mathbb{C}P^\infty$ we get that the base space $BU(1)=\mathbb{C}P^\infty$, Thus, the set of isomorphism classes of circle bundles over a manifold $M$ are in one-to-one correspondence with the homotopy classes of maps from $M$ to $\mathbb{C}P^\infty$.
+
+So what is the functor that we are representing? I think is K. Because the maps are isomorphic to  $K(S^1)$…? Circle bundles?
+
 \subsection{Stiefel spaces}
 
 \begin{defn}
@@ -472,6 +520,12 @@ Bott periodicity identifies the space of loops on $\operatorname{U}$ and $B\oper
 			where $[H]$ is the fundamental class of a hyperplane section.
 	\end{enumerate}
 \end{defn}
+
+\begin{remark}[Once and for all]
+	$\mathcal{O}(-1)$ is the \textit{\textbf{tautological line bundle}} on a Grassmanian, defined as  $\{(\ell,v)\in\mathcal{Gr}(k,n)\times \mathbb{C}^n:v\in\ell\}$.
+
+	$\mathcal{O}(1)$ is the \textit{\textbf{hyperplane bundle}} which is the dual of that so $\{(\ell,v^* )\in\mathcal{Gr}(k,n)\times (\mathbb{C}^n)^*:v^*\in\ell^*\}$
+\end{remark}
 
 Suppose we have a class $a\in H^{\bullet}(B\operatorname{U})$. Then for all $B$ on $X$ 
 \[\varphi:X\to B\operatorname{U}\]
@@ -1062,7 +1116,6 @@ These manifolds have a nice Teichm\"uler space.
 
 Notice that for $n=1$ we have that the condition $\Omega^2=0$ and $\Omega\wedge \overline{\Omega}$ volume mean
 
-\subsection{}
 
 \begin{thm}\leavevmode
 	$\operatorname{CTeich}$ Teichm\"uler space of C-symplectic structures on K3 surface. Consider the
