@@ -1147,11 +1147,199 @@ Where positively oriented means the form is ? Then
 \mathbb{P}\operatorname{er}&=\operatorname{Gr}_{++}(H^{2})=\dfrac{\operatorname{SO}(3,1\mathcal{o})}{\operatorname{SO}(2) \times \operatorname{SO}(1,1\mathcal{o})}
 \end{align*}
 
+\section{Class 7}
+
+\subsection{Reminder on local Torelli theorem}
+
+\[\operatorname{CTeich}=\text{Teichmüller space of hol sympl structures} \]
+\begin{align*}
+	\operatorname{CTeich} &\longrightarrow H^{2}(M,\mathbb{C}) \\
+	\Omega &\longmapsto [\Omega ]
+\end{align*}
+
+Then this map is a local differomorphism to the period space.
+
+\subsection{Hodge index theorem (without slides)}
+
+\begin{thm}[Hodge index theorem]\leavevmode
+	Consider a signature of intersection form on complex K\"ahlerler surface is positive on real part of $\operatorname{Re}H^{2,0}(M)$, $(1,0)$ on  $H^{1,1}(M,\mathbb{R})$, negative on 
+	\begin{align*}
+		\ker L:H^{1,1}(M,\mathbb{R})  &\longrightarrow H^{4}(M) =\mathbb{R}\\
+		X &\longmapsto [X\wedge \omega ]
+	\end{align*}
+	with $\omega$ Kähler form.
+	
+\end{thm}
+
+\begin{proof}
+	$\Omega^{2,0}$ 1 dimensional, $\operatorname{Re}\Omega^{2,0}$ 2-dimensional (at most) in $\Lambda^2(M,\mathbb{R})$.
+	\begin{align*}
+		\Omega&=\omega_1+r-1\omega_2\\
+		\Omega \wedge  \overline{\Omega}&=\omega_1^2+\omega_2^2>0\\
+		\Omega \wedge \Omega &=0=\omega_1^2=\omega^2_2\\
+		\iff \omega_1\wedge \omega_2&=0\\
+		\omega_1^2&=\omega_2^2\\
+		\implies \omega_1\perp \omega_2\\
+		\omega_1^2&=\omega_2^2>0
+	\end{align*}
+
+	Then 
+	\[\Lambda^{1,1}&=\ker L\oplus \omega\]
+	That is a 4-dimensional bundle that is given by multiples of the K\"ahler form plus the primitive part. Then
+	\[\ker^\perp=\left<\operatorname{Re} \Omega,\operatorname{Im}\Omega,\omega\right> \]
+	Then consider Hodge star operator $*:\Lambda^2\to \Lambda^2$, $*^2=1$ and its complementary, this interchanges eigenvalues, negative positive, …
+\end{proof}
+
+\begin{coro}
+	Signature of K3 surface is $(3,19)$
+\end{coro}
+
+\subsection{The period space of complex structures is Grassmanian}
+
+\begin{claim}
+\[\mathbb{P}\operatorname{er}=\dfrac{\operatorname{SO}(3,b_2-3)}{\operatorname{SO}(1,b_2-3) \times \operatorname{SO}(2)}=\operatorname{Gr}_{++}(h^{2}(M,\mathbb{R})\]
+\end{claim}
+
+\begin{remark}
+	$(V,q)$ real vector space signature $q$ is $(m,n)$, $m\geq 2$ then
+\[\operatorname{Gr}_{++}(V,q)=\{\ell\in\mathbb{P}V_{\mathbb{C}}:q(\ell,\ell)=0,q(\ell,\bar{\ell})>0\} \]
+Recall that
+$T_p\operatorname{Gr}_{++}=\operatorname{Hom}(?)$
+\end{remark}
+
+\begin{proof}[Of the claim]\leavevmode 
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item $\ell\in\mathbb{P}\operatorname{er}$
+		\begin{align*}
+			q(\operatorname{Re}(\Omega),\operatorname{Im}(\Omega))&=0\\
+			q(\operatorname{Re}(\Omega),\operatorname{Re}(\Omega))=q(\operatorname{Im}(\Omega),\operatorname{Im}(\Omega))>0
+		\end{align*}
+		What is going on
+		\begin{align*}
+			\omega_1&=\operatorname{Re}(\Omega),\qquad \omega_2=\operatorname{Im}(\Omega),\qquad \Omega \in\ell\\
+			q(\omega_1+\sqrt{-1} \omega_2,\omega_1+\sqrt{-1}\omega_2&=0\\
+			&=q(\omega_1,\omega_1)-q(\omega_2,\omega_2)+\sqrt{-1} 2q(\omega_1,\omega_2)
+		\end{align*}
+		and also 
+		\begin{align*}
+			q(\Omega,\overline{\Omega})&>0\\
+			=q(\omega_1-\sqrt{-1}\omega_2,\omega_1+\sqrt{-1}\omega_2)&=q(\omega_1,\omega_1)+q(\omega_2,\omega_2)>0
+		\end{align*}
+		so we have obtained from a line in Period a positive definite plane
+
+		\item $p\in\operatorname{Gr}_{++}$. Project, obtain a quadric form on $\mathbb{C}^2$.
+			There exist two lines in $P_{\mathbb{C}}, $ $ \ell,\overline{ \ell}$ such tat
+			\[q(\ell,\ell)=0, \qquad q(\bar{\ell},\bar{\ell})=0  \]
+			\[q(x,y)=xy\]
+	\end{enumerate}
+\end{proof}
+
+\begin{coro}
+	$U\subset \operatorname{Teich}$, $V\subset H^{2}(M,\mathbb{R})$ set of all nonzero $(1,1)$-classes on $H^{2}(M,I)$ for some $I\in U$ Then $V\subset H^{2}(M,\mathbb{R})$ is open.
+\end{coro}
+
+\begin{proof}
+Idea: take a 2 dimensional space and move it a bit everywhere, consider orthogonal complement. Deform $P$ by taking a $y$ and considering its orthogonal complement. $y$ is chosen close to $x$.
+
+\[\begin{tikzcd}
+	X\in P^\perp \text{is a class of type (1,1)}\\
+	y \text{near }x\\
+	P \text{project to }y^\perp \\
+	\text{so you have an open set in Grassmanian} 
+\end{tikzcd}\]
+\[U_x\overset{\phi}{\longrightarrow}\operatorname{Gr}_{++}\qquad \qquad \phi^{-1}(U)\]
+
+
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item 	Take a complex structure $I\in\operatorname{Teich}$, $P\subset H^{2}(M,\mathbb{R})$, then $H^{11}(M,I)=P^\perp$.
+
+			\item Teichmüler is locally diffeomorphic to $\operatorname{Gr}_{++}$. Suffices to show in a nieghbourhood $U_1 \ni P$ in $\operatorname{Gr}_{++}$ that $\bigcup_{P_1\in U_1}P_1^+ $ is open.
+
+		\item $y\in H^{2}(M,\mathbb{R})$, $y\in U_x$, nonzero in a neighb of $x\in P^\perp$. $P_y$ projection from $P$ to $y^\perp$
+	\end{enumerate}
+\end{proof}
+
+\subsection{Intersection form on a K3 surface}
+
+\begin{lemma}[Of linear algebra]
+	Consider bilinear symmetric form on $V_\mathbb{Z}$
+	\begin{align*}
+		\pi:V_R\setminus 0  &\longrightarrow \mathbb{P}V_Q \\
+		 &\longmapsto 
+	\end{align*}
+	where $R$ is the set of odd vectors and $Q$ rational vectors. Then  $p(\text{odd vectors} )$ is dense on $\mathbb{P}V_Q$.
+	
+\end{lemma}
+
+\begin{proof}\leavevmode 
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item Construct a sequence of odd vectors converging to any element $s\in V_{\mathbb{Z}}\setminus 0$.
+			\[\lim_n\pi(r_0+2ns)=\pi(s)\]
+	\end{enumerate}
+\end{proof}
+
+\begin{thm}
+	Intersection form of K3 is even.
+\end{thm}
+
+\begin{proof}
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item suppose it is odd. Coro 1 lema 1 imply complex structure $I$ and odd vector $r\in H^{1}(M,I)$. The point is that the set of vectors of type 11 is open negithboudood of any class. But then the odd classes are dense.
+
+		\item Involves Riemann-Roch. For each class $r\in H^{11}(M)\cap H^{2}(M,\mathbb{Z})$ we have a holomorphic line bundle by the exponential sequence, $c_1|L|$, $L$ is hol line bundle:
+			\[\begin{tikzcd}
+				0\arrow[r]&\mathbb{Z}_M\arrow[r,"\sqrt{-1}2\pi]&\mathcal{O}_M\arrow[r,"\operatorname{exp}"]&\mathcal{O}^*_M\arrow[r]&0
+			\end{tikzcd}\]
+			and
+			\[\begin{tikzcd}[column sep=small]
+				\cdots\arrow[r]&0=H^{1}(\mathcal{O}_M)\arrow[r]&\operatorname{Pic}= H^{1}(\mathcal{O}^*_M)\arrow[r]&H^{2}(M,\mathbb{Z})\arrow[r,"\operatorname{proj}"]&H^{02}(M)=H^{2}(\mathcal{O}_M)\arrow[r]&\arrow[r]&\cdots
+			\end{tikzcd}\]
+			Now Riemann-Roch:
+			\[\chi(L)=\chi(\mathcal{O}_M-\frac{L(K-L)}{2}=2-(L,L)/2\]
+			because canonical bundle is trivial, so that cannot be odd.
+	\end{enumerate}
+\end{proof}
+
+\subsection{Smooth quartics}
+
+\begin{defn}
+	A \textit{\textbf{smooth quartic}} is a smooth quartic hypersurface in  $\mathbb{P}^3$. So a solution of a quartic equation.
+\end{defn}
+
+\begin{remark}
+	Adjunction formula. Canonical bundle of quartic is canonical bundl eof $\mathbb{C}P^{3}$ restrictesd to quartic times normal bundle:
+	\[K_Q=K_{\mathbb{C}P^{3}}|_{Q}\otimes N(Q)\]
+	But $N(Q)$ is degree four so it is just $\mathcal{O}(4)=N(Q)$.
+
+	and canonical bundle $K_{\mathbb{C}P^{3}}$ of $\mathbb{C}P^{3}$ is $\mathcal{O}(-4)$ by Euler formula.
+
+	So $K_Q=0_Q$---quartic has trivial canonical bundle.
+\end{remark}
+
+\[V:\mathbb{C}P^{3}\hookrightarrow \mathbb{C}P^{34}\]
+What is this map. It is associated to $\mathcal{O}(4)$, with the line system
+\[\mathbb{C}P^{34}=\mathbb{P}H^{0}(\mathcal{O}4)^*\]
+and it is called Veronese map.
+
+\begin{claim}
+	Smooth quartic is a hyperplane section of $V(\mathbb{C}P^{3})$.
+\end{claim}
+
+So any hyperplane on $\mathbb{C}P^{34}$ is a hyuperplane on $\mathbb{C}P^{3}$.
+
+…So the zeroes of this restriction are quadrics.
+
+\subsection{Smooth quartics and Lefschetz hyperplance section theorem}
+
+\begin{thm}[Lefshetz hyperplane]\leavevmode
+	$ \pi(H\cap V)=\pi_1(V)$
+\end{thm}
 
 
 
 
 
+\section{Class 8}
 
 
 \end{document}
