@@ -1303,17 +1303,17 @@ Idea: take a 2 dimensional space and move it a bit everywhere, consider orthogon
 \subsection{Smooth quartics}
 
 \begin{defn}
-	A \textit{\textbf{smooth quartic}} is a smooth quartic hypersurface in  $\mathbb{P}^3$. So a solution of a quartic equation.
+	A \textit{\textbf{smooth quartic}} is a smooth quartic hypersurface in  $\mathbb{P}^3$. So a solution of a quartic equation, ie. polynomial of degree 4.
 \end{defn}
 
 \begin{remark}
-	Adjunction formula. Canonical bundle of quartic is canonical bundl eof $\mathbb{C}P^{3}$ restrictesd to quartic times normal bundle:
+	Adjunction formula. Canonical bundle of quartic is canonical bundle of $\mathbb{C}P^{3}$ restrictesd to quartic times normal bundle:
 	\[K_Q=K_{\mathbb{C}P^{3}}|_{Q}\otimes N(Q)\]
 	But $N(Q)$ is degree four so it is just $\mathcal{O}(4)=N(Q)$.
 
 	and canonical bundle $K_{\mathbb{C}P^{3}}$ of $\mathbb{C}P^{3}$ is $\mathcal{O}(-4)$ by Euler formula.
 
-	So $K_Q=0_Q$---quartic has trivial canonical bundle.
+	So $K_Q=0_Q$---quartic has trivial canonical bundle (it is Calabi-Yau).
 \end{remark}
 
 \[V:\mathbb{C}P^{3}\hookrightarrow \mathbb{C}P^{34}\]
@@ -1329,17 +1329,208 @@ So any hyperplane on $\mathbb{C}P^{34}$ is a hyuperplane on $\mathbb{C}P^{3}$.
 
 …So the zeroes of this restriction are quadrics.
 
+\paragraph{The point} is that quartics are (in correspondence with) hyperplane sections.
+
+All quartics are sections of Veronese.
+
 \subsection{Smooth quartics and Lefschetz hyperplance section theorem}
 
 \begin{thm}[Lefshetz hyperplane]\leavevmode
 	$ \pi(H\cap V)=\pi_1(V)$
 \end{thm}
 
+\section{Class 8: smooth quartics}
+
+\subsection{Lefschetz again}
+
+\begin{thm}[Lefschetz hyperplane]\leavevmode
+	If $X \subset \mathbb{P}^n$ and $H=\mathbb{C}P^{n-1}$ a hyperplane in $\mathbb{C}P^{n}$ and $X\cap H$ (transversal justo to be safe), $X\cap H\to  X$ isomorphism on homotopy group $\pi_i$ for  $i<\dim X$, ie.
+	$\pi_{i}(Z\cap H)\overset{\cong }{\longrightarrow}\pi_{i}(Z)$
+\end{thm}
+
+\begin{proof}
+	Will discuss later but make a cellular decomposition that puts cells of certain dimension in the intersection.
+\end{proof}
+
+\begin{coro}
+	$\pi_{1}(\text{smooth quartic} ) =\pi_{1}(\mathbb{C}P^{3}) =0$.
+\end{coro}
+
+\begin{coro}
+	Smooth quartic is K3.
+\end{coro}
+
+\subsection{Smooth submersions}
+
+\begin{defn}
+	\textit{\textbf{smooth submersion}} is a map  $\pi:M\to M'$ such that $d\pi$ is surjective everywhere.
+\end{defn}
+
+\begin{remark}
+	Submersions are just products: each point has a neighbourhood that looks like a product and submersion is projection on one factor.
+\end{remark}
+
+\begin{thm}[Ehresemann fibration theorem]\leavevmode
+	Let $\pi:M\to M'$ be a smooth submersion of compact manifolds. Then $\pi$ is locally trivial fibration.
+\end{thm}
+
+\begin{proof}
+	It is a vector bundle because
+	\[\begin{tikzcd}
+		0\arrow[r]&T_\pi M\arrow[r]&TM\arrow[r,"d\pi"]&\pi^*TM'\arrow[r]&0
+	\end{tikzcd}\]
+	where $T_\pi M$ is the vertical subbundle ie. $\ker \pi$
+
+	\textit{\textbf{Ehresemann connection}} is a decomposition  $T_{\text{horizontal} }\oplus T_{\text{vertica} }=TM$. Then there is a projection $d\pi:T_\text{hor}\to TM' $ and an associated curve. This gives the diffeomorphism that says all fibers are diffeomorphic. (see slides)
+\end{proof}
+
+\subsection{Space of smooth quartics}
+
+Let $V=\mathbb{C}^{35}=\operatorname{Sym}^4\mathbb{C}^4$ be the set of homogeneous degree 4 polynomials in 4 variables. Interpret $P\in V$ as a quartic equation in $W=\mathbb{C}^{4}$
+
+\begin{claim}
+	Let $Z\subset \mathbb{P}V\times \mathbb{C}P^{3}$ be the set $\{(P\in\mathbb{P}V,w\in\mathbb{C}P^{3}:P(w)=0\}$. Then $Z$ is smooth and irreducible.
+\end{claim}
+
+\begin{proof}
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item So we have a point in a hyperplane and the hyperplane is in $\mathbb{C}P^{3}$ Veronese (ie. embedded, it is a quartic $Q$). So we have $x\in\ell$, $\ell$ hyperplane section. And then let $\tilde{Z}\subset \mathbb{C}^4\times \mathbb{C}^{35}$ be "the corresponding set of vectors". So $Z=\tilde{Z}/\mathbb{C}^*\times \mathbb{C}^*$. Clearly it suffices to show that $\tilde{Z}$ is smooth (?).
+
+		\item Take the derivative of $(P+tQ)(w)$, it is not zero and so  $\tilde{Z}$ is smooth.
+
+		\item Use Sard's lemma or Bertini theorem + Lefschetz hyperplane to show $F$, the general fiber of the projection of  $Z$ to  $\mathbb{C}P^{34}$, is connected and hence $Z$ is irreducible.
+
+			How to use LEfschetz?
+\[V(\mathbb{C}P^{3})\subset \mathbb{C}P^{34}\]
+\[Q=V(\mathbb{C}P^{3})\cap H\]
+and put all the cells in one half and then the other half just remains connected.
+	\end{enumerate}
+\end{proof}
+
+\begin{question}
+	Is there a better way to show that a general smooth quartic in $\mathbb{C}P^{3}$ is connected (without Lefschetz)?
+
+	Use that all quartics are equivalent (outside discriminant) and then just use $X_1^4$. (…?)
+\end{question}
+
+\subsection{ Smooth quartics are diffeomorphics}
+
+\begin{coro}
+	Smooth quartics are differomorphic.
+\end{coro}
+
+\begin{proof}
+	\[\begin{tikzcd}
+	Z\arrow[d,"Q"]\\
+	\mathbb{C}P^{34}\supset\mathcal{D}
+	\end{tikzcd}\]
+	We want to prove that the fibers are diffeomorphic. We need to remove the non-smooth fibers of this map. The critical values are the (…) is called \textit{\textbf{discriminant}}.  So $\mathcal{D}$ is the set of al singular quartics. And $\mathbb{C}P^{34}\setminus \mathcal{D}$ is connected.
+
+\begin{exercise}
+	Complement to proper subvariety is connected. Take two points and try to join them. Vanya: they intersect $\mathcal{D}$ in a finite ammount of points. Misha: every path can be deformed to a path that avoids $\mathcal{D}$ by Sard's theorem because $\mathcal{D}$ has codimension 2.
+\end{exercise}
+Then all fibers of 
+\[\begin{tikzcd}
+Z\setminus \pi^* (\mathcal{D})\arrow[d,"\pi"]\\
+\mathbb{C}P^{34}\setminus \mathcal{D}
+\end{tikzcd}\]
+$\pi$ are diffeomorphic because $\pi$ is a proper smooth submersion.
+\end{proof}
+
+\begin{remark}
+	The same arguemtns shows that smooth hypersurfaces of degree $d$ in $\mathbb{C}P^{n}$ are diffeomorphic.
+\end{remark}
+
+\subsection{Ample bundles}
+
+\begin{defn}
+If you have $\varphi:X\to \mathbb{C}P^{n}$ projective complex, then 
+\[\varphi^*(\mathcal{O}(1))\]
+is called \textit{\textbf{very ample}} and  $L$ is \textit{\textbf{ample}} if $L^{\otimes n}$ is very ample for some $n>0$.
+\end{defn}
+
+Kähler classes are classes of Kähler forms.
+
+\begin{thm}[Kodaira]\leavevmode
+	$L$ is very ample iff $c_1(L)$ is a Kähler class.
+	
+\end{thm}
+
+\paragraph{Objective} All K3 are diffeomorphic. Need to prove that quartics are dense in the universal family of K3 over its Teichmüler space. Then we can deform a bit complex structure, deformatino doesn't change topology.
 
 
+We need to identify the quartics among all K3 surfaces $M$ containing $x\in\operatorname{Pic}(M)$ such that $x\cap x=4$ in other words 
 
+You have a quartic $Q$, the generator of picard is $\mathcal{O}(1)$. Its self intersection is 4, to see if consider $[H\cap Q]$, intersection with hyperplane.
 
-\section{Class 8}
+And we want that to be very ample. $c_1(L)\cap c_1(L)=4$.
+
+\begin{remark}[Dani]\leavevmode
+	Not every K3 is quartic but every K3 is very close to a quartic in Teichmüler.
+\end{remark}
+
+\begin{remark}
+	Pellisky? did it with Kummer (surfaces?), which much harder.
+\end{remark}
+
+\subsection{Very ample bundles}
+Interpret very ampleness as vanishing of cohomology groups.
+
+\begin{claim}[The Following AreEquival ]\leavevmode
+	\begin{enumerate}[label=(\roman*)]
+		\item $\phi_L:X\to \mathbb{C}P^{n}=\mathbb{P}H^{0}(X,L)$ is injective and holomorphic.
+		\item $\forall x,y$ exists section $\gamma \in H^{0}(X,L)$ with $\mathcal{D}=$zero $\gamma$, $X\in\mathcal{D}, y \not\in\mathcal{D}$.
+	\end{enumerate}
+\end{claim}
+
+This is equivalent to
+\[\begin{tikzcd}
+H^{0}(X,L)\arrow[d]\\
+H^{0}(X,\frac{L}{(\mathfrak{m}_x\cap \mathfrak{m}_y})\otimes L)
+\end{tikzcd}\]
+And that thing is some skyscraper things but is reall only $\mathbb{C}^2$.
+
+\begin{remark}
+	$\mathfrak{m}_x$ max ideal of $x$. The 1-jets of functions in $x$ is $\mathcal{O}_X/\mathfrak{m}_x^2$. Then the natural map
+	\[\phi_LX:\to \mathbb{P}H^{0}(L)\]
+	is non-zero for all $X$. There exists section $\gamma$ 1-jet $x$ is non-zero $\gamma(x)=0$.
+\end{remark}
+
+\begin{defn}
+	$f,g\in\mathcal{O}_{X,x}$ germs of functions at $x$ (or even sections of line bundle in neighbourhood of a point). $f$ has same  $k$-jet as $g$ if $f-g$ has zero order $k+1$. Same Taylor series up to $k+1$. 
+
+	0jet is Taylor. 1-jet is Taylor plus differential. And the good thing is that $\mathfrak{m}/\mathfrak{m}^2=T_xM^*$. Kernel of differential is kernel on 1-jets.
+\end{defn}
+
+\subsection{Alternative description of very ampleness}
+
+\begin{coro}
+	$L$ bundle on compact complex manifold $X$. equivalent:
+	\begin{enumerate}[label=(\roman*)]
+		\item $L$ very ample.
+		\item \[ H^{0}(L)\to H^{0}(L)/(\mathfrak{m}_x\cap \mathfrak{m}_y)\otimes L)\] (skyscraper sheaves isomorphic to $\mathbb{C}$) is surjective and also
+				\[H^{0}(L)\to H^{0}(L/(L\otimes \mathfrak{m}_x^2)\]
+				is surjective too. On right hand side of the second one in fact that it cotangent space (some comment about thinking of this like some coordinate system).
+	\end{enumerate}
+\end{coro}
+
+Now think of this short exact sequence of coherent sheaves
+\[\begin{tikzcd}
+	0\arrow[r]&L\otimes (\mathfrak{m}_x\cap\mathfrak{m}_y)\arrow[r]&L\arrow[r]&L/(\mathfrak{m}_x\cap\mathfrak{m}_y)\otimes L\arrow[r]&0
+\end{tikzcd}\]
+and the last sheaf is just finite dimensional space. This gives a long exact sequence.
+\[\begin{tikzcd}[column sep=small]
+	\cdots\arrow[r]&H^{0}(L)\arrow[r]&H^{0}(L)/\mathfrak{m}_x\cap \mathfrak{m}_y\arrow[r]&H^{1}(L\otimes (\mathfrak{m}_x\cap \mathfrak{m}_y))\arrow[r]&\arrow[r]&\arrow[r]&\cdots
+\end{tikzcd}\]
+If cohomology of that last one vanishes and also $H^{1}(L\otimes \mathfrak{m}_x^2)$ vanishes you are very ample. So its a vector bundle.
+
+\begin{remark}
+	So, for curves very amplness is very easy to check. Because every module is sum of rings by list 1 we have that the last one on the sequence is a vector bundle, finitely generated coherent, and then Kodaira says that vanishes.
+\end{remark}
+
+Canonical bundle is very ample unless curve is elliptic?
+
+\section{Class 9}
 
 
 \end{document}
