@@ -39,23 +39,24 @@ Then the proof is just mimicking the \href{https://proofwiki.org/wiki/Polynomial
 Let $J$ be an ideal of $\mathcal{O}_1$ and $g\in J$ be a Weierstrass polynomial of lowest degree. Then by Weierstrass Division Theorem we get $h,r\in\mathcal{O}_1$ such that $f=g\cdot h+r$ but by the choice of $g$ we see $r$ must be zero. This means $J=\left<g\right> $.
 \end{proof}
 
+\addcontentsline{toc}{sec}{1.2 Invariant factors theorem}
 \begin{manualexercise}{1.2}[Invariant factors theorem]
 	Let $R$ be a principal ideal ring. Prove that any finitely-generated $R$-module is a direct sum of cyclic $R$-modules. Use this result to deduce the Jordan normal form theorem, and to classify the finitely-generated abelian groups.	
 \end{manualexercise}
 
 \begin{proof}[Solution]\leavevmode
 	I follow \cite{dummit} to prove that
-	 \begin{thm}\leavevmode
+	 \begin{idea4}{Invariant Factors Theorem}\leavevmode
 		Let $R$ be a principal ideal \textit{domain} and let $M$ be a finitely generated $R$-module. Then 
 		\[M\cong  R^r\oplus R/(a_1)\oplus R/(a_2)\oplus \ldots\oplus R/(a_m)\]
 		for some integer $r\geq 0$ and nonzero elements $a_1,a_2,\ldots,a_m$ of $R$ which are not units in $R$ and which satisfy the divisibility relation
 		\[a_1|a_2|\ldots|a_m\]
-	\end{thm}
+		 \end{idea4}
 	which strongly relies on
-	\begin{thm}[4]
+		\begin{idea3}{Theorem 4}\leavevmode
 		Let $R$ be a PID, $M$ a a free $R$-module of finite rank $n$ and $N$ a submodule of $M$. Then $N$ is a free module of rank $m\leq n$ and there exists a basis $y_1,y_2,\ldots,y_n$ of $M$ such that $a_1y_1,a_2y_2,\ldots,a_my_m$ is a basis of $N$, where $a_1,a_2,\ldots,a_m$ are nonzero elements of $R$ with the divisibility relations
 		\[a_1|a_2|\ldots|a_m.\]
-	\end{thm}
+	\end{idea3}
 whose proof is rather involved.
 
 \begin{proof}[Proof of Invariant factors theorem]
@@ -113,12 +114,16 @@ of $T$.
 Finally, the classification of finitely generated abelian groups follows by direct application of the Invariant factors theorem choosing $R=\mathbb{Z}$, since abelian groups are in correspondence with $\mathbb{Z}$-modules.
 \end{proof}
 
+\begin{idea1}{Definition 1.2}\leavevmode
+	A \textit{\textbf{coherent sheaf}} on a complex manifold $M$ is a sheaf of modules over the sheaf $\mathcal{O}_M$ of holomorphic functions on $M$, which is locally finitely generated and locally finitely presented (that is, the sheaf of relations between its local generators is also locally finitely generated {\color{2}(I don't understand this)}).
+\end{idea1}
+
 \begin{idea5}{Exercise 1.3}[After date]\leavevmode
 	Let $C$ be a  complex curve, and $x\in C$ a smooth point. Prove that any coherent sheaf on $C$ supported in $x$ is isomorphic to $\bigoplus_{i=1}^k \mathcal{O}_C/\mathfrak{m}^{d_i} $.
 \end{idea5}
 
 \begin{proof}[Solution]\leavevmode
-	The local ring of a point is 
+	Recall that the local ring of a point is a principal ideal domain. Since any coherent sheaf $\mathcal{F}$ is finetely generated, we may apply Invariant Factors Theorem 
 \end{proof}
 
 \begin{manualexercise}{1.4}[After date]
@@ -134,7 +139,7 @@ Finally, the classification of finitely generated abelian groups follows by dire
 	\end{enumerate}
 \end{manualexercise}
 
-\begin{manualexercise}{1.5 (after date)}
+\begin{manualexercise}{1.5}[After date]
 	Let $C$ be a compact complex curve, and $F$ a coherent sheaf on  $C$. We define the \textit{\textbf{Euler characteristic}} of $F$ as
 	\[\chi(F):=\dim H^{0}(C,F)-H^{1}(C,F)\]
 	Prove that $\chi$ defines a group homomorphism $K_0(C)\to \mathbb{Z}$.
