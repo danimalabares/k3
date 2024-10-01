@@ -891,7 +891,7 @@ So the textbook definition is that \textit{\textbf{Chern character}} on line bun
 
 \paragraph{Notation}
 \[(L_1,L_2)=c_1(L_1)\wedge c_1(L_2)\]
-and if $D$ is a divisor we write
+and if $D$ is a divisor we write (the \textit{\textbf{degree of a divisor}})
 \[(D,L)=\operatorname{deg}_DL=\int_{M}[D]\wedge c_1(L)\]
 
 \begin{thm}[RRH for surfaces]\leavevmode
@@ -1530,10 +1530,262 @@ If cohomology of that last one vanishes and also $H^{1}(L\otimes \mathfrak{m}_x^
 
 Canonical bundle is very ample unless curve is elliptic?
 
-\section{Class 9}
+\section{Class 9: Nakai-Moishezon theorem}
+Today it will be mostly algebraic geometry, so no K3.
+
+\subsection{Ample bundles}
+Looks like here's another definition:
+
+\begin{defn}\leavevmode
+	$L$ is \textit{\textbf{very ample over $X$}}  if
+	\[X\hookrightarrow \mathbb{P}H^{0}(x,L)^*\]
+	and $L$ is  \textit{\textbf{ample}} if $L^{\otimes N}$ is very ample for some $N>0$.
+\end{defn}
+
+\begin{remark}
+	$\overline{L}$ holomorphic line bundle on compact complex, then $L$ is ample on a convex complex cone if and only if $\operatorname{deg}(L)>0$.
+\end{remark}
+
+\subsection{Very ample bundles}
+
+
+\begin{claim}
+	$x\neq y\in X$ then
+	\[\varphi:H^{0}(L)\longrightarrow H^{0}(L/(\mathfrak{m}_x\cap \mathfrak{m}_y)\]
+	is surjective, and the standard map
+	\[\varphi_L\longrightarrow \mathbb{P}H^{0}(X,L)^*\]
+\end{claim}
+
+Two sections that have different derivative (1-jet) have different images, then the derivative is non-zero (derivative is injective). Uses inverse function theorem?
+
+\begin{proof}\leavevmode
+From (surjectivity?) of $\varphi$ we get that
+	\[H^{0}(L)\longrightarrow H^{0}(L/\mathfrak{m}_x^2)\]
+	Then $\varphi$ is isom to its image. (Because $\varphi=\varphi^*\Big|_{\mathfrak{m}_x/\mathfrak{m}^2}$)
+\end{proof}
+
+\subsection{Very ample bundles again}
+
+\begin{coro}\leavevmode
+	If $H^{1}(L/(\mathfrak{m}_x\cap \mathfrak{m}_y))=0$ and $H^{1}(L\otimes \mathfrak{m}_y^2)=0$ for all $x,y$ then  $L$ is very ample.
+\end{coro}
+
+\begin{proof}\leavevmode
+	\[\begin{tikzcd}
+		0\arrow[r]&H^{0}(L)\arrow[r]&H^{0}(L/\mathfrak{m}_x^2)\arrow[r]&H^{1}(\mathfrak{m}_x^2\otimes L)\arrow[r]&0
+	\end{tikzcd}\]
+\end{proof}
+
+\subsection{Very ample bundles on a curve}
+
+\begin{thm}[Kodaira-Nakano vanishing]\leavevmode
+	$L$ holomorphic line bundle on compact complex curve, $L\otimes K^{-1}_M$ ample. Then $H^{i}(L)=0$ for all $i>0$
+\end{thm}
+Now we can do something about curves.
+
+\begin{coro}\leavevmode
+	Let $L$ be a line bundle on a compact complex curve  $C$ of genus $g$, and $\operatorname{deg}L>2g$.
+\end{coro}
+
+\begin{proof}\leavevmode
+		\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item We need to prove that
+	\begin{align*}
+		H^{1}(L\otimes(\mathfrak{m}_x\cap \mathfrak{m}_y))=0\qquad \qquad H^{1}(L\otimes \mathfrak{m}_x^2)
+	\end{align*}
+	{\color{2}Slides: }The sheaves $L\otimes\mathcal{O}_X\otimes(\mathfrak{m}_x\cap \mathfrak{m}_y)$ are line bundles of $\operatorname{deg}L-2$. {\color{4}Board:} $L\otimes \mathfrak{m}^2$ and $L\otimes(\mathfrak{m}_x\cap \mathfrak{m}_y)$ are line bundles of degree $\operatorname{deg}L-2$.
+
+	So what is it anyway?
+	 \[L\otimes \mathfrak{m}_x^2=L(-2x)\qquad \qquad L\otimes \mathfrak{m}_x\cap \mathfrak{m}_y=L(-x-y)\]
+
+	 \item The degree of the canonical bundle is $2g-2$. {\color{6}By Kodaira}, $L_1$ ample if and only if $\operatorname{deg}(L_1\otimes K_X^{-1})>0$ iff $\operatorname{deg}L_1>2g-2$.  $(L\otimes \mathfrak{m}_x^2)\otimes K^{-1}_X$ ample and equals $H^{1}(L\otimes \mathfrak{m}_x^2)=0$ by Kodaira-Nakano, $L_1=L\otimes \mathfrak{m}_x$, or $L_1=L\otimes(\mathfrak{m}_x\cap \mathfrak{m}_y$
+	\end{enumerate}
+\end{proof}
+
+
+\subsection{Canonical map for a complex curve}
+
+\begin{defn}\leavevmode
+	Let $L$ be a line bundle on $X$. A point $p \in X$ is called a \textit{\textbf{base point}} if all sections of $L$ vanish in $p$.
+\end{defn}
+
+\begin{defn}\leavevmode
+	Assume $K_X$ has no base points. Then
+	\[\psi_{K_X}:X\longrightarrow \mathbb{P}H^{0}(X,K_X)\]
+	is called the \textit{\textbf{canonical map}}.
+\end{defn}
+
+\begin{thm}\leavevmode
+	$C$ curve, $g(L)\geq 2$. $K$ canonical bundle. Then  $H^{0}(K)$ has no common zeroes, the canonical map $\psi:C\longrightarrow \mathbb{P}H^{0}(K)^*$ is embedded or is a two-sheeted (2-to-1) ramified covering to $ \psi(C)=\mathbb{C}P^{1}$.
+\end{thm}
+
+\begin{remark}
+	In the second case $C$ is called a \textit{\textbf{hyperelliptic curve}}. In step 3, we will prove that any curve admitting a two sheeted ramified covering to  $\mathbb{C}P^{1}$ is hyperelliptic.
+
+	This gives you two theorems about moduli spaces. Two curves are isomorphic if these subvarietes are conjugated by linear map, so gives you a point in Hilbert scheme. So hyperelliptics are the same as $\mathbb{C}P^{1}$… ah, but it has to be separated, $(\mathbb{C}P^{1})^n$, and without the diagonals, and 
+	\[\Big((\mathbb{C}P^{1})^n\setminus \text{diagonals}\Big)\Big/\operatorname{PGL}(2,\mathbb{C})\times \{2^{2g}\} \]
+	The power of 2 term are possible choices of ramification.
+\end{remark}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item First we need to show there are no common zeroes. That is, sections of $K$ have no common zeroes. Let $ p \in\mathbb{C}$ and let $k_p=\mathcal{O}_C/\mathfrak{m}_p$. Consider 
+			\[\begin{tikzcd}
+			0\arrow[r]&K(-p)\arrow[r]&K\arrow[r]&k_{p}\arrow[r]&0
+		\end{tikzcd}\]
+The corresponding long exact sqeuence says
+\[\begin{tikzcd}
+	H^{0}(K_C)\arrow[r]&H^{0}(k_p)\arrow[r]&H^{0}(K(-p))
+\end{tikzcd}\]
+so surjectivity is equivalent to $p  \not \in $ common zeroes.
+
+But $H^{1}(K(-p))=0$ because $H^{1}(K(-p))=H^{0}(\mathcal{O}(p))^*$ by Serre duality. So we only need to show that there are no section is the latter degree 1 bundle. If there exists $\gamma \in H^{0}(\mathcal{O}(p))$ meromorphic function with a single pole on $p$,  we obtain a holomorphic function $f:C\longrightarrow \mathbb{C}P^{1}$ of degree 1, meaning $C=\mathbb{C}P^{1}$.
+
+\item $\psi$ non-injective, that it glues together $p$ and $q$. Then $H^{1}(K(-p-q))\neq 0$.And by Serre duality $H^{0}(\mathcal{O}(p+q)=H^{1}(K(-p-q))\neq 0$. Then there exists a meromorphic function $f$ with poles on $p,q$ and  $f:C\longrightarrow \mathbb{C}P^{1}$ of degree 2.
+
+\item So you have a map with two preimages. So consider a map that exchanges the preimages.
+
+		Now we will show that $\psi(C)=\mathbb{C}P^{1}$ admits a two sheeted ramified covering to $\mathbb{C}P^{1}$. Let $\tau:C\longrightarrow C$ be the involution exchanging the sheets of the covering. It is holomorphic because it has only Riemann-extendible singularities. And it acts on $H^{0}(K_C)$ with eigenvalues $\pm 1$. But $H^{0}(\Omega^{1}(\mathbb{C}P^{1}) )=0$ so $\tau|_{H^{0}(K_C)}=-\operatorname{id}$. Therefore we see that $\psi$ glue $p$ and  $q$.
+	\end{enumerate}
+\end{proof}
+
+\subsection{Finite morphisms}
+
+\begin{defn}\leavevmode
+	Let $f:X\longrightarrow Y$ a morphism of varieties (or schemes). $f$ is \textit{\textbf{finite}} if for every $U\subset Y$ open, $\mathcal{O}_{f^{-1}(U)}$ is finitely generated as an $H^{0}(\mathcal{O}_U)$-module.
+
+	{\color{5}Board:} if the ring $f^*\mathcal{O}_U$ is finitely generated as an $\mathcal{O}_V$-module where $V=f^{-1}(U)$.
+\end{defn}
+
+\begin{thm}\leavevmode
+	$f:X\longrightarrow Y$ proper and the preimage of any point is finite.
+\end{thm}
+
+\begin{proof}\leavevmode
+	Hartshorne exerice III 11.2. And also past courses and EGA.
+\end{proof}
+
+\subsection{Amplennes and cohomology}
+
+\begin{thm}\leavevmode
+	$L$ is ample iff $\forall $ coherent $F$ there exists $d>0$ such that  $H^{i}(F\otimes L^{\otimes k})=0$ for all $i>0$ and  $k\geq $.
+\end{thm}
+
+\begin{proof}\leavevmode
+	Hartshorne.
+\end{proof}
+
+\begin{thm}\leavevmode
+$f$ finite functor then pusforward is acyclic exact functor.
+
+$f:X\longrightarrow Y$ finite map, $F$ coherent sheaf on $X$. Then
+\[H^{i}(f^{-1}(U),F)=H^{i}(U,f_* F)\]
+for any open set $U\subset Y$; in other words, $R^if_* F=0$ for all $i>0$.
+\end{thm}
+
+\begin{proof}\leavevmode
+	The Rising Sea, thm 18.7.5.
+\end{proof}
+
+\begin{idea4}{Corollary 1}\leavevmode
+	$L$ line bundle on a complex variety $X$ such that the standard map $f:X\longrightarrow \mathbb{P}H^{0}(X,L)^*$ is finite. Then $L$ is ample.
+\end{idea4}
+
+\begin{proof}\leavevmode
+	(Proof is simple but unfortunately uses complicated theorems.)
+
+	Let $Y=f(X)$ and $F$ a coherent sheaf on $X$. We have that $L=f^*(\mathcal{O}(1))$. And then there is the formula of base-change (maybe) which says (and it works for any other sheaf instead of $\mathcal{O}(1)$) that $f_*(F\otimes_{\mathcal{O}_X}L^{\otimes k}=f_* F\otimes_{\mathcal{O}_Y}\mathcal{O}(k)$. Ok and then we can compute cohomology:
+	\begin{align*}
+		H^{i}(X,F\otimes L^{\otimes n})&=H^{i}(Y,\underbrace{F\otimes \mathcal{O}(n)}_{=0}
+	\end{align*}
+	so $L$ is ample.
+\end{proof}
+
+What is this for? We want to explore some invariants on K3.
+
+\subsection{Nakai-Moshezon theorem}
+
+It's a very nice criterion for ampleness. It can be generalized to Kähler, but we won't do that.
+
+\begin{thm}[Nakai-Moshezon]\leavevmode
+	Let $L$ be a line bundle on a projective variety $X$. Suppose for all subvarieties $Y\subset X$
+	\[\int_{Y}c_1(L)^d>0,\qquad d=\dim Y\]
+	then $L$ is ample.
+\end{thm}
+
+\begin{proof}\leavevmode It's seven steps.
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item Let's do induction on $\dim X$. For $\dim X=1$ it is clear. Assume that $L$ is ample on all proper $X_1\subsetneq X$. The next step is the {\color{3}most difficult step}: show that $H^{0}(X,L^{\otimes n})\neq 0$ for $k\gg 0$
+
+		\item We need a very ample bundle. Let $L_1$ be a very ample bundle with a sufficiently big $c_1$ such that $c_1(L\otimes L_1\otimes K^{-1}_X$ is Kähler ($\overset{?}{=}$ ample). Then $H^{1}(L_1\otimes L)=0$ for all $i>0$. Let  $H$ be a smooth zero divisor of $L_1$ such that $\mathcal{O}(H)=L_n$. Now consider the short exact sequence
+			\[\begin{tikzcd}
+				0\arrow[r]&L\arrow[r]&L\otimes \mathcal{O}(H)\arrow[r]&L\otimes \mathcal{O}(H)|_{H}\arrow[r]&0
+			\end{tikzcd}\]
+			I took a section of $L_1$, wrote this exact sequence and the one on the right is ample by assumption. Then we can replace $L$ by a sufficiently big power $L^{\otimes d}$, we may assume that $L^{\otimes d}|_{H}$ is ample. (We want to show $L_1$? is Kähler. If you are an algebraic geometer then maybe you'd say something like any bundle is ample if you multiply be a sufficiently large power…) {\color{4}I think} here we tensor multiply to get
+			\[\begin{tikzcd}
+				0\arrow[r]&\mathcal{O}(-H)\arrow[r]&\mathcal{O}\arrow[r]&?\arrow[r]&0
+			\end{tikzcd}\]
+			Anyway, we get
+			\[\begin{tikzcd}[column sep=small]
+				\cdots\arrow[r]&H^{i-1}(L^{\otimes d}\otimes \mathcal{O}(n)|_{H})\arrow[r]&H^{1}(L^{\otimes d})\arrow[r]&H^{i}(L^{\otimes d}\otimes L_1)\overset{?, \text{board} }{=}H^{1}(L^{\otimes d}\otimes \mathcal{O}(H))\arrow[r]&\cdots
+			\end{tikzcd}\]
+			then there exists $d\gg 0$ such that  $H^{i}(L^{d+j})=0$ for all $j\geq 0$ and $i>1$.
+
+			(We didn't prove  $L$ is ample on  $X$. The idea is that the curvature of $\mathcal{O}(n)\otimes L^{\otimes d}$ is strictly positive ($\overset{?}{=}$ has sections. Perhaps the use of $d$ can be avoided if we choose $H$ properly…)
+
+
+			Again, we have 
+			\[\begin{tikzcd}[column sep=small]
+				\cdots\arrow[r]&H^{i-1}(L^{\otimes d}\otimes \mathcal{O}(n)|_{H})\arrow[r]&H^{1}(L^{\otimes d})\arrow[r]&H^{i}(L^{\otimes d}\otimes \mathcal{O}(n))\arrow[r]&\cdots
+			\end{tikzcd}\]
+and then
+\begin{align*}
+	K_H&=K_M|_{H}\otimes \mathcal{O}(n)\\
+	K_H^{-1}&=K_M|_{H}\otimes \mathcal{O}(-n)
+\end{align*}
+
+\begin{idea5}{We proved}\leavevmode
+	there's only two possible non zero cohomology which is $H^{1}$ and $H^0$.
+
+	That is, there exists $d\gg 0$ such that $H^{i}(L^{\otimes j})=0$ for $i>1$,  $j>d$
+\end{idea5}
+
+\item Looks like by Riemann-Roch, $\chi(kL)$ is a polynomial of  $k$ of degree $n$ given by Todd.
+	\begin{align*}
+	\int_{X}\frac{kc_1(L)^n}{n!}&=\lim_{k \to \infty} \chi(kL)=\infty\\
+\implies \lim_{k \to \infty} \operatorname{Ch}_{\cdot}(H^{0}(kL))=\infty
+	\end{align*}
+
+\item Replace $L$ by $L^{\otimes k}$. Can assume $\dim H^{0}(L)>d$. Then
+	\[\begin{tikzcd}
+		0\arrow[r]&(K-L)L\arrow[r]&kL\arrow[r]&kL|_D\arrow[r]&0
+	\end{tikzcd}\]
+	Now by inductive assumption $L|_{D}$ ample. So $H^{i}(kL)=0$ for all $k>d$ and  $i>0$. Then we get the long exact sequence
+	 \[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&H^{0}((k-1)L)\arrow[r]&H^{0}(kL)\arrow[r]&H^{0}(kL|_{D})\arrow[r]&H^{1}((k-1)L)\arrow[r]&H^{1}(kL)\arrow[r]&0
+	\end{tikzcd}\]
+	Now the function $k\mapsto \dim H^{1}(kL)$ is monotonous non-increasing, so it must stabilize. Therefore for $k\gg 0$ we get an surjection $H^{0}(kL)\longrightarrow H^{0}(L|_{D})$.
+
+	\item The birrational map $\Phi:X\longrightarrow \mathbb{P}H^{0}(kL)$. Every $x\in X$ is connected in $D $ for some section of $L$ to every $ y\in D$ (?). {\color{3}Slides:} $D$ can be chosen as $\Phi^*(H)$ where $\Phi^*$ is proper preiage and $H$ a hyperplane section in $\mathbb{P}H^{0}(L)^*$, therefore for any two points $x,y\in X$ we may choose $D$ containint these two points.
+
+		Then there exists a section of  $kL$ non-zero on  $y$, implying that  $\Phi$ is holomorphic. So there is a section of $kL$ separating these points (vanishing in one and non-vanishing in the other). For each point, there is a section that is not zero.
+
+	 \item The bundle $kL$ is ample by Corollary 1.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	See the book \textit{Positivity in algebraic geometry}.
+\end{remark}
+
+
+
+
+\section{Class 10}
 
 
 \end{document}
+
 
 
 

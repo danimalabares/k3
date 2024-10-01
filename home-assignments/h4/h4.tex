@@ -1,0 +1,46 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 4: quadratic lattices}
+
+\begin{idea5}{Definition 4.1}\leavevmode
+	A \textit{\textbf{lattice}} is a finitely generated torsion-free $\mathbb{Z}$-module. \textit{\textbf{Quadratic form}} on a lattice is a function $q:L\to \mathbb{Z}$, $q(\ell)=B(\ell,\ell)$ where $B$ is a bilinear symmetric pairing $B:L\otimes_\mathbb{Z}L\longrightarrow \mathbb{Z}$. \textit{\textbf{Quadratic lattice}} is a lattice equipped with a quadratic form. A quadratic form is \textit{\textbf{indefinite}} if it takes positive and negative values, and \textit{\textbf{unimodular}} if $B$ is non-degenerate and defines an isomorphism $L\xrightarrow{\sim}L^*$.
+\end{idea5}
+
+\begin{idea4}{Exercise 4.1}\leavevmode
+	Let $(L,q)$ be a quadratic lattice, $L_{\mathbb{Q}}:=L\otimes_{\mathbb{Z}}\mathbb{Q}$, and $L^*$ the set of all $x\in L_{\mathbb{Q}}$ such that $q(x,L)\subset \mathbb{Z}$.
+	\begin{enumerate}[label=\alph*.]
+		\item Prove that $L^*$ is a lattice of the same rank as $L$ and $L\subset L^*$.
+		\item The \textit{\textbf{dscriminant group}} of $L$ is $\operatorname{Disc}_L:=L^*/L$. Prove that $L$ is unimodular if and only if $\operatorname{Disc}(L)=\{0\}$.
+		\item Let $G$ be an abelian group. Construct a lattice $(L,q)$ such that $\operatorname{Disc}(L)=G$.
+	\end{enumerate}
+\end{idea4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=\alph*.]
+	\item Consider the canonical identification of
+		\begin{align*}
+			L &\longrightarrow L^\star\\
+			x &\longmapsto q(x,\cdot)
+		\end{align*}
+		where $L^\star$  is the set of linear forms on $L$. I expect to find an identification  $L^*\cong L^\star$. What exactly is $q(x,\ell)?$. Since $x=\sum_{i}q_ie_i$ with $q_i\in\mathbb{Q}$,
+		
+\end{enumerate}	
+\end{proof}
+
+\end{document}
