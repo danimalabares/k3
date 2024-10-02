@@ -1,4 +1,6 @@
 \input{/Users/daniel/github/config/preamble.sty}
+\input{/Users/daniel/github/config/thms-eng.sty}
+
 
 \begin{document}
 
@@ -1781,7 +1783,192 @@ and then
 
 
 
-\section{Class 10}
+\section{Class 10: surfaces with Picard rank 1}
+
+\subsection{Intuition and review}
+
+Today we'll see how to construct quadrics. Any K3 with rank 1 and Picard rank 4 is a quartic.
+
+\begin{idea4}{Mumford}\leavevmode
+	offered money to anyone who could give a K3 with Picard rank 1. Took 30 years.
+\end{idea4}
+
+So far we have:
+
+\begin{thm}[Kodaira]\leavevmode
+	$L$ ample $\iff$ $c_1(L)$ Kähler.
+\end{thm}
+
+\begin{thm}[Kodaira-Nakano vanishing]\leavevmode
+	$L\otimes K^{-1}_M\implies H^{i}(L)=0\forall i>0$.
+\end{thm}
+
+\begin{thm}[?]\leavevmode
+	$C$ compact complex smooth curve then $K_C$ is globally generated  $\phi:C\longrightarrow \mathbb{P}H^{0}(K_C)$ is 2:1 smooth cover or embedding.
+\end{thm}
+
+\begin{thm}[result, see last class]\leavevmode
+	Is ample iff kills cohomology
+\end{thm}
+
+\begin{idea2}{Corollary 1}\leavevmode
+	$X\longrightarrow \mathbb{P}H^{0}(X,L)^*$ is finite then $L$ is ample.
+\end{idea2}
+
+\begin{idea5}{Intuition}[of what's about to happen]\leavevmode
+	Consider a curve with self-intersection (a hand-drawn line/string that intersects itself). Then we will resolve that singularity by "streching the string" or "separating the branches at the intersection point".
+\end{idea5}
+
+\subsection{Singular curve in a K3 surface}
+
+\begin{claim}\leavevmode
+	Let $C\subset M$ be a curve in a singular complex surface. Then there exists a surface $\tilde{M}\xrightarrow{\pi}M$ obtained by succesive blow-ups of $M$ such that the proper preimage $\tilde{C}$ of $C$ is smooth. (The \textit{\textbf{proper preimage}} is taking the points in the curve and not the exeptional divisord.)
+\end{claim}
+
+\begin{defn}\leavevmode
+	Multiplicity of a singular point is dimension? of cohomology. \end{defn}
+
+\begin{proof}\leavevmode
+	Take the single blow-up of $C$ in a singular point. It has smaller multiplicity; We are saying that $\tilde{C}$ has strictly smaller multiplicity. For this we have thought of
+	\[\begin{tikzcd}
+	\tilde{M}\arrow[d,"\pi"]\\
+	M\subset C
+	\end{tikzcd}\]
+	and the exceptional divisor is $E$ in $\pi^{-1}(C)=\tilde{C}+E$. So to compute mutliplicity we have done
+	\[\tilde{L}\cap(\tilde{C} \times E)=L\cap C\]
+	\[\implies \tilde{L}\cap \tilde{C}<L\cap C\]
+\end{proof}
+
+\begin{remark}\leavevmode
+	So we can resolve singularities and that's what happens with multiplicity.
+\end{remark}
+
+\section{Singular curve in a K3 surface (corollary 2)}
+
+So let $M$ be a K3 surface and $C$ a singular curve in K3. Then take the pullback bundle of $C$ and call it $L=\mathcal{O}(\pi^{-1}(C))=\pi^*(\mathcal{O}(C))$. Remember that $\pi^{-1}(C)=\tilde{C}+E$. Then $\mathcal{O}(\tilde{C})\otimes\mathcal{O}(E)=L$, so the \textit{normal bundle} is $N(\tilde{C})=L\otimes \mathcal{O}(-E)$ and $K_{\tilde{M}}=\mathcal{O}(E)$. So we can compute the canonical bundle: $K_{\tilde{M}}\otimes N_{\tilde{\mathbb{C}}}=K_{\tilde{C}}$, $\mathcal{O}(E)\otimes L\otimes \mathcal{O}(-E)=L$.
+
+\begin{idea6}{Corollary 2}\leavevmode
+$C$ curve of genus >0 in K3 surface $M$. Then $\mathcal{O}(C)|_{C}$ is globally generated.
+\end{idea6}
+
+\begin{proof}\leavevmode
+	Need to show 
+\end{proof}
+
+\subsection{Picard rank 1 is usually very ample}
+
+\begin{thm}\leavevmode
+	$M$ K3 with $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ a generator of $\operatorname{Pic}(M)$ such that $(L,L)\geq 0$. Then $L$ or $L^*$ is globally generated.
+\end{thm}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item We use Riemann-Roch (like everytime when you get a surface). We get that $h^{0}(L)-h^{1}(L)+h^{2}(L)=2+\frac{(L,L)}{2}$ so $h^{2}(L)-h^{1}(L)\geq 2$. Now since $h^{0}(L)=h^{2}(L)^*$ we may just assume that $h^{0}(L)>0$ (by interchanging $L$ by $L^*$).
+
+		\item Here's the only place where we use that $C$ is a curve. Let $D\in |L|:=\text{zero divisor sections of $L$} $. So dimension 1 implies (it think) that $D$ is irreducible. No we have that $L=\mathcal{O}(D)$. We can construct the short exact sequence
+			\[\begin{tikzcd}
+				0\arrow[r]&\mathcal{O}_M\arrow[r]&L\arrow[r]&L|_{D}\arrow[r]&0
+			\end{tikzcd}\]
+			Which gives
+			\[\begin{tikzcd}[column sep=small]
+				\cdots\arrow[r]&H^{0}(L)\arrow[r]&H^{0}(L|_{D})\arrow[r]&H^{1}(\mathcal{O}_M)=0\arrow[r]&\arrow[r]&\arrow[r]&\cdots
+			\end{tikzcd}\]
+			so the restriction map is surjective, and every section $L|_{D}$ extends to $M$.
+
+		\item $L|_{D}$ is globally generated. ({\color{4}Slides:} The bundle $L|_{D}$ is base point free by Corollary 2.
+	\end{enumerate}
+
+	\begin{remark}\leavevmode
+		Let $\pi:(\tilde{M},\tilde{D})\longrightarrow (M,D)$ a resolution of singularities. Since $\pi^* L=K_{\tilde{D}}$, then the restriction $\pi^* L |_{\tilde{D}}$ is very ample if $\tilde{D}$ is not hyperelliptic.
+	\end{remark}
+\end{proof}
+
+\subsection{The same theorem but a little different}
+
+\begin{thm}\leavevmode
+	$M$ K3 with $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ a generator of $\operatorname{Pic}(M)$ such that $(L,L)${\color{6}$>2$}. Then $L$ or $L^*$ is ample, base point free and the map $\psi:M\longrightarrow \mathbb{P}H^{0}(M,L)^*$ is an embedding or a ramified covering.
+\end{thm}
+
+\begin{proof}\leavevmode
+	Now we use Corollary 1, for ampleness.
+\end{proof}
+
+\subsection{Hyperelliptic curves}
+
+First let's count the fixed point of the involution.
+
+\begin{lemma}\leavevmode
+	If $\tau:C\to C$ is the hyperelliptic involution, then $\tau$ has $2g$ fixed points.
+\end{lemma}
+
+\begin{proof}\leavevmode
+	Let $f$ be the number of fixed points. So it acts on tangent send point to minus. So simple fixed points. Here $e$ is Euler characteristic.
+	\[2-2g=e(C)=e(\mathbb{C}P^{1})-f=2-f\]
+	{\color{3}So where do the fixed points appear?}
+\end{proof}
+
+\begin{prop}\leavevmode
+	All curves of genus 2 are hyperelliptic.
+\end{prop}
+
+\begin{proof}\leavevmode
+	(uses Serre duality)
+\end{proof}
+
+\subsection{A third variation of that theorem}
+
+\begin{thm}\leavevmode
+	$M$ K3 with $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ a generator of $\operatorname{Pic}(M)$ such that $(L,L)${\color{6}$>2$}. Then the map $\psi:M\longrightarrow \mathbb{P}H^{0}(M,L)^*$ is a two sheeted ramified cover if $(L,L)=2$ and an emedding otherwise;  $M$ is a 2-sheeted covering of $\mathbb{C}P^{2}$ or a sextic (when $(L,L)^2=2$).
+\end{thm}
+
+\begin{proof}\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+	\item \textbf{The case $(L,L)>0$, when we have an embedding.}\hspace{0.5em} Again, assume that $H^{0}(L)\neq 0$, so $L$ is ample, globally generated and with a general smooth $D\in |L|$. Looks like we computed $(L,L)=2$.
+
+	\item  \textbf{The hyperelliptic case.}\hspace{0.5em} $(L,L)=2$. We use Kodaira-Nakano, so  $H^{1}(L)=0$, and $\chi(L)=2+\frac{(L,L)}{2}=3$, so $\dim H^{0}(L)\overset{?}{=}0$ and we get the map $\psi:M\to \mathbb{C}P^{2}$, a ramified covering.
+
+	\item \textbf{It is a sextic.} \hspace{0.5em} $\psi$ is ramified in a sextic. We used $R\subset M$ ramification divisor to show
+		\[K_M=\psi^* K_{\mathbb{C}P^{2}}\otimes \mathcal{O}(R)=\mathcal{O}(M)\]
+		Then $\psi^* (\mathcal{O}(-3))=L^{\otimes-3}$ gives $L^{\otimes-3}\otimes \mathcal{O}(R)=\mathcal{O}_M$, $[R]=3c_1(L)$.
+		
+		$R_0=\pi(R)$, we get
+		\[ [R_0] \cap [\text{hyperplane section}]=[R]\cap [D]=3(L,L)=6 \]
+		by computing
+		\[\int \pi_* x\wedge y=\int x\wedge \pi^*y\]
+		where $x=[R]$ and  $y=[H]$.
+\end{enumerate}
+
+\begin{remark}[Check!]\leavevmode
+	K3 ramified over $\mathbb{C}P^{2}$ and sextics are in correspondence.
+\end{remark}
+
+\begin{idea4}{Corollary 3}\leavevmode
+	K3, $\operatorname{Pic}(M)= \left<L\right> $, $(L,L)>2$, then  $L$ is very ample.
+\end{idea4}
+
+\begin{prop}\leavevmode
+	K3 surface isomorphic to quartic if and only if $\operatorname{Pic}(M)$ contains a very ample bundle $L\in\operatorname{Pic}(M)$ with $(L,L)=4$. 
+\end{prop}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item Let $\varphi:M\hookrightarrow \mathbb{C}P^{3}$ be the embedding and $L:=\phi^*(\mathcal{O}(1))$. We have
+			\[(L,L)=\int_{M}c_1(L)\wedge c_1(L)=\int_{\mathbb{C}P^{3}}[M]\wedge [H]\wedge [H]=4\]
+			\item $L$ very ample $(L,L)=4$, RR $h^{0}(L)=\chi(L)=2+\frac{(L,L)}{2}=4$
+	\end{enumerate}
+\end{proof}
+
+\begin{idea6}{Corollary 4}\leavevmode
+	$M$ K3 surface with $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ generating  $\operatorname{Pic}(M)$ and $(L,L)=4$. Then  $M$ is isomorphic to a quartic.
+\end{idea6}
+\end{proof}
+
+
+
+
+
+
+\section{Class 11}
 
 
 \end{document}
