@@ -28,21 +28,50 @@
 	Let $(L,q)$ be a quadratic lattice, $L_{\mathbb{Q}}:=L\otimes_{\mathbb{Z}}\mathbb{Q}$, and $L^*$ the set of all $x\in L_{\mathbb{Q}}$ such that $q(x,L)\subset \mathbb{Z}$.
 	\begin{enumerate}[label=\alph*.]
 		\item Prove that $L^*$ is a lattice of the same rank as $L$ and $L\subset L^*$.
-		\item The \textit{\textbf{dscriminant group}} of $L$ is $\operatorname{Disc}_L:=L^*/L$. Prove that $L$ is unimodular if and only if $\operatorname{Disc}(L)=\{0\}$.
+		\item The \textit{\textbf{dscriminant group}} of $L$ is $\operatorname{Disc}L:=L^*/L$. Prove that $L$ is unimodular if and only if $\operatorname{Disc}(L)=\{0\}$.
 		\item Let $G$ be an abelian group. Construct a lattice $(L,q)$ such that $\operatorname{Disc}(L)=G$.
 	\end{enumerate}
 \end{idea4}
 
 \begin{proof}[Solution]\leavevmode
 \begin{enumerate}[label=\alph*.]
-	\item Consider the canonical identification of
+	\item \begin{idea3}{Answer}\leavevmode
+			Let $\{a_i\}$ be a basis of $L$. Recall that the space of linear functionals on $L$ is identified with  $L^*$ via the map $x\mapsto q(x,\cdot )$. Then the functionals given by $a^\vee_i(a_j)= \delta_{ij}$ are a basis of $L^*$.
+		\end{idea3}
+\vspace{1em}
+
+		$\mathsf{OK}$ its rather stupid but I would like to make the following identification explicit:
+		\begin{align*}
+			L^* &\longrightarrow L^\star \\
+			x &\longmapsto q(x,\cdot )
+		\end{align*}
+		where $L^\star$  is the set of linear forms on $L$. {\color{1}But the kernel of this map is trivial only when $q$ is nondegenerate.}
+
+		So let us proceed as follows: we will show that there is only one element $a^\vee_i\in L_\mathbb{Q}$ such that $q(a^\vee_i,a_j)=\delta_{ij}$. Then suppose $\tilde{a}^\vee _i$ is another such element. Then $q(a^\vee_i-\tilde{a}^\vee_i,a_j)=0$ so if $q$ is nondegerate I'm done, but if $q$ is not nondegenerate {\color{1}How to prove $a^\vee_i=\tilde{a}^\vee_i$?}
+
+\iffalse
+		I want to find a set of generators for elements in $L^*$. Suppose $x\in L^*$. This means, first, that $x$ is a rational linear combination of the generators of  $L$, that is, $x=q_1a_1+\ldots +q_na_n$ where $L=\left<a_1\right> \oplus \ldots \left<a_n\right> $. And also 
+		\[q(x,\ell)=q\left( \sum_{i}q_ia_i,\ell \right) =\sum_{i}q_iq(a_i,\ell)\in\mathbb{Z}\]
+		where of course $q(a_i,\ell)$ are also integers. So in the end we have that
+		\[q(x,\ell)\text{ is a rational linear combination of integers that is an integer} \]
+		So maybe characterize $q$. What is it? Isn't $q\longleftrightarrow \big(q(a_i,a_j\big)$? Then I expand further to get
+		\[q(x,\ell)=\sum_{i,j}q_i\ell_jq(a_i,a_j)\in\mathbb{Z}\]
+
+	Consider the canonical identification of
 		\begin{align*}
 			L &\longrightarrow L^\star\\
 			x &\longmapsto q(x,\cdot)
 		\end{align*}
-		where $L^\star$  is the set of linear forms on $L$. I expect to find an identification  $L^*\cong L^\star$. What exactly is $q(x,\ell)?$. Since $x=\sum_{i}q_ie_i$ with $q_i\in\mathbb{Q}$,
-		
+		where $L^\star$  is the set of linear forms on $L$. I expect to find an identification  $L^*\cong L^\star$. What exactly is $q(x,\ell)?$. Since $x=\sum_{i}q_ie_i$ with $q_i\in\mathbb{Q}$, we\fi
+
+	\item Implication  $\implies $ is trivial. Implication $\impliedby$ is also straightforward since $L^* /L=\{0\}$ means that every element of $L^*$ is in $L$, so $L=L^*$.
+
+	\item 
 \end{enumerate}	
 \end{proof}
+
+\begin{idea5}{Exercise 4.2}\leavevmode
+	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice.
+\end{idea5}
 
 \end{document}
