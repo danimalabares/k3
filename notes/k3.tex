@@ -1,10 +1,20 @@
 \input{/Users/daniel/github/config/preamble.sty}
 \input{/Users/daniel/github/config/thms-eng.sty}
 
-
 \begin{document}
 
-{\Huge k3}
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{1em}
+{\Huge Lecture notes on K3 surfaces}
+
+\tableofcontents
 
 \section{Class 1}
 
@@ -1843,7 +1853,7 @@ So far we have:
 	So we can resolve singularities and that's what happens with multiplicity.
 \end{remark}
 
-\section{Singular curve in a K3 surface (corollary 2)}
+\subsection{Singular curve in a K3 surface (corollary 2)}
 
 So let $M$ be a K3 surface and $C$ a singular curve in K3. Then take the pullback bundle of $C$ and call it $L=\mathcal{O}(\pi^{-1}(C))=\pi^*(\mathcal{O}(C))$. Remember that $\pi^{-1}(C)=\tilde{C}+E$. Then $\mathcal{O}(\tilde{C})\otimes\mathcal{O}(E)=L$, so the \textit{normal bundle} is $N(\tilde{C})=L\otimes \mathcal{O}(-E)$ and $K_{\tilde{M}}=\mathcal{O}(E)$. So we can compute the canonical bundle: $K_{\tilde{M}}\otimes N_{\tilde{\mathbb{C}}}=K_{\tilde{C}}$, $\mathcal{O}(E)\otimes L\otimes \mathcal{O}(-E)=L$.
 
