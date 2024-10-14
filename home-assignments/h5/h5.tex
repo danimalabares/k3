@@ -1,0 +1,147 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%available at github.com/danimalabares/config
+
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 4: quadratic lattices}
+
+\begin{idea5}{Definition 4.1}\leavevmode
+	A \textit{\textbf{lattice}} is a finitely generated torsion-free $\mathbb{Z}$-module. \textit{\textbf{Quadratic form}} on a lattice is a function $q:L\to \mathbb{Z}$, $q(\ell)=B(\ell,\ell)$ where $B$ is a bilinear symmetric pairing $B:L\otimes_\mathbb{Z}L\longrightarrow \mathbb{Z}$. \textit{\textbf{Quadratic lattice}} is a lattice equipped with a quadratic form. A quadratic form is \textit{\textbf{indefinite}} if it takes positive and negative values, and \textit{\textbf{unimodular}} if $B$ is non-degenerate and defines an isomorphism $L\xrightarrow{\sim}L^*$.
+\end{idea5}
+\iffalse
+\begin{idea1}{Question}\leavevmode
+	With respect to the definition of unimodular, are non-degeneracy and isomorphism $L\cong L^*$ two \textit{independant} conditions? Because I thought the definition of non-degenerate form (at least for vector spaces) is that interior multiplication is an isomorphism $V\cong V^*$.
+\end{idea1}\fi
+
+\begin{idea4}{Exercise 4.1}\leavevmode
+	Let $(L,q)$ be a quadratic lattice, $L_{\mathbb{Q}}:=L\otimes_{\mathbb{Z}}\mathbb{Q}$, and $L^*$ the set of all $x\in L_{\mathbb{Q}}$ such that $q(x,L)\subset \mathbb{Z}$.
+	\begin{enumerate}[label=\alph*.]
+		\item Prove that $L^*$ is a lattice of the same rank as $L$ and $L\subset L^*$.
+		\item The \textit{\textbf{dscriminant group}} of $L$ is $\operatorname{Disc}L:=L^*/L$. Prove that $L$ is unimodular if and only if $\operatorname{Disc}(L)=\{0\}$.
+		\item Let $G$ be an abelian group. Construct a lattice $(L,q)$ such that $\operatorname{Disc}(L)=G$.
+	\end{enumerate}
+\end{idea4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=\alph*.]
+	\item			Let $\{a_i\}$ be a basis of $L$. Recall that the space of linear functionals on $L$ is identified with  $L^*$ via the map $x\mapsto q(x,\cdot )$. Then the functionals given by $a^\vee_i(a_j)= \delta_{ij}$ are a basis of $L^*$.
+	\vspace{1em}
+\begin{idea2}{Attempt to identify functionals with $L^*$.}\leavevmode
+		\iffalse$\mathsf{OK}$ its rather stupid but I would like to make the following identification explicit:
+		\begin{align*}
+			L^* &\longrightarrow L^\star \\
+			x &\longmapsto q(x,\cdot )
+		\end{align*}
+		where $L^\star$  is the set of linear forms on $L$. {\color{2}But the kernel of this map is trivial only when $q$ is nondegenerate.}
+
+		\fi We want to show that there is only one element $a^\vee_i\in L_\mathbb{Q}$ such that $q(a^\vee_i,a_j)=\delta_{ij}$. Then suppose $\tilde{a}^\vee _i$ is another such element. Then $q(a^\vee_i-\tilde{a}^\vee_i,a_j)=0$ so if $q$ is nondegerate I'm done, but if $q$ is not nondegenerate, {\color{2}how to prove $a^\vee_i=\tilde{a}^\vee_i$?}
+\end{idea2}
+
+		\begin{remark}\leavevmode
+			In \cite{quadratic}, the definition of $L^*$ is $\operatorname{Hom}(L,\mathbb{Z})$. The discriminant is $L^*/\operatorname{img} i$ where $i$ denotes interior multiplication, that is, $i_xq=q(x, \cdot )$.
+		\end{remark}
+
+\iffalse
+		I want to find a set of generators for elements in $L^*$. Suppose $x\in L^*$. This means, first, that $x$ is a rational linear combination of the generators of  $L$, that is, $x=q_1a_1+\ldots +q_na_n$ where $L=\left<a_1\right> \oplus \ldots \left<a_n\right> $. And also 
+		\[q(x,\ell)=q\left( \sum_{i}q_ia_i,\ell \right) =\sum_{i}q_iq(a_i,\ell)\in\mathbb{Z}\]
+		where of course $q(a_i,\ell)$ are also integers. So in the end we have that
+		\[q(x,\ell)\text{ is a rational linear combination of integers that is an integer} \]
+		So maybe characterize $q$. What is it? Isn't $q\longleftrightarrow \big(q(a_i,a_j\big)$? Then I expand further to get
+		\[q(x,\ell)=\sum_{i,j}q_i\ell_jq(a_i,a_j)\in\mathbb{Z}\]
+
+	Consider the canonical identification of
+		\begin{align*}
+			L &\longrightarrow L^\star\\
+			x &\longmapsto q(x,\cdot)
+		\end{align*}
+		where $L^\star$  is the set of linear forms on $L$. I expect to find an identification  $L^*\cong L^\star$. What exactly is $q(x,\ell)?$. Since $x=\sum_{i}q_ie_i$ with $q_i\in\mathbb{Q}$, we\fi
+
+	\item Implication  $\implies $ is trivial. Implication $\impliedby$ is also straightforward since $L^* /L=\{0\}$ means that every element of $L^*$ is in $L$, so $L=L^*$.
+
+	\item (\textit{Idea.}) I think  $L$ is the free part of $G$. I want to show that there is an exact sequence $\begin{tikzcd}[column sep=small]
+		L\arrow[r,"i"]&\operatorname{Hom}(L,\mathbb{Z})\arrow[r,"\psi"]&L\oplus T=G\arrow[r]&0
+	\end{tikzcd}$ because this way I get that $G$ is the cokernel of the interior multiplication  $i$, which is the discriminant by definition.
+\end{enumerate}	
+\end{proof}
+
+\begin{idea5}{Exercise 4.2}\leavevmode
+	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice.
+	\begin{enumerate}[label=\alph*.]
+	\item Prove that $L_1{\color{2}^*}\supset L^*$. Prove that any isometry $a\in\operatorname{O}(L)$ takes $L_1$ to another lattice $L^*\subset a(L_1)\subset L$.
+
+	\item Denote by $ \delta(L_1)$ the image of $L_1$ in $\operatorname{Disc}(L)$. Prove that an isometry $a \in\mathsf{O}(L)$ which satisfies $\delta(L_1)=\delta(a(L_1))$ preserves $L_1$.
+	\end{enumerate}
+\end{idea5}
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item (Perhaps there is a typo in the question because $L^*\subset L_1 \subset L$ would imply $L^*=L$.) However, the contention $L_1^*\supset L^*$ holds; it is immediate from definition: if $x^*\in L^*$ then $q(x^*,L)\subseteq \mathbb{Z}\implies q(x^*,L_1)\subset \mathbb{Z}$.
+
+%If isometries are surjective, we can see that elements in $a(L_1)$ are in $L^*$ since for any $x\in L_1\subset L$ we have $q(a(x),L)=q(a(x),aL)=q(x,L)\subset \mathbb{Z}$.
+
+			 Since $a\in\mathsf{O}(L)$, we know that $a(L_1)\subset L$.
+
+			 To see $a(L_1)$ is lattice notice that a basis is $a(e_1),\ldots,a(e_n)$ where $e_1,\ldots,e_n$ is a basis of $L_1$. This is immediate from the definition of \textit{\textbf{orthogonal group}} as found in \cite{quadratic}, where isometries are taken to be (bijective) \textit{homomorphisms} of the abelian groups. This means that for any $x\in L_1$
+		\[a(x)=a\left( \sum x^ie_i \right) =\sum x^ia(x_i)\]
+
+	\item We interpret $\delta$ as the  map
+		\[\begin{tikzcd}
+			L\arrow[r,hook]\arrow[rr,bend left,"\delta"]& L^*\arrow[r,two heads]& L^*/L=\operatorname{Disc}(L)
+		\end{tikzcd}\]
+		But since $a(L_1)\subset L$, we always have that $\delta(L_1)=\delta(a(L_1))$ since both are the equivalence class of the identity in $L^* /L=\operatorname{Disc}(L)$.
+
+		If instead we consider the projection onto $\operatorname{Disc}(L_1)$ we get 
+\[\begin{tikzcd}
+			L_1\arrow[r,hook]\arrow[rr,bend left,"\delta_1"]& L_1^*\arrow[r,two heads]& L_1^*/L_1=\operatorname{Disc}(L_1)
+		\end{tikzcd}\]
+		and in this case the condition $\delta_1(L_1)=\delta_1(a(L_1))$ means that the equivalence class of $a(L_1)$ in $\operatorname{Disc}(L_1)$ is the identity class, meaning that $a(\ell_1)\in L_1$ for every $\ell_1\in L_1$. {\color{2}This is very tautological… maybe I didn't understand the question correctly…}
+	\end{enumerate}
+\end{proof}
+
+\begin{idea7}{Definition 4.2}\leavevmode
+	Two subgroups $G_1,G_2\subset \mathsf{GL}(n,\mathbb{R})$ are called \textit{\textbf{commensurable}} if $G_1\cap G_2$ has finite index in $G_1$ and in $G_2$.
+\end{idea7}
+
+%{\color{3}\bfseries Interpretation.}\hspace{.5em}$\frac{G_1}{G_1\cap G_2}$ is finite then the part of $G_2$ in $G_1$ is a significant part of $G_1$. How many cosets are there?
+
+\begin{idea8}{Exercise 4.3}\leavevmode
+	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice. Prove that $\mathsf{O}(L_1,q) \cap \mathsf{O}(L,q)$ has finite index in $\mathsf{O}(L,q)$.
+\end{idea8}
+
+\begin{proof}[Solution]
+%	I want to show there is a finite ammount of cosets of $\mathsf{O}(L_1)\cap \mathsf{O}(L)$ in $\mathsf{O}(L)$. There's the orthogonal tranformations of $L$ that fix $L_1$, these are also orthogonal for $L_1$ so they are just $\mathsf{O}(L_1)$…
+
+%	I have a criterion for knowing when will an isometry of $\mathsf{O}(L)$ is in $\mathsf{O}(L_1)$: when it "preserves the discriminant of  $L_1$"--- this means that the image of $L_1$ in $\operatorname{Disc}(L)$ is preserved by $a$.
+
+	We are looking at the equivalence classes of $\mathsf{O}(L_1)$ within $\mathsf{O}(L)$. $\mathsf{O}(L_1)$ is the equivalence class of the identity. Two isometries $b,c\in\mathsf{O}(L)$ are in the same equivalence class when $bc^{-1} \in\mathsf{O}(L_1)$. {\color{2}I'd like to use the criterion of last exercise but I don't see how…}
+\end{proof}
+
+\begin{idea4}{Exercise 4.4}\leavevmode
+Let $nL:=\bigcup_{x\in L} nx$. Prove that $nL_1\subset L$ for any integer lattices $L,L_1$ and $n$ sufficiently big. Prove that $\mathsf{O}(nL,q) =\mathsf{O}(L,q)$.
+\end{idea4}
+
+\begin{proof}[Solution]\leavevmode
+It is not clear what $\bigcup_{x\in L} nx$ means. Perharps it is the set $\{nx:x\in L_1\}$, in which case it is immediate that $nL_1\subset L$ if $L_1\subset L$ as in the previous exercises. For arbitrary lattices $L$ and $L_1$, the statement $nL_1\subset L$ might not make sense ($L=\mathbb{Z}, L_1=\mathbb{Z}\oplus \mathbb{Z}$).
+\end{proof}
+
+
+
+
+
+
+
+\end{document}
