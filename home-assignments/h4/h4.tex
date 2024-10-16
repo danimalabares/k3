@@ -122,12 +122,32 @@
 	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice. Prove that $\mathsf{O}(L_1,q) \cap \mathsf{O}(L,q)$ has finite index in $\mathsf{O}(L,q)$.
 \end{idea8}
 
-\begin{proof}[Solution]
+\begin{proof}[Solution, first attempt]
 %	I want to show there is a finite ammount of cosets of $\mathsf{O}(L_1)\cap \mathsf{O}(L)$ in $\mathsf{O}(L)$. There's the orthogonal tranformations of $L$ that fix $L_1$, these are also orthogonal for $L_1$ so they are just $\mathsf{O}(L_1)$…
 
 %	I have a criterion for knowing when will an isometry of $\mathsf{O}(L)$ is in $\mathsf{O}(L_1)$: when it "preserves the discriminant of  $L_1$"--- this means that the image of $L_1$ in $\operatorname{Disc}(L)$ is preserved by $a$.
 
 	We are looking at the equivalence classes of $\mathsf{O}(L_1)$ within $\mathsf{O}(L)$. $\mathsf{O}(L_1)$ is the equivalence class of the identity. Two isometries $b,c\in\mathsf{O}(L)$ are in the same equivalence class when $bc^{-1} \in\mathsf{O}(L_1)$. {\color{2}I'd like to use the criterion of last exercise but I don't see how…}
+\end{proof}
+
+\begin{proof}[Solution, after lecture on lattices]\leavevmode
+	Looks like the strategy is as follows:
+	\begin{idea4}{Claim 1}\leavevmode
+		Let $\Gamma_1=\mathsf{SO}(\Lambda_1)$ and $\Gamma_2 \subset\Gamma_1$ be its subgroup consisting of all maps preserving $\Lambda\supset\Lambda_1$. {\color{3}I think this means that $\Gamma_2=\mathsf{SO}(\Lambda_1) \cap \mathsf{SO}(\Lambda)=\Gamma_1\cap \Gamma$.} Then $\Gamma_2$ is a group of all $\gamma\in\mathsf{SO}(\Lambda_1)$ such that $\gamma$ preserves the image of $\Lambda$ in $\operatorname{Disc}(\Lambda_1)$. {\color{8}The point is that the intersection of the $\mathsf{SO}$ groups is the elements that preserve $\Lambda$ in the quotient.\}}
+	\end{idea4}
+	\begin{proof}[Proof of claim]\leavevmode
+		$\mathsf{OK}$ so what does it mean that an element $\gamma\in \Gamma_2$ \textit{preserves the image of $\Lambda$ in $\operatorname{Disc}(\Lambda_1)$}? It means that for every $x+\Lambda_1\in a(\Lambda)$, where $a$ is the projection onto  $\operatorname{Disc}(\Lambda_1)$, $\gamma(a)+\Lambda_1\in a(\Lambda)$. Notice that $a(\Lambda)$ is just the set of equivalence classes in $\operatorname{Disc}(\Lambda_1)$ that can be represented by an element in $\Lambda$.
+
+		Let $\gamma\in\Gamma_2 $ and $x +\Lambda_1\in a(\Lambda)$. Then there is a representant of $x +\Lambda_1$ with $x\in\Lambda$. Then $\gamma(x)\in\Lambda$, so $\gamma(x)+\Lambda_1\in a(\Lambda)$.
+
+ 		Now suppose that $\gamma\in\mathsf{SO}(\Lambda_1)$ preserves the image of $\Lambda$ in $\operatorname{Disc}(\Lambda_1)$. I can show that $\Lambda=a^{-1}(a(\Lambda))$: if $x\in a_1(a(\Lambda))\setminus \Lambda$, then $a(x)=x+\Lambda_1\in a(\Lambda)$, so we choose a representant $\ell\in\Lambda$ of $a(x)$ and we see that  $x-\ell\in\Lambda_1$, but this is impossible since $x \not\in\Lambda$. But, {\color{8}why that $\gamma$ preserves $a(\Lambda)$ means that it preservs $a^{-1}(a(\Lambda))$?}
+
+	\end{proof}
+	\begin{idea8}{Question}\leavevmode
+		What is the relationship between all this and the dense space of planes that are orthogonal to any of the signature $(x,x)=4$? How to get there? What are the hyperbolas, the zeroes of  $q$? What is the action of the lattice on the hyperbolas?
+	\end{idea8}
+
+	Let me suppose I have the claim. Still, the proof of the exercise remains unclear…
 \end{proof}
 
 \begin{idea4}{Exercise 4.4}\leavevmode

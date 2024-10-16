@@ -2181,67 +2181,6 @@ Before lattices were of the same rank, now they're different ranks.
 	One lattice inside another, then the isometris of the smaller that can be extended to the larger is of finite index I think the isometries of the smaller.
 \end{idea4}
 
-\subsection{Pell's equation}
-
-\begin{defn}\leavevmode
-	An integer is called \textit{\textbf{square-free}} if it is not divisible by a square of some number not 1.
-\end{defn}
-
-\begin{remark}\leavevmode
-	The unit sphere of $\mathbb{Z}\oplus \mathbb{Z}\sqrt{w} $ where the norm is  $N(a+b\sqrt{w} =a^2-wb^2$ is a multiplicative group. Solution of Pell equation is norm 1.
-\end{remark}
-
-\begin{thm}[Pell, Dirichlet second time]\leavevmode
-	Let $w\in\mathbb{Z}_{> 0}$ that group is isomorphic to $\mathbb{Z}$ {\color{3}up to sign}.
-\end{thm}
-
- \begin{remark}\leavevmode
-	 Norm is a quadratic form in this ring $\mathcal{O}_K$. Solution of Pell is in $\mathsf{SO}(O_K,N)$
-\end{remark}
-
-\begin{idea8}{Pell did not solve Pell equation}\leavevmode
-	This is a mistake by Euler. Pell barely translated the solution by /..?
-\end{idea8}
-
-\begin{proof}[Of Pell theorem version second time]\leavevmode
-	It suffices to show that Pell equation has a non trivial solution.
-\end{proof}
-
-\begin{thm}[Lagrange]\leavevmode
-	 Pell equation has a non-trivial solution
-\end{thm}
- We need a lemma to prove this theorem.
-
-\begin{lemma}\leavevmode
-	There exists infinitely many solutions $x,y$ such that  $|x-\sqrt{w} y|<1/y$.
-\end{lemma}
-
-\begin{proof}[Proof of lemma]\leavevmode
-	Partition the interval $[0,1[$ into  $m$ little intervals starting with $[0,1/m[$ and then  $[1/m,2/m[$ and so on. Then pigeon principle!! Because if  $a,b\in [0,m]$ then their fractional parts are in the same little interval.
-\end{proof}
-
-\begin{proof}[Proof of Lagrange]\leavevmode
-	\begin{enumerate}[label=\textbf{Step \arabic*}]
-		\item By the lemma, the equation $x^2+y^2w=M$ has infinitely many solutions. Because there is a certain value in a certain sequence that appears infinitely many times.
-
-		\item Let $M$ be an integer for with  $x^2-wy^2=M$ has infinitely many solutions.  This means there exist two numbers $z_1,z_2\in\mathbb{Z}+\mathbb{Z}\sqrt{w} $ such that $z_1\equiv z_2\operatorname{mod}M$ and that $N(z_1)=N(z_2)$, {\color{6}why?} After more computations we see that $M=M\cdot N(z)$ and $N(z)=1$.  $z$ is  $z_3\sigma(z_2)+1$. {\color{7}what is $\sigma$?}
-	\end{enumerate}
-\end{proof}
-
-
-
-
-\begin{thm}[Pell, Dirichlet first time]\leavevmode
-	Let $w\in\mathbb{Z}_{> 0}$Integer solutions $\big(a,b\big)$ of $a^2-wb^2=1$ are isomorphic to $\mathbb{Z}$.
-\end{thm}
-
-\begin{proof}\leavevmode
-	There should be an elementary proof but we can't remember.
-\end{proof}
-
-\begin{thm}[The main application of Pell equation]\leavevmode
-	$\Lambda$ lattice of signature $(1,1)$ which does not represent 0. Then  $\mathsf{PSO}(\Lambda)=\mathbb{Z}$ (\textit{$\mathsf{PSO}$ is trivial}.
-\end{thm}
 \section{Class 13: limit points of orbits of $\mathsf{SO}_{\mathbb{Z}}(p,q)$}
 
 \subsection{Summary of last lecture}
@@ -2319,6 +2258,67 @@ Which allows to prove easily that
 
 {\color{8}\bfseries What is the point of this.}\hspace{.5em}That $\Lambda_2$ rank 2 of signature $(1,1)$ is a sublattice of  $\mathsf{SO}(\Lambda)$, so $\Lambda_2$ ??? acts? on $\mathsf{SO}(\Lambda_2)=\mathbb{Z}$.
 
+\subsection{Pell's equation}
+
+\begin{defn}\leavevmode
+	An integer is called \textit{\textbf{square-free}} if it is not divisible by a square of some number not 1.
+\end{defn}
+
+\begin{remark}\leavevmode
+	The unit sphere of $\mathbb{Z}\oplus \mathbb{Z}\sqrt{w} $ where the norm is  $N(a+b\sqrt{w} =a^2-wb^2$ is a multiplicative group. Solution of Pell equation is norm 1.
+\end{remark}
+
+\begin{thm}[Pell, Dirichlet second time]\leavevmode
+	Let $w\in\mathbb{Z}_{> 0}$ that group is isomorphic to $\mathbb{Z}$ {\color{3}up to sign}.
+\end{thm}
+
+ \begin{remark}\leavevmode
+	 Norm is a quadratic form in this ring $\mathcal{O}_K$. Solution of Pell is in $\mathsf{SO}(O_K,N)$
+\end{remark}
+
+\begin{idea8}{Pell did not solve Pell equation}\leavevmode
+	This is a mistake by Euler. Pell barely translated the solution by /..?
+\end{idea8}
+
+\begin{proof}[Of Pell theorem version second time]\leavevmode
+	It suffices to show that Pell equation has a non trivial solution.
+\end{proof}
+
+\begin{thm}[Lagrange]\leavevmode
+	 Pell equation has a non-trivial solution
+\end{thm}
+ We need a lemma to prove this theorem.
+
+\begin{lemma}\leavevmode
+	There exists infinitely many solutions $x,y$ such that  $|x-\sqrt{w} y|<1/y$.
+\end{lemma}
+
+\begin{proof}[Proof of lemma]\leavevmode
+	Partition the interval $[0,1[$ into  $m$ little intervals starting with $[0,1/m[$ and then  $[1/m,2/m[$ and so on. Then pigeon principle!! Because if  $a,b\in [0,m]$ then their fractional parts are in the same little interval.
+\end{proof}
+
+\begin{proof}[Proof of Lagrange]\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item By the lemma, the equation $x^2+y^2w=M$ has infinitely many solutions. Because there is a certain value in a certain sequence that appears infinitely many times.
+
+		\item Let $M$ be an integer for with  $x^2-wy^2=M$ has infinitely many solutions.  This means there exist two numbers $z_1,z_2\in\mathbb{Z}+\mathbb{Z}\sqrt{w} $ such that $z_1\equiv z_2\operatorname{mod}M$ and that $N(z_1)=N(z_2)$, {\color{6}why?} After more computations we see that $M=M\cdot N(z)$ and $N(z)=1$.  $z$ is  $z_3\sigma(z_2)+1$. {\color{7}what is $\sigma$?}
+	\end{enumerate}
+\end{proof}
+
+
+
+
+\begin{thm}[Pell, Dirichlet first time]\leavevmode
+	Let $w\in\mathbb{Z}_{> 0}$Integer solutions $\big(a,b\big)$ of $a^2-wb^2=1$ are isomorphic to $\mathbb{Z}$.
+\end{thm}
+
+\begin{proof}\leavevmode
+	There should be an elementary proof but we can't remember.
+\end{proof}
+
+\begin{thm}[The main application of Pell equation]\leavevmode
+	$\Lambda$ lattice of signature $(1,1)$ which does not represent 0. Then  $\mathsf{PSO}(\Lambda)=\mathbb{Z}$ (\textit{$\mathsf{PSO}$ is trivial}.
+\end{thm}
 
 
 \section{Class 14}
