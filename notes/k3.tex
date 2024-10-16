@@ -2323,5 +2323,101 @@ Which allows to prove easily that
 
 \section{Class 14}
 
+Today we will work on a statemnt about orbits of the symmetry group. We want to show that closure of the orbits is the Null quadric. {\color{4}What is the group?}
+
+\begin{idea4}{Theorem 3}\leavevmode
+	$\mathsf{SO}(\Lambda,1)$ acts on $\mathbb{P}(\Lambda\otimes_\mathbb{Z}\mathbb{R})$ closure of each orbit contains the null quadric.
+\end{idea4}
+
+Also remember Lengendre's theorem that Pelle equation has solution. Also remember that two lattices of the same rank have commesurable isometry groups. And the other case when lattices are not of the same rank, so the group of isometries that can be extended from the small to the large is finite index in the large.
+
+Why do we need this? $\mathsf{SO}(1,1)$ is a Lie group that is acting on ?. But there's also the $\mathbb{Z}$ action with (limit?) points in the hyperbolas which are the orbits of the Lie group action. We will find a sublattice of the discrete one and apply corollary 3 which is the last statment in the paragraph above.
+
+$\mathsf{OK}$ so looks like next step will use Pell equation. You use pell equation to produce an integer lattice via $z-wz$, which we have already shown to be a quadratic form on $\mathcal{O}_K$. {\color{4}"Solution of Pell gives you an isometry of this lattice"}
+
+\subsection{Quadratic lattices of rank 2}
+
+\begin{defn}\leavevmode
+	$\mathsf{PSO}(\Lambda)$ as the group of isometries of $\Lambda$ quotient $\pm 1$ if rank is even and no quotient if rank is odd.
+\end{defn}
+
+\begin{exercise}\leavevmode
+	Let $\Lambda$ be lattice of signature (1,1) wich represent 0. Then $\mathsf{PSO}(\Lambda)$ is trivial
+\end{exercise}
+\begin{proof}[Solution]\leavevmode
+	Consider the isotropic vectors (norm 0). This is two lines (because its like a quadric form in the plane).  There are 4 interesting vectors: one positive and one negative in each of the lines; they are interesting because they are primitive. Then you have to take permutations. Then
+	\[\begin{tikzcd}
+		\mathsf{O}(\Lambda)\arrow[r,hook]&(\mathbb{Z}/2)^2\arrow[d,"\det "]\\
+		& \pm 1
+	\end{tikzcd}\]
+\end{proof}
+
+\begin{idea6}{Theorem 4}\leavevmode
+	Let $(\Lambda,q)$ be a integer laticce with $(1,1)$ signature wchich does not represent o. Then  $\mathsf{PSO}(\Lambda) \cong \mathbb{Z}$.
+\end{idea6}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item I think you go to rationalification $\Lambda\otimes_\mathfrak{X} \mathbb{Q}$ and find a diagonal form of the matrix there. This is $q=ax^2-by^2$. and then just do
+			\[aq=a^2x^2-bay^2=(ax)^2-biy^2\implies q=x_1^2-wy_2^2\]
+There are two lattices, multiply by denominators, get integer lattices. They are commesurable. But they are sublattices of $\mathbb{Z}$. The point is $\mathsf{PSO}(\Lambda)$ contains $ \mathbb{Z}$.
+\item Pass to the Lie group $\mathsf{PSO}(\Lambda\otimes_\mathbb{Z}\mathbb{R})$ which is like $\mathbb{R}$. And we have put $\mathsf{PSO}(\Lambda)$ inside, and $\mathsf{PSO}(\Lambda)$ contains $\mathbb{Z}$, which is the only subgroup of  $\mathbb{R}$ so it is $\mathbb{Z}$.
+	\end{enumerate}
+\end{proof}
+
+\subsection{Rational lines intersecting a rational quadric in irrational points}
+
+Now I'm going to provide you with lots of sublattices not representing 0. Let's start with $X$ a rational quadric.
+
+\begin{idea4}{Some proposition about irrational lines}\leavevmode
+	The set of irrtional points on a non-degenerate rational quadric in $\mathbb{R}P^{2}$is dense. Irrational=point not proportional to a point that has at least one coordinate irrational.
+\end{idea4}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\textbf{Step \arabic*}]
+		\item We notice that its enogh to find one irrational point because if we do then we act on it by reflections "centered in rational lines", which have a dense orbit because because product of \textit{any } two reflections gives a rotation.
+
+		\item We find an irrational point going to affine chart and doing some very basic computation. that felt stupid Because it should be more easy than this.
+	\end{enumerate}
+\end{proof}
+
+\begin{idea1}{Idea}\leavevmode
+	That if you have a quadratic equation varying with some parameter there are some quadratic equat ions that don't have dsolltuions.
+\end{idea1}
+
+\section{Null quadric as a limit set}
+
+\begin{idea3}{Theorem 3}\leavevmode
+	\textbf{The closure of $\mathbb{P}\mathfrak{R}\subset \mathbb{P}V_\mathbb{R}$ contains $\operatorname{N u l l}V_{\mathbb{R}}$} 
+\end{idea3}
+
+\begin{proof}\leavevmode
+	We are looking for a space of signature $(2,1)$. Let  $\eta$ be an element of signature >0. Well in one case that $\left<\eta,x\right> $ is non gegenerate so there is an element in the orthogonal complement of that non degenerate vector. Then look at the space of $\left<\eta,x\right> +y$.
+
+	In another case $\left<\eta,x\right> $ is degenerate so $x\perp \eta$. Then $x^\perp \cap \eta^\perp$ is codimension 1. Then $y\in(\eta^\perp \setminus x^\perp )$.
+
+	So we have this subspace $S$ connecting $ x$ to $y$.
+
+	Now since rational …
+\end{proof}
+
+We have reducted Theorem 3 to the following lattice proposition:
+
+\begin{prop}\leavevmode
+	$V_\mathbb{Z}$ quadratic lattice of signature $(2,1)$ and  $\eta\in\mathbb{P}V_\mathbb{R}$ a point with positive square. The closure of the $\mathsf{SO}(V_\mathbb{Z})$-orbit of $\eta$ contains $\operatorname{Nu ll}(V_{\mathbb{R}}$. 
+\end{prop}
+
+\begin{proof}\leavevmode
+	The problem is taken to hyperbolic geometry. {\color{8}We see that the irrational points are limit points.} And irrational points are dense. So the limit points of those isometries are dense. So the corresponding lattice doesn't represent zero.
+
+	Therefore, $\operatorname{Nul l}V_{\mathbb{R}}$ is contained in the closure of any orbit.
+\end{proof}
+
+\begin{remark}\leavevmode
+	Originally this was shown in a much harder way, a sequence of six or seven lemmas using classical hyperbolic geometry.
+\end{remark}
+
+
+\section{Class 15}
 
 \end{document}

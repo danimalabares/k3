@@ -18,7 +18,35 @@
 \end{minipage}\vspace{.2cm}\hrule
 
 \vspace{10pt}
-{\huge Home assignment 4: quadratic lattices}
+{\huge Home assignment 5: Positive forms and Riemann-Hodge pairing}
+
+\begin{idea4}{Definition 5.1}\leavevmode
+	Throughout this handout, $V=\mathbb{R}^{2n}$ is a real vector space, $I\in End(V)$ an operator which satisfies $I^2=-\operatorname{Id}$ ("the \textit{\textbf{complex structure operator}}"), and $\Lambda^{*}(V^*\otimes_\mathbb{R}\mathbb{C}) =\bigoplus \Lambda^{p,q}(V^*) $ the Hodge decomposition of its Grasman algebra. A (real) $(1,1)$-form $ \omega\in\Lambda^{1,1}(V^*)$ is \textit{\textbf{Hermitian}}, or \textit{\textbf{strictily positive}} if $\omega(x,Ix)>0$ for any non-zero  $x\in V$. It is called \textit{\textbf{semi-Hermitian}} or  \textit{\textbf{positive}} if  $\omega(x,Ix)\geq 0$ for any $x\in X$. A bivector $\eta\in\Lambda^{1,1}(V)$ is \textit{\textbf{positive}} if $\eta(v,Iv)\geq 0$ for any non-zero $v\in V^*$.
+\end{idea4}
+
+\section{Positive $(p,p)$-forms}
+
+\begin{idea13}{Exercise 5.1}\leavevmode
+	Let $\operatorname{Pos}\subset \Lambda^{1,1}(V^*)$ be the set of all positive $(1,1)$-forms, and $\operatorname{Pos}^n$ be the set all non-zero volume forms obtained as $n$-th power of elements of $\operatorname{Pos}$. Prove that $\operatorname{Pos}^n$ is connected.
+\end{idea13}
+
+\begin{proof}[Solution]\leavevmode
+	?
+\end{proof}
+
+\begin{idea6}{Remark 5.1}\leavevmode
+	The corresponding orientation on $V$ is called the \textit{\textbf{orientation compatible with the complex structure operator}}.
+\end{idea6}
+
+\begin{idea4}{Exercise 5.2}\leavevmode
+	Let $\omega\in\Lambda^{1,1}(V^*)$ be a 2-form on $V$, satisfying $\omega(x,Ix)\geq 0$, and $W\subset V$ the set of all vectors $v\in V$ such tat $\omega(v,Iv)=0$ 
+	\begin{enumerate}
+		\item Prove that $W\subset V$ is $I$-invariant.
+		\item Prove that there exists a projectin $\Pi:(V,I)\to (V_1,I_1)$ commuting with the complex structure operator, and Hermitian form $\omega_1$ on $V_1$ such tat $\omega(x,y)=\omega_1(\Pi(x),\Pi(y))$
+	
+		\item 
+	\end{enumerate}
+\end{idea4}
 
 \begin{idea5}{Definition 4.1}\leavevmode
 	A \textit{\textbf{lattice}} is a finitely generated torsion-free $\mathbb{Z}$-module. \textit{\textbf{Quadratic form}} on a lattice is a function $q:L\to \mathbb{Z}$, $q(\ell)=B(\ell,\ell)$ where $B$ is a bilinear symmetric pairing $B:L\otimes_\mathbb{Z}L\longrightarrow \mathbb{Z}$. \textit{\textbf{Quadratic lattice}} is a lattice equipped with a quadratic form. A quadratic form is \textit{\textbf{indefinite}} if it takes positive and negative values, and \textit{\textbf{unimodular}} if $B$ is non-degenerate and defines an isomorphism $L\xrightarrow{\sim}L^*$.
