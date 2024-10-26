@@ -5,7 +5,7 @@
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
 
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{2}
 
 \begin{document}
 
@@ -20,156 +20,184 @@
 \vspace{10pt}
 {\huge Home assignment 5: Positive forms and Riemann-Hodge pairing}
 
-\begin{idea4}{Definition 5.1}\leavevmode
+\begin{thing4}{Definition 5.1}\leavevmode
 	Throughout this handout, $V=\mathbb{R}^{2n}$ is a real vector space, $I\in End(V)$ an operator which satisfies $I^2=-\operatorname{Id}$ ("the \textit{\textbf{complex structure operator}}"), and $\Lambda^{*}(V^*\otimes_\mathbb{R}\mathbb{C}) =\bigoplus \Lambda^{p,q}(V^*) $ the Hodge decomposition of its Grasman algebra. A (real) $(1,1)$-form $ \omega\in\Lambda^{1,1}(V^*)$ is \textit{\textbf{Hermitian}}, or \textit{\textbf{strictily positive}} if $\omega(x,Ix)>0$ for any non-zero  $x\in V$. It is called \textit{\textbf{semi-Hermitian}} or  \textit{\textbf{positive}} if  $\omega(x,Ix)\geq 0$ for any $x\in X$. A bivector $\eta\in\Lambda^{1,1}(V)$ is \textit{\textbf{positive}} if $\eta(v,Iv)\geq 0$ for any non-zero $v\in V^*$.
-\end{idea4}
+\end{thing4}
 
-\section{Positive $(p,p)$-forms}
+\setcounter{section}{4}
+\subsection{Positive $(p,p)$-forms}
 
-\begin{idea13}{Exercise 5.1}\leavevmode
+\begin{thing13}{Exercise 5.1}\leavevmode
 	Let $\operatorname{Pos}\subset \Lambda^{1,1}(V^*)$ be the set of all positive $(1,1)$-forms, and $\operatorname{Pos}^n$ be the set all non-zero volume forms obtained as $n$-th power of elements of $\operatorname{Pos}$. Prove that $\operatorname{Pos}^n$ is connected.
-\end{idea13}
+\end{thing13}
 
 \begin{proof}[Solution]\leavevmode
-	?
+
+	$\operatorname{Pos}^n\subset\Lambda^{2n}(V^*)\cong \mathbb{R}$. Now volume forms in $\Lambda^{2n}(V^*)$ can be separated into two connected components according to an orientation as follows. Choose any of the two equivalence classes of bases according to positive or negative determinant of change of coordinates; define a form in $\Lambda^{2n}(V^*)$ to be positively oriented if it is positive in any of the bases of the chosen orientation. Since volume forms are nowhere-vanishing, any volume form is either positive or negative.
+
+	\begin{claim}\leavevmode
+	$\operatorname{Pos}^n$ must be contained in either of the connected components of the set of volume forms in $\Lambda^{2n}(V^*)$.		
+	\end{claim}
+
+	\begin{proof}[Proof of claim]\leavevmode
+		It suffices to show that any two volume forms $\omega^n,\eta^n \in\operatorname{Pos}^n$ have the same sign on some basis of $V$.
+
+		Suppose $e_1,\ldots,e_n$ is a basis of the complex vector space induced by $I$, and let $\varepsilon_i(e_j)=\delta_{ij}$ be its dual basis. Then a basis for $V$ is $e_1,Ie_1,\ldots,e_n,Ie_n$, and its dual basis is $\alpha_1:=\varepsilon_1,\alpha_2:=-I\varepsilon_1,\ldots,\alpha_{2n-1}:=\varepsilon_n,\alpha_{2n}:=-I \varepsilon_n$.
+
+		Thus a basis for 2-forms is $\alpha_{ij}=\alpha_i\wedge \alpha_j$ for $i<j$. Then $\omega$ and $\eta$ must be of the form
+	\[\omega=\sum a_{ij}\alpha_{ij},\qquad \eta=\sum b_{ij}\alpha_{ij},\qquad a_{ij},b_{ij} \in\mathbb{R}.\]
+For the (perhaps trivial) case $n=1$ we conclude since both  $\omega$ and $\eta$ are multiples of $\varepsilon_1\wedge -I\varepsilon_1$, namely 
+\[\omega=a_{12}\varepsilon_1\wedge (-I\varepsilon_1),\qquad \eta=b_{12}\varepsilon_1\wedge (-I\varepsilon_1)\]
+and notice that $\varepsilon_1\wedge -I\varepsilon_1$ gives 1 when evaluated in the pair  $(e_1,Ie_1)$. Since both $\omega$ and $\eta$ are positive, their constants must be positive and thus they are in the same connected component of $\operatorname{Pos}^n$.
+
+In the case $n=2$ the expression
+	\begin{align*}\omega^2&=\left( \sum a_{ij}\alpha_{ij} \right)\wedge \left( \sum a_{k\ell}\alpha_{k\ell} \right)
+	\end{align*}
+	has a more complicated expansion. My guess is that when we evaluate on the basis $(e_1,Ie_1,e_2,Ie_2)$ the only term that can be non-zero corresponds to the factor
+	\[\Big(\varepsilon_1\wedge I\varepsilon_1\wedge \varepsilon_2\wedge I\varepsilon_2\Big)(e_1,Ie_1,e_2,Ie_2)=1\]
+The corresponding coefficient is then determined by the values $a_{12}$ and $a_{34}$, which must be positive since $\omega\in\operatorname{Pos}$. Indeed,
+\[\omega(e_1,Ie_1)=a_{12},\qquad \omega(e_2,I_2)=a_{34}.\]
+The general case is analogous using the equation
+	\[\Big(\varepsilon_1\wedge (-I\varepsilon_1)\wedge \ldots \wedge \varepsilon_n\wedge (-I\varepsilon_n)\Big)(e_1,Ie_1,\ldots,e_n,Ie_n)=1\]
+
+\iffalse
+	\begin{align*}\omega^2&=\left(a_{12}\alpha_{12} \right)\wedge \left( a_{12}\alpha_{12} \right) \\
+		&=\big(a_{12}(\varepsilon_1\wedge -I\varepsilon_1)\big)\wedge \big(a_{12}(\varepsilon_1\wedge -I\varepsilon_1)\big)\\
+		&=a_{12}^2\big(\varepsilon_1\wedge (-I\varepsilon_1)\wedge \varepsilon_1\wedge (-I\varepsilon_1)\big)
+	\end{align*}
+In general,
+	\begin{align*}\omega^2&=\left( \sum a_{ij}\alpha_{ij} \right)\wedge \left( \sum a_{k\ell}\alpha_{k\ell} \right) \\
+		&=\sum a_{ij}a_{k\ell}\alpha_{ij}\wedge \alpha_{k\ell}
+	\end{align*}\
+
+
+	\end{proof}
+
+	To see this suppose $e_1,\ldots,e_n$ are a basis of the complex vector space induced by $I$, and let $\varepsilon_i(e_j)=\delta_{ij}$ be its dual basis. Then a basis for $V$ is $e_1,Ie_1,\ldots,e_n,Ie_n$.
+
+	just notice that any two volume forms $\omega^n,\eta^n \in\operatorname{Pos}^n$ {\color{6}have the same sign on the basis $e_1,Ie_1,\ldots,e_n,Ie_n$} (here $e_1,\ldots,e_n$ are a basis of the complex vector space induced by $I$). 
+
+
+	{\color{6}But how to show that? The expression for $\omega^n$ is not  obvious and it contains permutations of the vectors; not only things of the form $\omega(e_i,Ie_i)$…}
+
+$\mathsf{OK}$ so what is an $n$-th form? A linear
+
+\iffalse Indeed,
+	\begin{align*}
+		\omega^n(e_1,Ie_1,\ldots,e_n,Ie_n)&=\omega(e_1,Ie_1)\wedge \ldots \wedge \omega(e_n,Ie_n)\\
+		&=
+	\end{align*}\fi\fi
+\end{proof}
 \end{proof}
 
-\begin{idea6}{Remark 5.1}\leavevmode
+\begin{thing8}{Remark 5.1}\leavevmode
 	The corresponding orientation on $V$ is called the \textit{\textbf{orientation compatible with the complex structure operator}}.
-\end{idea6}
+\end{thing8}
 
-\begin{idea4}{Exercise 5.2}\leavevmode
+\begin{thing4}{Exercise 5.2}\leavevmode
 	Let $\omega\in\Lambda^{1,1}(V^*)$ be a 2-form on $V$, satisfying $\omega(x,Ix)\geq 0$, and $W\subset V$ the set of all vectors $v\in V$ such tat $\omega(v,Iv)=0$ 
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item Prove that $W\subset V$ is $I$-invariant.
-		\item Prove that there exists a projectin $\Pi:(V,I)\to (V_1,I_1)$ commuting with the complex structure operator, and Hermitian form $\omega_1$ on $V_1$ such tat $\omega(x,y)=\omega_1(\Pi(x),\Pi(y))$
+		\item Prove that there exists a projection $\Pi:(V,I)\to (V_1,I_1)$ commuting with the complex structure operator, and Hermitian form $\omega_1$ on $V_1$ such tat $\omega(x,y)=\omega_1(\Pi(x),\Pi(y))$
 	
-		\item 
-	\end{enumerate}
-\end{idea4}
-
-\begin{idea5}{Definition 4.1}\leavevmode
-	A \textit{\textbf{lattice}} is a finitely generated torsion-free $\mathbb{Z}$-module. \textit{\textbf{Quadratic form}} on a lattice is a function $q:L\to \mathbb{Z}$, $q(\ell)=B(\ell,\ell)$ where $B$ is a bilinear symmetric pairing $B:L\otimes_\mathbb{Z}L\longrightarrow \mathbb{Z}$. \textit{\textbf{Quadratic lattice}} is a lattice equipped with a quadratic form. A quadratic form is \textit{\textbf{indefinite}} if it takes positive and negative values, and \textit{\textbf{unimodular}} if $B$ is non-degenerate and defines an isomorphism $L\xrightarrow{\sim}L^*$.
-\end{idea5}
-\iffalse
-\begin{idea1}{Question}\leavevmode
-	With respect to the definition of unimodular, are non-degeneracy and isomorphism $L\cong L^*$ two \textit{independant} conditions? Because I thought the definition of non-degenerate form (at least for vector spaces) is that interior multiplication is an isomorphism $V\cong V^*$.
-\end{idea1}\fi
-
-\begin{idea4}{Exercise 4.1}\leavevmode
-	Let $(L,q)$ be a quadratic lattice, $L_{\mathbb{Q}}:=L\otimes_{\mathbb{Z}}\mathbb{Q}$, and $L^*$ the set of all $x\in L_{\mathbb{Q}}$ such that $q(x,L)\subset \mathbb{Z}$.
-	\begin{enumerate}[label=\alph*.]
-		\item Prove that $L^*$ is a lattice of the same rank as $L$ and $L\subset L^*$.
-		\item The \textit{\textbf{dscriminant group}} of $L$ is $\operatorname{Disc}L:=L^*/L$. Prove that $L$ is unimodular if and only if $\operatorname{Disc}(L)=\{0\}$.
-		\item Let $G$ be an abelian group. Construct a lattice $(L,q)$ such that $\operatorname{Disc}(L)=G$.
-	\end{enumerate}
-\end{idea4}
+\end{enumerate}
+\end{thing4}
 
 \begin{proof}[Solution]\leavevmode
-\begin{enumerate}[label=\alph*.]
-	\item			Let $\{a_i\}$ be a basis of $L$. Recall that the space of linear functionals on $L$ is identified with  $L^*$ via the map $x\mapsto q(x,\cdot )$. Then the functionals given by $a^\vee_i(a_j)= \delta_{ij}$ are a basis of $L^*$.
-	\vspace{1em}
-\begin{idea2}{Attempt to identify functionals with $L^*$.}\leavevmode
-		\iffalse$\mathsf{OK}$ its rather stupid but I would like to make the following identification explicit:
-		\begin{align*}
-			L^* &\longrightarrow L^\star \\
-			x &\longmapsto q(x,\cdot )
-		\end{align*}
-		where $L^\star$  is the set of linear forms on $L$. {\color{2}But the kernel of this map is trivial only when $q$ is nondegenerate.}
+	\begin{enumerate}[label=\alph*.]
+		\item It is immediate: for $ x\in W$, $Ix$ is in $W$ since  $\omega(Ix,I(Ix))=\omega(Ix,-x)=\omega(x,Ix)=0$.
+		\item I think the subspace should be
+			\[V_1:=\{v\in V\setminus\{0\}:\omega(v,Iv)>0\}\cup \{0\},\]
+			so that the restriction $\omega|_{V_1}$ is immediately Hermitian. {\color{3}But I got stuck in constructing the projection map.}
 
-		\fi We want to show that there is only one element $a^\vee_i\in L_\mathbb{Q}$ such that $q(a^\vee_i,a_j)=\delta_{ij}$. Then suppose $\tilde{a}^\vee _i$ is another such element. Then $q(a^\vee_i-\tilde{a}^\vee_i,a_j)=0$ so if $q$ is nondegerate I'm done, but if $q$ is not nondegenerate, {\color{2}how to prove $a^\vee_i=\tilde{a}^\vee_i$?}
-\end{idea2}
+		Upon consulting \href{https://mathoverflow.net/questions/7709/splitting-a-space-into-positive-and-negative-parts}{StackExchange} I propose the following argument. A substpace is called \textit{\textbf{maximally positive}} it it is positive and is not properly contained in any other positive  subspace.
 
-		\begin{remark}\leavevmode
-			In \cite{quadratic}, the definition of $L^*$ is $\operatorname{Hom}(L,\mathbb{Z})$. The discriminant is $L^*/\operatorname{img} i$ where $i$ denotes interior multiplication, that is, $i_xq=q(x, \cdot )$.
-		\end{remark}
+		The partial order of positive subspaces with inclusion satisfies Zorn lemma condition that any total order has an upper bound (the whole space  $V$). Then there exist maximal positive subspace.
+
+		Any maximal positive subspace $V_+$ and $W$ yield a direct sum decomposition  $V=V_+\oplus W$. That their intersection is  $\{0\}$ is obvious. Also $V=V_+ +W$ since any element must have either positive or zero norm because $\omega$ is positive.
 
 \iffalse
-		I want to find a set of generators for elements in $L^*$. Suppose $x\in L^*$. This means, first, that $x$ is a rational linear combination of the generators of  $L$, that is, $x=q_1a_1+\ldots +q_na_n$ where $L=\left<a_1\right> \oplus \ldots \left<a_n\right> $. And also 
-		\[q(x,\ell)=q\left( \sum_{i}q_ia_i,\ell \right) =\sum_{i}q_iq(a_i,\ell)\in\mathbb{Z}\]
-		where of course $q(a_i,\ell)$ are also integers. So in the end we have that
-		\[q(x,\ell)\text{ is a rational linear combination of integers that is an integer} \]
-		So maybe characterize $q$. What is it? Isn't $q\longleftrightarrow \big(q(a_i,a_j\big)$? Then I expand further to get
-		\[q(x,\ell)=\sum_{i,j}q_i\ell_jq(a_i,a_j)\in\mathbb{Z}\]
-
-	Consider the canonical identification of
-		\begin{align*}
-			L &\longrightarrow L^\star\\
-			x &\longmapsto q(x,\cdot)
-		\end{align*}
-		where $L^\star$  is the set of linear forms on $L$. I expect to find an identification  $L^*\cong L^\star$. What exactly is $q(x,\ell)?$. Since $x=\sum_{i}q_ie_i$ with $q_i\in\mathbb{Q}$, we\fi
-
-	\item Implication  $\implies $ is trivial. Implication $\impliedby$ is also straightforward since $L^* /L=\{0\}$ means that every element of $L^*$ is in $L$, so $L=L^*$.
-
-	\item (\textit{Idea.}) I think  $L$ is the free part of $G$. I want to show that there is an exact sequence $\begin{tikzcd}[column sep=small]
-		L\arrow[r,"i"]&\operatorname{Hom}(L,\mathbb{Z})\arrow[r,"\psi"]&L\oplus T=G\arrow[r]&0
-	\end{tikzcd}$ because this way I get that $G$ is the cokernel of the interior multiplication  $i$, which is the discriminant by definition.
-\end{enumerate}	
+		Consider the map
+			\begin{align*}
+				\omega^\flat: V &\longrightarrow V^* \\
+				v &\longmapsto \omega(v,I\cdot)
+			\end{align*}
+			Then $\ker \omega^\flat=\{w\in V:\omega(v,Iw)=0\forall v\in V_1\}$.\fi
+		\end{enumerate}
 \end{proof}
 
-\begin{idea5}{Exercise 4.2}\leavevmode
-	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice.
+\begin{thing9}{Exercise 5.3}\leavevmode
+	Let $g\in\operatorname{Sym}^2V^*$ be an $I$-invariant, non-degenerate, symmetric 2-form on $V$. Such $g$ is called a \textit{\textbf{pseudo-Hermitian metric}}.
 	\begin{enumerate}[label=\alph*.]
-	\item Prove that $L_1{\color{2}^*}\supset L^*$. Prove that any isometry $a\in\operatorname{O}(L)$ takes $L_1$ to another lattice $L^*\subset a(L_1)\subset L$.
+		\item Prove that the form $\omega(x,y):=g(Ix,y)$ belongs to $\Lambda^{1,1}(V^*)$. This form is called a \textit{\textbf{pseudo-Hermitian $(1,1)$-form}}.
 
-	\item Denote by $ \delta(L_1)$ the image of $L_1$ in $\operatorname{Disc}(L)$. Prove that an isometry $a \in\mathsf{O}(L)$ which satisfies $\delta(L_1)=\delta(a(L_1))$ preserves $L_1$.
+		\item Prove that the signature of $g$ is $(2p,2q)$, where $p+q=n$. In this case we say that the \textit{\textbf{signature}} of the pseudo-Hermitian form $\omega$ is $(p,q)$.
 	\end{enumerate}
-\end{idea5}
+\end{thing9}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item First let's see that indeed $\omega$ is an anti-symmetric form:
+			 \[\omega(x,y)=g(Ix,y)=g(I^2x,Iy)=-g(x,Iy)=g(Iy,x)=\omega(y,x)\]Now let's do a quick review on what it means to be a $(1,1)$-form. I will show that $(1,1)$-forms are exactly those which preserve the complex structure, which finishes the proof.
+	\begin{thing3}{Reminder}[Taken from VHS 2024 course slides]\leavevmode
+	The \textit{\textbf{Hodge decomposition}} of the Grassman algebra $\Lambda^{\bullet}(V_\mathbb{C})$ of $V_{\mathbb{C}}$ is given in each degree by
+	 \[\Lambda^{k}(V)=\bigoplus_{p+q=k} \Lambda^{p,q}(V_\mathbb{C}) \]
+	 where
+	 \[\Lambda^{p,q}(V_\mathbb{C})=\Lambda^{p}V^{1,0}\otimes \Lambda^{q}V^{0,1}\]
+	 where
+	 \[V_\mathbb{C}=V\otimes_\mathbb{R}\mathbb{C}=V^{1,0} \oplus V^{0,1}\]
+	 is the decomposition of $V_\mathbb{C}$ given by the eigenspaces of the complex structure $I$.
+\end{thing3}
+According to the reminder above, a $(1,1)$-form is just an element of $\Lambda^{1,1}(V^*)=(V^* )^{1,0}\otimes(V^* )^{0,1}$. Here $(V^*)^{1,0}$ and $(V^* )^{0,1}$ are the $\sqrt{-1} $ and $-\sqrt{-1}$-eigenspaces of the induced complex structure on $V^*$. (Indeed: any eigenvalue $\lambda$ is such that $I\omega=\lambda\omega\implies -\omega=I^2\omega=\lambda I\omega=\lambda^2\omega$.) This means that an element $\omega\in\Lambda^{1,1}(V^*)$ is of the form $\omega=\omega' \otimes \omega'$ for $\omega'\in\Lambda^{1,0}(V^*)$ and $\omega''\in\Lambda^{0,1}(V^*)$. By definition of tensor product (\cite{tu-smooth} chpt 1., sec. 3.6), this means that for $v,w \in V$, $\omega(v,w)=\omega^{1,0}(v) \cdot \omega^{0,1}(w)$. And that implies that a $(1,1)$-form preserves the complex structure since $\omega(Iv,Iw)=\omega'(Iv)\cdot \omega''(Iw)=\sqrt{-1}\omega'(v)\cdot\big(-\sqrt{-1}\omega''(w)\big)=\omega'(v)\cdot \omega''(w)=\omega(v,w)$.
+
+Conversely, any form $\eta$ preserving the complex structure, i.e., $\eta(Ix,Iy)=\eta(x,y)$, must be a $(1,1)$-form. Indeed, if  $\eta \not\in\Lambda^{1,1}(V^*)$ then $\eta\in\Lambda^{1,0}(V^*)$ or $\eta\in\Lambda^{0,1}(V^*)$. But in either case $\eta$ couldn't preserve the complex structure since, e.g. in the first case, $\Lambda^{1,0}(V^*)=\Lambda^{1}V^{1,0} \otimes \Lambda^{0}V^{0,1}= \Lambda^{1}V^{1,0} \otimes \{\text{constants} \}$ so $\eta(Ix,Iy)$ is independant of the second coordinate.
+
+\item Recall that $V=V^{1,0} \oplus V^{0,1}$. The restriction of $g$ to any of the summands is a non-degenerate, symmetric 2-form and as such it must have a signature of, say, $(p,q)$. Now let's see that the form restricted to either of the spaces has the same signature. The restriction of $g$ to each of the subspace has a matrix of the form $B^{\mathbf{T}}GB$ where $G$ is the matrix of $g$ in $V$ and $B$ is a base of either of  $V^{1,0}$ and $V^{0,1}$. Indeed, the matrix $B$ given by a basis of, say, $V^{1,0}$ may be regarded as an embedding of $V^{1,0}$ into $V$, so that for $u,v\in V^{1,0}$ we have
+	\[g(Bu,Bv)=(Bu)^{\mathbf{T}}G(Bv)=\tilde{u}^{\mathbf{T}}(B^{\mathbf{T}}GB)\tilde{v}\]
+	(This is a general fact, the restriction of a linear transformation to a subspace corresponds to a matrix of this form. See \href{https://math.stackexchange.com/questions/4386914/given-the-matrix-of-an-r4-scalar-product-b-in-its-standard-basis-and-a-subspa/4387198#4387198}{StackExchange}.)
+
+	But mapping a base of $V^{1,0}$ to a base of $V^{0,1}$ is given by complex conjugation, which is a linear isomorphism and thus preserves the signature of the restriced forms.
+
+
+	
+\end{enumerate}
+\end{proof}
+\iffalse
+
+\section{Riemann-Hodge pairing}
+
+\begin{thing7}{Definition 5.3}\leavevmode
+	For the duration of this subsection, fix a Hermitian form $\omega$ on $(V,I)$, and let  $\operatorname{Vol}:=\omega^n\in\Lambda^{n,n}(V^*)$. the \textit{\textbf{Riemann-Hodge pairing}}  on $\Lambda^{k}(V^*)$, $k\leq n$ is the pairing
+	\[q(\eta,\eta')=\dfrac{\eta\wedge \eta\wedge \omega^{n-k}}{\operatorname{Vol}}.\]
+\end{thing7}
+
+\begin{thing1}{Exercise 5.9}\leavevmode
+	Prove that the Riemann-Hodge pairing is non-degenerate.
+\end{thing1}
+
+\begin{thing7}{Exercise 5.10}\leavevmode
+	Let $x\in V^*$ be a non-zero vector. Prove that $q(x,Ix)>0$.
+\end{thing7}
+
+\begin{thing1}{Exercise 5.11}\leavevmode
+	Let $V$ be an irreducible real representation of a compact Lie group, and $g$ a non-degenerate bilinear symmetric form on $V$. Prove that $g$ is positive definite or negative definite.
+\end{thing1}
+
+\begin{thing4}{Exercise 5.12}\leavevmode
+	Let $\mathsf{U}(n) \subset \mathsf{GL}(V)$ denote the group of matrices preserving  $I$ and $\omega$, and $\mathfrak{u}(V) \subset \operatorname{End}(V)$ its Lie algebra.
+	\begin{enumerate}[label=\alph*.]
+		\item Consider the map $\Lambda^{1,1}(V) \to  \operatorname{End}(V^*)$ taking $\eta\in\Lambda^{1,1}(V)$ to the map $x\mapsto \omega(i_x\eta,\cdot )$, where $i_x\eta\in V$ is the contraction of $\eta$ with $x$. Prove that this map identifies $\Lambda^{1,1}(V)$ and $\mathfrak{u}(V^*)$.
+	\end{enumerate}
+\end{thing4}
+
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item (Perhaps there is a typo in the question because $L^*\subset L_1 \subset L$ would imply $L^*=L$.) However, the contention $L_1^*\supset L^*$ holds; it is immediate from definition: if $x^*\in L^*$ then $q(x^*,L)\subseteq \mathbb{Z}\implies q(x^*,L_1)\subset \mathbb{Z}$.
-
-%If isometries are surjective, we can see that elements in $a(L_1)$ are in $L^*$ since for any $x\in L_1\subset L$ we have $q(a(x),L)=q(a(x),aL)=q(x,L)\subset \mathbb{Z}$.
-
-			 Since $a\in\mathsf{O}(L)$, we know that $a(L_1)\subset L$.
-
-			 To see $a(L_1)$ is lattice notice that a basis is $a(e_1),\ldots,a(e_n)$ where $e_1,\ldots,e_n$ is a basis of $L_1$. This is immediate from the definition of \textit{\textbf{orthogonal group}} as found in \cite{quadratic}, where isometries are taken to be (bijective) \textit{homomorphisms} of the abelian groups. This means that for any $x\in L_1$
-		\[a(x)=a\left( \sum x^ie_i \right) =\sum x^ia(x_i)\]
-
-	\item We interpret $\delta$ as the  map
-		\[\begin{tikzcd}
-			L\arrow[r,hook]\arrow[rr,bend left,"\delta"]& L^*\arrow[r,two heads]& L^*/L=\operatorname{Disc}(L)
-		\end{tikzcd}\]
-		But since $a(L_1)\subset L$, we always have that $\delta(L_1)=\delta(a(L_1))$ since both are the equivalence class of the identity in $L^* /L=\operatorname{Disc}(L)$.
-
-		If instead we consider the projection onto $\operatorname{Disc}(L_1)$ we get 
-\[\begin{tikzcd}
-			L_1\arrow[r,hook]\arrow[rr,bend left,"\delta_1"]& L_1^*\arrow[r,two heads]& L_1^*/L_1=\operatorname{Disc}(L_1)
-		\end{tikzcd}\]
-		and in this case the condition $\delta_1(L_1)=\delta_1(a(L_1))$ means that the equivalence class of $a(L_1)$ in $\operatorname{Disc}(L_1)$ is the identity class, meaning that $a(\ell_1)\in L_1$ for every $\ell_1\in L_1$. {\color{2}This is very tautological… maybe I didn't understand the question correctly…}
+		\item We want to see that the image of the map $\text{{\color{2}$\eta$}} \mapsto \omega(i_x\eta,\cdot )$ is isomorphic to $\mathfrak{u}(V^*)$. Recall fro Riemann Surface course that the Lie algebra of a group if it is obtained from a Lie group $G\subset \mathsf{GL}(V)$ by taking logarithms of a neighbourhood of identity; and conversely a Lie group is obtained from a subspace $W\subset \operatorname{End}(V)$ by taking exponents.
 	\end{enumerate}
 \end{proof}
 
-\begin{idea7}{Definition 4.2}\leavevmode
-	Two subgroups $G_1,G_2\subset \mathsf{GL}(n,\mathbb{R})$ are called \textit{\textbf{commensurable}} if $G_1\cap G_2$ has finite index in $G_1$ and in $G_2$.
-\end{idea7}
-
-%{\color{3}\bfseries Interpretation.}\hspace{.5em}$\frac{G_1}{G_1\cap G_2}$ is finite then the part of $G_2$ in $G_1$ is a significant part of $G_1$. How many cosets are there?
-
-\begin{idea8}{Exercise 4.3}\leavevmode
-	Let $(L,q)$ be a quadratic lattice, and $L_1\subset L$ a sublattice. Prove that $\mathsf{O}(L_1,q) \cap \mathsf{O}(L,q)$ has finite index in $\mathsf{O}(L,q)$.
-\end{idea8}
-
-\begin{proof}[Solution]
-%	I want to show there is a finite ammount of cosets of $\mathsf{O}(L_1)\cap \mathsf{O}(L)$ in $\mathsf{O}(L)$. There's the orthogonal tranformations of $L$ that fix $L_1$, these are also orthogonal for $L_1$ so they are just $\mathsf{O}(L_1)$…
-
-%	I have a criterion for knowing when will an isometry of $\mathsf{O}(L)$ is in $\mathsf{O}(L_1)$: when it "preserves the discriminant of  $L_1$"--- this means that the image of $L_1$ in $\operatorname{Disc}(L)$ is preserved by $a$.
-
-	We are looking at the equivalence classes of $\mathsf{O}(L_1)$ within $\mathsf{O}(L)$. $\mathsf{O}(L_1)$ is the equivalence class of the identity. Two isometries $b,c\in\mathsf{O}(L)$ are in the same equivalence class when $bc^{-1} \in\mathsf{O}(L_1)$. {\color{2}I'd like to use the criterion of last exercise but I don't see how…}
-\end{proof}
-
-\begin{idea4}{Exercise 4.4}\leavevmode
-Let $nL:=\bigcup_{x\in L} nx$. Prove that $nL_1\subset L$ for any integer lattices $L,L_1$ and $n$ sufficiently big. Prove that $\mathsf{O}(nL,q) =\mathsf{O}(L,q)$.
-\end{idea4}
-
-\begin{proof}[Solution]\leavevmode
-It is not clear what $\bigcup_{x\in L} nx$ means. Perharps it is the set $\{nx:x\in L_1\}$, in which case it is immediate that $nL_1\subset L$ if $L_1\subset L$ as in the previous exercises. For arbitrary lattices $L$ and $L_1$, the statement $nL_1\subset L$ might not make sense ($L=\mathbb{Z}, L_1=\mathbb{Z}\oplus \mathbb{Z}$).
-\end{proof}
-
-
-
-
-
+\fi
+\printbibliography
 
 
 \end{document}
