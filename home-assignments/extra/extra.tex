@@ -1,0 +1,185 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%available at github.com/danimalabares/config
+
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{/Users/daniel/github/config/bibliography.bib}%available at github.com/danimalabares/config
+
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Another proof of corollary 1}
+
+(Communicated by Daniela Paiva)
+
+\vspace{1em}
+In Lecture 10: surfaces with Picard rank 1 we proved the following proposition:
+\begin{thing5}{Proposition}\leavevmode
+	A K3 surface $M$ is isomorphic to a quartic if and only if $\operatorname{Pic}(M)$ contains a very ample bundle $L$ with $(L,L)=4$
+\end{thing5}
+
+And that leads to
+
+\begin{coro}\leavevmode
+	Let $M$ be a K3 surface such that $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ the line bundle generating  $\operatorname{Pic}(M)$. Assuma that $(L,L)=4$. Then  $M$ is isomorphic to a quartic.
+\end{coro}
+
+In this document I will prove the corollary.
+
+\vspace{1.5em}
+
+\textbf{Plan}
+\begin{enumerate}
+	\item $L$ ample implies that the map associated to the linear system $|L|$ is an embedding $\varphi_{|L|}:M\hookrightarrow S\subset \mathbb{P}^{n}$
+
+	\item The fact that $L^2=4$ implies that $n=3$ and that the degree of $S$ is 4.
+\end{enumerate}
+
+First recall that there is an isomorphism
+\[\operatorname{Pic}(M) \cong \operatorname{Div}(M)/\operatorname{PDiv}(M)\]
+where $\operatorname{Pic}(M)$ is the group of isomorphism classes of line bundles on $M$ and
+\[\operatorname{Div}(M):= \left\{ D=\sum a_iD_i:a_i\in\mathbb{Z}, D_i\text{ irreducible subvariety of codimension 1}  \right\} \]
+and
+\[\operatorname{PDiv}(M)=\{\operatorname{div}(f):f\in \mathcal{M}_M\}\]
+where $\mathcal{M}_M$ is the space of meromorphic functions on $M$. Recall that the (principal) divisor associated to a meromorphic function is a formal combination of the subvarieties where its zeroes and poles lie counted with multiplicity.
+
+Note that the quotient by $\operatorname{PDiv}(M)$ ammounts to \textit{\textbf{linear equivalence}} which is given by
+\[D\sim D'\iff\;\exists f\in\mathcal{M}_M\text{ s.t. }D-D'=\operatorname{div}(f).\]
+
+Now recall that a divisor $E$ is called \textit{\textbf{effective}} (denoted $E\geq 0$) if all its coefficients are greater or equal than zero, and that the \textit{\textbf{linear system}} associated to a divisor  $D$ is
+ \[|D| =\{E\in\operatorname{Div}(M):E\geq 0, E\sim D\}\]
+ which is a finitely generated vector space over the field of meromorphic functions with the product defined by
+ \[f\cdot E=\operatorname{div}(f)+E.\]
+ Indeed, $f\cdot E\in |D|$ because it is linearly equivalent to $D$:
+  \begin{align*}
+  f\cdot E-D&=\operatorname{div}(f)+E-D=\operatorname{div}(f)-\operatorname{div}(g)\in\mathcal{M}_M
+  \end{align*}
+and also it is effective:
+\[{\color{2}?}\]
+{\color{3}First observation after my talk is here.}
+\begin{defn}[Linear system=Linear series]\leavevmode
+	Bruno:
+	\[|D|=H^{0}(M,\mathcal{O}_M(D))\]
+	Misha:
+	\[\text{zero divisors of holomorphic sections of $D$} \]
+	\href{https://stacks.math.columbia.edu/tag/0CCM}{Stacks Project}: $k$ field, $X$ proper scheme over $k$, $d,r\geq 0$. A \textit{\textbf{linear series of degree $d$ and dimension $r$}} is
+	\[\text{a pair $(\mathcal{L},V)$, $\mathcal{L}$ invertible $\mathcal{O}_M$-module and $V\subset H^{0}(M,\mathcal{O}_M(D))$ $k$-subvector space of dim $r+1$} \]
+\end{defn}
+
+The linear system defines a rational map
+\begin{align*}
+	\varphi_{|D|}: M &\longrightarrow \mathbb{P}^{n} \\
+	x &\longmapsto [f_0(x):\ldots :f_n(x)]
+\end{align*}
+where $f_i$ are generators of $|D|$. {\color{3}I'd like to have another look at how this map is constructed. See \href{https://en.wikipedia.org/wiki/Linear_system_of_divisors#A_map_determined_by_a_linear_system}{wiki} to make sure it's not obvious.}
+
+Here's another look at this map:
+\begin{align*}
+	\varphi_{|D|}:M&\longrightarrow \mathbb{P}\big((H^{0}(M,\mathcal{O}_M(D))^*\big) \\
+	x &\longmapsto [\operatorname{ev}_x]
+\end{align*}
+
+where
+\begin{align*}
+	\operatorname{ev}_x: H^{0}(M,\mathcal{O}_M(D)) &\longrightarrow \mathcal{L}_x \\
+	s &\longmapsto s(x)\in\mathcal{L}_x
+\end{align*}
+meaning that
+\[\operatorname{ev}_x\in\operatorname{Hom}_\mathbb{C}(H^{0}(M,\mathcal{O}_M(D)),\mathcal{L}_x)\]
+
+
+Notice that this map could be undefined at points where all the $f_i$ vanish. These conform the \textit{\textbf{base locus}} of  $|D|$ and each such point is called a \textit{\textbf{base point}}. If there are no base points we say $|D|$ is \textit{\textbf{base-point free}}.
+
+Now we turn to our exercise, where $L$ is the generator of $\operatorname{Pic}(M)$.  Our objectives are
+	\begin{itemize}
+	\item If $|L|$ is base-point free, the above map $\varphi_{|L|}$ is a morphism (not only a rational map).
+	\item If $L$ is very ample then $\varphi_{|L|}$ is an embedding.
+	\item The dimension of the projective space is $h^{0}(M,\mathcal{O}_M(L))$.
+	\end{itemize}
+Knowing these three things allows to see $M$ as a projective variety, and then we only need to compute its degree, which should be 4. But first let's address the three points above. We shall use
+
+\begin{thing5}{Theorem 5}[Taken from \cite{mori}]\leavevmode
+	Let $X$ be a K3 surface defined over an algebraically closed field of characteristic $\neq 2$. Let $H$ be a numerically effective divisor on $X$. Then one has
+	\begin{enumerate}
+		\item $H$ is not base point free if and only if there exit irreducible curves $E,\Gamma$, and an integer $k\geq 2$ such that $H\sim kE+\Gamma$, $E^2=0$, $\Gamma^2=-2$ and $E\cdot \Gamma=1$. In this case […]
+		\item Let $H^2\geq 4$. Then $H$ is very ample if and only if
+			\begin{enumerate}
+				\item there is no irreducible curve $E$ such that $E^2=0$ and $E\cdot H=1,2$,
+				\item there is no irreducible curve $E$ such that $E^2=2$, $H\sim 2E$, and
+				\item there is no irreducible curve $E$ such that $E^2=-2$, $E\cdot H=0$.
+			\end{enumerate}
+	\end{enumerate}
+\end{thing5}
+
+I think that the base-point free condition does not follow from this statement since, supposing that such $E$ and  $ \Gamma$ exisy we can barely show that $k=3$. So something might be missing.
+
+However to show that  $L$ is ample we barely notice that the second and third case are impossible supposing that  $E=kL$ since we get, in the second case that  $k^2\cdot 4=2$ and in the third that $k^2 \cdot 4=-2$. The first case also can't happen since $E^2=0$ implies $k=0$ which implies  $E\cdot L=0$.
+
+\begin{remark}\leavevmode
+	
+In Misha's course we actually showed this in the following proposition and corollary from Lecture 10 (just after definition of \textit{\textbf{line system}}):
+
+\begin{thm}\leavevmode
+	Let $M$ be a K3 surface such that $\operatorname{Pic}(M) =\mathbb{Z}$, and $L$ the line bundle generating $\operatorname{Pic}(M)$. Assume that $(L,L)>2$. Then $L$ or  $L^*$ is ample, base point free and the map $\psi:M\to \mathbb{P}H^{0}(M,L)^*$ is an embedding or a 2-sheeted ramified covering.
+\end{thm}
+
+The second cas is when $|L|$ contains at least one hyperelliptic curve (and then all curves in $|L|$ are hyperelliptic). In fact, it is shown later that the hyperelliptic case corresponds to $(L,L)=2$. This gives us the embedding we needed.
+
+Also there's
+\begin{thing5}{Corollary 2}\leavevmode
+	Let $M$ be a K3 surface such that $\operatorname{Pic}(M) =\mathbb{Z}$ and $L$ the line bundle generating $\operatorname{Pic}(M)$. Assume that $(L,L)>0$. Then  $L$ is very ample.
+\end{thing5}
+\end{remark}
+\iffalse
+Now recall
+
+\begin{thm}[Riemann-Roch-Hirzbruch formula on surfaces]\leavevmode
+	Let $L$ be a line bundle on a complex surface $X$ and $K_X$ its canonical bundle. Then
+	\[\chi(L)=\chi(\mathcal{O}_X)+ \frac{L\cdot L-L\cdot K_X}{2}\]
+\end{thm}
+
+Since $M$ is a K3, $K_M=0$ and  {\color{5}I think} $\chi(\mathcal{O}_M)=1$ because it is simply connected.
+
+We also have the \textit{\textbf{genus formula}} 
+\[2p_a(D)-2=1+D^2=\chi(\mathcal{O}_M(D))\]
+{\color{7}Hmmm… Let us postulate that we have discarded all three cases and also shown that $L$ is base-point free.}\fi
+
+Then we wish to calculate the dimension of the image of the projective embedding. It turns out that the projective space in the image of $\varphi_{|L|}$ is $\mathbb{P}(H^{0}(M,\mathcal{O}_M(L))\cong |L|$, which means that we can compute its dimension via
+\[\dim |L| =\dim_{\mathbb{C}}H^{0}(M,\mathcal{O}_M(L))-1.\]
+And then we cite \cite{saint-donat}, where he shows that by Riemann-Roch and Serre duality we have for any invertible sheaf $L$ on a K3 that
+\[h^{0}(\mathcal{O}_M(L))=\dim |L| +1=2+\frac{L^2}{2}+h^{1}(\mathcal{O}_M(L))\]
+and since $L$ is ample, $h^{1}(M,\mathcal{O}_M(L))=0$ and we get 
+\[1+\dim |L| =2+\frac{L^2}{2}=4\implies \dim |L| =3\]
+So that the codomain of $\varphi_{|L|}$ is $\mathbb{P}^{3}$.
+
+Finally we compute the degree of $M$. {\color{6}This part is a little sketchy} but here goes.
+
+\begin{defn}\leavevmode
+	Let $X\subset \mathbb{P}^n$, its \textit{\textbf{degree}} is the intersection number of $X$ with $\dim X$ hyperplanes.
+\end{defn}
+
+We have constructed an embedding $\varphi_{|L|}:M\hookrightarrow S\subseteq \mathbb{P}^3$. Its image $S$ is a codimension-1 hypersurface in $\mathbb{P}^3$, which means that it is an element  of  $\operatorname{Pic}(\mathbb{P}^3) =\mathbb{Z}$. So $S \sim kH$, and this $k$ is the degree. {\color{6}So I'm not sure how this is used.}
+
+Now to compute the degree we must intersect with two hyperplanes because we are in a 3-dimensional thing (so intersection of $n-1$ hyperplanes in an  $ n$-dimensional thing gives a line). {\color{6}For some reason} it's enough to intersect $S$ with $H$. Here $H$ is the generator of $\operatorname{Pic}(\mathbb{P}^3)$ which is in fact pulled back to $L$ in $\operatorname{Pic}(M)$ (by construction of the map $\varphi_{|L|}$.
+\[\operatorname{deg}(S)=k=S\cdot H\cdot H=H^2=L^2=4\]
+Since we may pull back divisors by an isomorphism and the intersection number is preserved (see \cite{beauville} prop. 1.8)
+
+
+\clearpage
+
+\begin{thing5}{Exercise}[Sergey]\leavevmode
+	$\operatorname{deg}X\geq \operatorname{codim}X+1$ 
+	if $X$ is not degenerate (not contained in hyperplane)
+\end{thing5}
+
+\end{document}

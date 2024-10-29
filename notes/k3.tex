@@ -2993,7 +2993,7 @@ $\mathsf{OK}$ so $\mathbb{P}\operatorname{er}$ is a smooth submersion. So the fi
 		\item $X_t$ vector field such that
 			 \[\mathcal{L}_{X_t}\Omega_t=\frac{d}{dt}\Omega_t\]
 		so what is the flow of $X_t$? Looks like by definition
-		 \[V_{t_1}^*\Omega_0-\Omega_0=\int_{0}^{t_1}\mathcal{L}_{X_t}\Omega_^{(t)}\]
+		 \[V_{t_1}^*\Omega_0-\Omega_0=\int_{0}^{t_1}\mathcal{L}_{X_t}\Omega_{(t)}\]
 		 but that's only
 		 \[=\int_{0}^1\frac{d \Omega_t}{d t}dt=\Omega_t-\Omega_0\]
 		 But it is the exactly the same reasoning like in usual Moser lemma.
@@ -3031,12 +3031,92 @@ $\mathsf{OK}$ so $\mathbb{P}\operatorname{er}$ is a smooth submersion. So the fi
 	The period map for C-symplect structures is a local diffeomorphism.
 \end{thing8}
 
+\section{Class 17: local Torelli theorem: local surjectivity of the period map}
 
+\subsection{$dd^c$-lemma}
 
+\begin{thm}[$d d^c$-lemma]\leavevmode
+	$\eta\in\Lambda^{p,q}(M)$ on compact  Kähler manifold which is either
+	\begin{enumerate}[label=\alph*.]
+		\item exact
+		 \item $\partial$-exact, $\bar\partial$-exact.
+		\item $\bar\partial$-closed, $\partial$-exact
+	\end{enumerate}
+	Then $\eta\in\operatorname{img} d d^c=\operatorname{img} \partial \bar\partial$ (the latter equality because these are proportional).
+\end{thm}
 
+\begin{proof}\leavevmode
+	\begin{claim}\leavevmode
+		$\eta \perp \ker \Delta$.
+	\end{claim}
+	\begin{proof}[Proof of claim]\leavevmode
+		\[\Delta=d d^*+d^*d=2(\partial \partial^*+\partial^*\partial)=2(\bar\partial \bar\partial^*+\bar\partial^*\bar\partial \]
+		So 
+		\[X\in\ker d\iff=0=(\Delta X,X)=(dx,dx)+(d^*x,d^*x)\iff dx=d^*x=0\]
+		and
+		\[X\in\ker d^* \iff\]
+	\end{proof}
+\end{proof}
 
+\subsection{Massey producs}
 
+Some algebraic geometry ignored by Griffiths-Harris.
 
+\begin{defn}\leavevmode
+	$\alpha,\beta,\gamma\in\Lambda^{\bullet}(M)$ closed, $[\alpha\wedge \beta]=[\beta\wedge \gamma]=0$ cohomology classes 
+	\[\alpha\wedge \beta=da\qquad \beta\wedge \gamma=db\]
+	{\color{2}This one?}
+	\[d(\alpha\wedge \gamma- (-1)^{\tilde{\alpha}}\alpha\wedge \big)=\alpha\wedge \beta\gamma-\alpha\wedge \beta\wedge \gamma=0\]
+	Then
+	\[a\wedge \gamma-(-1)^{\tilde{\alpha}}\alpha\wedge \beta]\]
+	is called \textit{\textbf{Massey product}} $M_{\alpha \beta \gamma|}$ and is well-defined up to modulo  $\operatorname{img} L_{[\alpha]}+\operatorname{img} L_{[\gamma]}$ where these are the operators of multiplication by the cohomology classes of $[\alpha],[\gamma]$.
+\end{defn}
 
+\begin{thm}\leavevmode
+	 On a compact Kähler manifold, Massey products vanish on Hodge pure classes.
+\end{thm}
+
+\begin{proof}\leavevmode
+\textbf{Implied by $d d^c$ lemma} 	Actually looks like very simple computations…
+
+	$\alpha, \beta, \gamma$ pure hodge classes, $\alpha\wedge \beta$ pure, $d$-ecact  $\implies $ $d d^c$ exact $d d^c$-exact.
+	\begin{align*}
+		&=
+	\end{align*}
+\end{proof}
+
+\subsection{Heisenberg group}
+
+\begin{defn}\leavevmode
+	\[G=\begin{pmatrix}1&*&*\\ 0&1&*\\ 0&0&1\end{pmatrix}\]
+	$G_{\mathbb{Z}}$ is that group with integers. $G/G_\mathbb{Z}$ is a torus.
+\end{defn}
+
+\begin{thm}\leavevmode
+	$G/G_\mathbb{Z}$ has nontrivial massey products.
+\end{thm}
+
+\subsection{Local Torelli: surjectivity}
+
+We had already shown that period map is injective.
+
+\begin{thm}\leavevmode
+	A small deformation of C-symplectic structure remains nondegenerate.
+
+	$(M,\Omega)$ C-symplectic K3 surface, and $\eta\in H^{1,1}(M)$ "sufficiently small". Then there exists $\rho \in\Lambda^{11}(M)+\Lambda^{02}(M)$ such that $\Omega_\eta :=\Omega+\rho$ is C-symplectic. So $\rho$ is $\bar\partial$-cohomologous to $\eta$ and also $\rho^{11}\wedge \rho^{11}=-\Omega\wedge \rho^{02}$\end{thm}
+
+	So that second assumption says $\Omega+\rho$ is closed because it's literally expanding $(\Omega+\rho)^2$.
+
+	\begin{remark}\leavevmode
+		Some computations show that
+		\[ [\Omega_\eta]=[\Omega+\eta+\overline{\Omega}\frac{[\eta]^2}{[\Omega\wedge \overline{\Omega}}\]
+		so that class is determine dby $\eta$.
+	\end{remark}
+
+	\begin{remark}\leavevmode
+		This set of equations:
+		\[\rho^{11}\wedge \rho^{11}=-\Omega\wedge \rho^{02}\qquad d\rho=0\]
+		give a hyperplane that ultimately gives the surjectivity of period map.
+	\end{remark}
 
 \end{document}
