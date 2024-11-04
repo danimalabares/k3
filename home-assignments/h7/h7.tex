@@ -1,0 +1,94 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%available at github.com/danimalabares/config
+
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{~/github/config/bibliography.bib}
+
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 7: Moser isotopy lemma}
+
+\begin{thing1}{Exercise 7.1}\leavevmode
+Let $M$ be a compact manifold, and $V_0,V_1$ two smooth volume forms which satifsy  $ \int_{M}V_0=\int_{M}V_1$. Prove that there exists a diffeomorphism which satisfies $\Phi^*V_0=V_1$.
+\end{thing1}
+
+\begin{proof}[Solution]\leavevmode
+We must show there is a family $V_t$ of cohomologous volume forms joining $V_0$ and $V_1$. Define
+\[V_t=tV_0+(1-t)V_1.\]
+Now since $H^n(M)$ is a real one-dimensional vector space, $[V_t]=\alpha[V_0]$ for some real number  $\alpha$.
+
+To show that $\alpha$ must be 1 we need to integrate $[V_t]$, which we may do since $V_t$ is a closed nowhere-vanishing top-form. Closedness is immediate. To see it is nowhere-vanishing just notice that both $ V_0$ and $V_1$ are, and since they integrate to the same number they are both always positive or always negative.
+
+Then
+\begin{align*}
+	\int_{M}[V_t]&=t\int_{M}[V_0]+(1-t)\int_{M}[V_1]=\int_{M}[V_0]=\int_{M}[V_1]
+\end{align*}
+which means that $\alpha=1$. Then by Moser's lemma there exists an isotopy $\varphi_t$ with $\varphi_t^*V_t=V_0$. Taking $t=1$ we obtain the result.
+\end{proof}
+
+\begin{thing5}{Problem 7.2}\leavevmode
+	Let $(M,I)$ be an almost complex manifold, and $\omega_0,\omega_1$ co-homologous symplectic forms which satisfy $\omega_i(x,Ix)>0$ for any non-zero tangent vetor $x$ (such forms are called \textit{\textbf{taming}}).
+	\begin{enumerate}[label=\alph*.]
+	\item Prove that there exists a diffeomorphism $\Phi$ which satisfies $\Phi^*\omega_0=\omega_1$.
+	\item Prove that $|x|^2_{i}:=\omega_i(X,Ix)$ is a Hermitian metric on $M$. Prove that a diffeomorphism that satisfies $\Phi^*\omega_0=\omega_1$ defines an isometry
+		\[(M,|x|^2_1)\longrightarrow(M,|x|^2_0)\]
+		is $\Phi$ is compatible with $I$, that is, satisfies $d\Phi(Ix)=I(d\Phi(x))$ \item Find an example of $\omega_0,\omega_1\in\Lambda^2(M)$ such that a diffeomorphism compatible with $I$ and satisfying $\Phi^*\omega_0=\omega_1$ does not exist.
+	\end{enumerate}
+\end{thing5}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=\alph*.]
+\item This is immediate from Moser's lemma defining $\omega_t:=t\omega_0+(1+t)\omega_1$.
+\item According to Riemann Surfaces course, a hermitian form may be understood as a Riemannian metric $h$ such that $h(\cdot,\cdot)=h(I\cdot,I\cdot)$. This happens for $h(\cdot,\cdot)=\omega(\cdot,I\cdot)$ if we require $\omega(\cdot,\cdot)=\omega(I\cdot,I\cdot)$. Indeed, symmetry holds since
+	\[\omega(x,Iy)=\omega(Ix,-y)=\omega(y,Ix)\]
+and positive-definiteness is given as a hypothesis.
+	
+
+	The condition that $\omega(\cdot,I\cdot)$ is a riemannian metric is called \textit{\textbf{compatibility}} of  $\omega$ and $I$ in  \cite{das}. In this case we can also produce a hermitian metric in the sense of  \href{https://mathworld.wolfram.com/HermitianInnerProduct.html}{WolframMathWorld}, namely, a positive-definite symmetric sesquilinear form. Indeed, define $g(\cdot,\cdot):=\omega(\cdot,I\cdot)$, then the form
+	\[h:=g+\sqrt{-1}\omega\]
+satisfies the required properties as follows.
+	\begin{enumerate}
+	\item Additivity, $h(u_1+u_2,v)=h(u_1,v)+h(u_1,v)$, is immediate.
+	\item Homegenity on the first argument, $h(\lambda u,v)=\lambda h(u,v)$, is also immediate.
+
+			\item $h(u,v)=\overline{h(v,u)}$ is clear by anti-symmetry of $\Omega$:
+			\begin{align*}
+				h(u,v)& =g(u,v)+i\omega(u,v) =g(v,u)-i\omega(v,u) =\overline{h(v,u)}
+			\end{align*}
+	\item The property $h(u,\lambda v)=\bar{\lambda} h(u,v)$ follows easily from (b) and (c) since 
+			\begin{align*}
+				h(u,\lambda v)& =\overline{h(\lambda v, u)}=\bar{\lambda} \overline{h(v,u)} =\bar{\lambda} h(u,v)
+			\end{align*}
+	\item Positive-definiteness follows from positive-definiteness of $g$ and antisymmetry of $\omega$.
+	\end{enumerate}
+	\item The conditions $\Phi^*\omega_0=\omega_1$ and $\Phi_*(I\cdot)=I\Phi_*(\cdot)$ imply that
+		\begin{equation}\label{eq:1}(\Phi^*\omega_0)(\cdot,I\cdot)=\omega_0(\Phi_*\cdot,\Phi_*I\cdot)=\omega_0\Phi_*\cdot,I\Phi_*\cdot)=\omega_1(\cdot,I\cdot)\end{equation}
+	Whether the metric is taken to be $\omega_i(\cdot,I\cdot)$ or $h_i=g_i+\sqrt{-1}\omega_i$, the result follows. In the latter case only note that
+	\begin{align*}\Phi^*h_0&=\Phi^*(g_0+\sqrt{-1}\omega_0)=\Phi^*g_0+\sqrt{-1}\Phi^*\omega_0\\&=\Phi^*\Big(\omega(\cdot,I\cdot)\Big)=g_1+\sqrt{-1}\omega_1=h_1\end{align*}
+	by \cref{eq:1}.
+	
+\item I am intrigued to know the answer here.	
+\end{enumerate}
+\end{proof}
+
+\printbibliography
+
+
+
+
+
+
+
+\end{document}
