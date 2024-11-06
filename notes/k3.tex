@@ -3042,7 +3042,7 @@ $\mathsf{OK}$ so $\mathbb{P}\operatorname{er}$ is a smooth submersion. So the fi
 		 \item $\partial$-exact, $\bar\partial$-exact.
 		\item $\bar\partial$-closed, $\partial$-exact
 	\end{enumerate}
-	Then $\eta\in\operatorname{img} d d^c=\operatorname{img} \partial \bar\partial$ (the latter equality because these are proportional).
+	Then $\eta\in\operatorname{img} d d^c=\operatorname{img} \partial \bar\partial$ (the latter equality because these are proportional, namely $d d^c=\pm 2 \sqrt{-1}\partial \bar\partial$).
 \end{thm}
 
 \begin{proof}\leavevmode
@@ -3131,9 +3131,212 @@ We had already shown that period map is injective.
 So for example elliptic curve has genus 1 because it does not autointersect. 
 
 
+\section{Class 19: more kummer and $(-2)$-curves}
+
+\subsection{More Kummer}
+
+We began with the proof that Kummer surfaces are K3. So what is a Kummer surface: it is the blow up of a complex torus $S^1\times S^1\times S^1 \times S^1$ on the 16 singular points quotient by the action of $\{\pm 1\}$. So the proof was mainly proving that they are simply-connected. This used a covering argument to construct an exact sequence and then express the fundamental group as a semidirect product $\mathbb{Z}^4 \{\pm 1\}$, and then use an elliptic curve, and finish with Van Kampen.
+
+\subsection{What are the $(-2)$-curves?}
+
+\begin{thm}\leavevmode
+	Every connected curve $S$ on a K3 surface has intersection number $(S,S)\geq 2$.
+\end{thm}
+
+\begin{thing4}{Proposition 1}\leavevmode
+	If $S\subset K3$ then $(S,S)\geq -2$ and equality when the genus of $S$ is zero $\iff$ $S$ is a rational curve (so \textit{\textbf{rational} } means birrational to $\mathbb{P}^1$).
+\end{thing4}
+
+Proof here involves Euler characteristic and genus. Interestingly, we used that $\chi(\mathcal{O}_S)=1-g(S)$ (usually we have $\chi=2-2g$).
+
+Finally,
+
+\begin{defn}\leavevmode
+	A \textit{\textbf{$(-2)$-curve}} on a K3 surface is a connected curve with $(S,S)=2$.
+\end{defn}
+
+\subsection{Why are $(-2)$-curves nice?}
+
+\begin{thm}\leavevmode
+	Any $(-2)$-curve is a collection of $p$ smooth $(-2)$-curves that intersect transversally in $p-1$ points. (This means their incidence graph is a tree).
+\end{thm}
+
+\begin{proof}\leavevmode
+So here we first discussed that the incidence matrix of these curves is negative definite, and then the proof.
+\end{proof}
+
+\begin{thing4}{$(-2)$-curves are contractible}\leavevmode
+This is related to Grauert theorem, also Akira ?. The proof in a simple case is given by Moser trick.	
+\end{thing4}
+
+The statement says that we can put the K3 $M$ bimeromorphically holomorphically in another complex variety  $M_1$ that puts $S$ to a point.
+
+\begin{proof}\leavevmode
+This proof was very hard for me---it involves lots of ample and very ample bundles in exact sequences.
+\end{proof}
+
+{\color{3}\begin{quotation}
+	We need $(-2)$-curves for the Kähler cone---next class.
+\end{quotation}}
+
+\section{Lecture 20: Calabi-Yau structures and HyperKähler structures}
+
+\subsection{Holomorphic vector bundle}
+
+
+\begin{defn}\leavevmode
+	Definition of $\bar\partial$ as the usual connection but using
+	\[\bar\partial:B\to B \otimes \Lambda^{0,1}(M)\]
+and satisfying Leibniz. Extending this operator to all $\Lambda^{0,i}(M)$ usine Leibniz. A \textit{\textbf{holomorphic vector bundle}} is a bundle with such an operator satisfying $\bar\partial^2=0$	
+\end{defn}
+
+\begin{exercise}\leavevmode
+A function is holomorphic iff it vanishes under $\bar\partial$.
+\end{exercise}
+
+\subsection{Chern connection, curvature and first Chern class}
+
+Review of the Chern connection which is the Levi-Civita complex version. And curvature $\Theta$ that is composition of this connection with itself. And then a proof of Bianchi identity real quick.
+
+\begin{remark}\leavevmode
+	We can consider the curvature as an $\operatorname{End}(B)$-valued 2-form.
+\end{remark}
+
+\begin{defn}\leavevmode
+	The \textit{\textbf{real first Chern class of a line bundle $B$}} is
+	\[c_1(B):=\frac{\sqrt{-1}}{2\pi}[\Theta_B]\in H^{2}(M)\]
+	
+\end{defn}
+
+Then the interesting formula that
+\begin{claim}\leavevmode
+	$L$ holomorphic hermitian line bundle, b holomorphic non degenerate section then
+	\[\nabla b/b=2\partial (\operatorname{log}|b|)=2\frac{\partial|b|}{|b|}\]
+\end{claim}
+
+\begin{coro}\leavevmode
+	$L$ holomorphic line bundle $h $ Hermitian form on $L$ $b$ non-vanishin section then
+	\[\Theta_\nabla=2\partial \bar\partial \operatorname{log}|b|\]
+	\begin{remark}\leavevmode
+		From now on we loose $\sqrt{-1}$ …?
+	\end{remark}
+\end{coro}
+
+\subsection{Ricci curvature}
+
+{\color{3}\begin{quotation}
+	This is a Ricci curvature defined without any metric whatsoever.
+\end{quotation}}
+
+\begin{claim}\leavevmode
+	That $d d^c \operatorname{log}|f|=0$ because $\operatorname{log}|f|$ is holomorphic plus antiholomorphic and somebody did an exercise showing antiholomorphic plus holomorphic are the kernel of $d d^c$.
+\end{claim}
+
+\begin{defn}\leavevmode
+	$(M,\operatorname{Vol})$ complex $n$ manifold with volume form $\operatorname{Vol}\in \Lambda^{n,n}_{\mathbb{R}}(M)$ then
+	\[\operatorname{Ric}(M,\operatorname{Vol})= dd^c \operatorname{log}\frac{\ell\wedge \bar{\ell} }{\operatorname{Vol}}\]
+	for $\ell$ local section of $K_M=\Lambda^{n,0}(M)$ holomorphic non-vanishing.
+\end{defn}
+
+\begin{remark}\leavevmode
+	It is independent of the choice of section.
+\end{remark}
+
+\begin{remark}\leavevmode
+	A remark that says that two symplectic volume forms $\omega_1=\omega_2 +d d^c \varphi$.
+\end{remark}
+
+\begin{coro}\leavevmode
+	 $(M,\omega)$ a connected Kähler $\Omega\in \Lambda^{n,0}(M)$ holomorphic non-degenerate. Define $f $ by $\Omega\wedge \overline{\Omega}=e^f \omega^n$. Assume that $\int_{M}\omega^n=\int_{M}e^f \omega^n$ consider a Kähler form $\omega+d d^c \varphi$ wuch that $(\omega+ d d^c \varphi)^n=e^f \omega^n$. Then $\omega+d d^c$ is Kähler and Ricci-flat.
+\end{coro}
+
+\begin{upshot}\leavevmode
+To find a Ricci-flat metric it remains to solve an equation
+\[(\omega+ d d^c \varphi)^n=\omega^ne^f\]
+\end{upshot}
+
+\subsection{Monge-Ampère equation}
+
+\begin{defn}[Complex Monge-Ampère equation]\leavevmode
+	\[\omega+d d^c \varphi)^n=Ae^f \omega^n.\]
+	$\varphi$ unkown and $A \in \mathbb{R}$ is determined by
+	\[A=\dfrac{\int \omega^n}{\int e^f \omega^n}.\]
+\end{defn}
+
+\begin{thm}[Calabi-Yau]\leavevmode
+	$M$ compact Kähler then $\operatorname{MA}(f)=A e^f\omega^n$ has a unique (up to a constant) solution $\varphi\forall f.$
+\end{thm}
+
+\begin{proof}\leavevmode
+Very complicated, involving estimates.
+\end{proof}
+
+\begin{prop}[Calabi]\leavevmode
+	A complex Monge-Ampère equation has at most one solution up a constant.
+\end{prop}
+
+\begin{proof}\leavevmode
+Looks like here we used all the lemmas and results done in this lecture. Some computations on exterior algebra using star operator to finally conclude that
+ \[\int_{M}|d\varphi|^2\omega^n=0\]
+ where $\omega_2=\omega_1+ d d^c \varphi$ are the two solutions of MA and we needed to see that $\varphi$ is constant. So that's that.
+\end{proof}
+
+Maybe this is interesting from Yulia's talk:
+
+{\color{3}
+
+Start with $M$ a riemannian oriented 4 manifold  and you have the \textit{\textbf{Hodge star operator}}:
+\begin{align*}
+	*: \Lambda^{2}(M) &\longrightarrow \Lambda^{2}(M) \\
+	\alpha\wedge *\beta &g(\alpha,\beta)\operatorname{Vol}_M
+\end{align*}
+and it happens that
+ \[*^2=1\implies \text{exist $\pm 1$ eigenspaces} \]
+
+ \begin{remark}\leavevmode
+ 	\[\Lambda^{2}(M)\cong \mathsf{SO}(TM)\]
+so $s\in\Lambda^{+}(M)$ is seen as an endomorphism of $TM$.
+\end{remark}}
 
 
 
+\subsection{Bochner's vanishing}
 
+\begin{thm}[Bochner vanishing]\leavevmode
+	$(M,g,I)$ complex Ricci flat Kähler then holomorphic  $p$-forms are parallel with respect to the Levi-Civita connection.
+\end{thm}
 
+\begin{coro}\leavevmode
+	$(M,\Omega,g)$ is holomorphic symplectic Kähler type then $(M,\Omega)$ admits a Ricci flat  Kähler $\Omega$ Levi-Civita parallel.
+\end{coro}
+
+And will be used but we first need to define
+
+\subsection{Hyperkähler}
+
+\begin{defn}\leavevmode
+	A manifold $M$ is \textit{\textbf{hypercomplex}} if it has three integrable almost complex structures  $I$,  $J$, $K$ satisfying the quaternionic relations $I^2=J^2=K^2=-\operatorname{Id}$ and $I J=K=-J I$.
+\end{defn}
+
+\begin{defn}[Calabi, 1978]\leavevmode
+	Let $(M,g)$ be a Riemannian manifold equipped with three complex structure operators $I,J,K$ satisfying the quaternionic relations above. Suppose that  $g$ is Kähler with respect to $I$, $J$, $K$. Then $(M,I,J,K,g)$ is called  \textit{\textbf{hyperkähler}}.
+\end{defn}
+
+Now remember that 
+\[\Lambda^{2}(M)=\Lambda^{+}(M)\oplus \Lambda^{-}(M)\]
+where $\Lambda^{\pm }(M)$ are the $\pm $-eigenspeces of the Hodge star operator acting on  $\Lambda^{2}(M)$.
+
+\begin{exercise}\leavevmode
+	Prove that $\Lambda^{+}(M)$ is generated by $\operatorname{Re}\Omega$, $\operatorname{Im} \Omega$ and $\omega$ where $\omega$ is the Kähler form and $ \Omega$ is a holomorphic symplectic form
+\end{exercise}
+
+and a proposition that
+\begin{prop}\leavevmode
+	$M$ a K3 surface, $g$ a Kähler metric. Then the following are equivalent:
+	\begin{enumerate}[label=(\alph*)]
+	\item $g$ is hyperkähler
+	\item $g$ is Ricci-flat
+	\item The bundle $\Lambda^+(M)$ is trivialized by parallel sections.
+	\end{enumerate}
+\end{prop}
 \end{document}
