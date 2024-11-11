@@ -19,7 +19,7 @@
 
 \vspace{10pt}
 {\huge Home assignment 7: Moser isotopy lemma}
-
+\iffalse
 \begin{thing1}{Exercise 7.1}\leavevmode
 Let $M$ be a compact manifold, and $V_0,V_1$ two smooth volume forms which satifsy  $ \int_{M}V_0=\int_{M}V_1$. Prove that there exists a diffeomorphism which satisfies $\Phi^*V_0=V_1$.
 \end{thing1}
@@ -82,11 +82,94 @@ satisfies the required properties as follows.
 \item I am intrigued to know the answer here.	
 \end{enumerate}
 \end{proof}
+\fi
+\begin{thing8}{Exercise 7.4}
+Let $(M,V)$ be a connected manifold equipped with a volume form. Prove that the group of volume-preserving diffeomorphisms acts on $M$ transitively.
+\end{thing8}
+
+\begin{proof}[Solution]\leavevmode
+I will sketch the proof of  \cite{boothby}, found in \href{https://mathoverflow.net/questions/61994/how-transitive-are-the-actions-of-symplectomorphism-groups}{MathOverflow}.
+
+\iffalse The idea is to split a path joining any two points into small pieces, and find the volume-preserving diffeomorphisms locally.
+
+\begin{enumerate}
+\item \textit{\textbf{Strong local transitivity}} on $M$ means that for every point $p\in M$ and neighbourhood $U$ of $p$ there are neighbourhoods $V$ and $W$ of $p$ with $\overline{V}\subset W$ and $\overline{W} \subset U$, $\overline{W}$ compact, and for any $q \in V$ there is a volume-preserving isotopy $\Phi_t$ of the identity map $\Phi_0$ to $\Phi_1$ such that $\Phi_1(p)=q$ and for all  $t$, $\Phi_t$ leaves fixed every point outside $\overline{W}$.
+\item If $M$ is strongly locally transitive then it is transitive by volume-preserving diffeomorphisms. \textit{Sketch of proof:} let $\gamma$ be a path from $p$ to $q$. For every $x \in \gamma$ choose $0<\delta'_x<\delta''_x<\varepsilon$  such that the $\delta'$ and $\delta''$ neighbourhoods of $x$ satisfy the conditions of strong local transitivity. Since $C_1$ is compact, there is a finite collection of points $p_1=a_1,a_2,\ldots,a_r=q_1$ with volume-preserving diffeomorphisms mapping each point to the next. The composition of all such diffeomorphisms yields the desired volume-preserving map.
+\item It remains to show that any connected manifold with a volume form is strongly locally transitive. Consider a path $\gamma$ from $p$ to $q$.
+\fi
+	
+	%(such a neighbourhood must be chosen correctly to satisfy the conditions of strong locally transivitity, namely there must be two subneighbourhoods $V$ and  $W$ as above).
+We wish to define a vector field along $\gamma$ whose flow $\Phi_t$ gives the desired volume preserving diffeomorphism at $t=1$. Consider a diffeomorphism from $I\times B^{n-1}$ to a neighbourhood $U$ of $\gamma$ (this diffeomorphism is constructed from geodesic segments introducing a metric on $M$). The volume form on $U$ may be expressed as \[V=fdt \wedge dx_1 \wedge\ldots\wedge dx_{n-1}\] for a positive function $f$. Now consider the vector field
+\[X'=\frac{1}{f}\frac{\partial }{\partial t}.\]
+$X'$ may be extended to a vector field $X$ in all of $M$ using a partition of unity. It is immediate that the flow of this vector field takes $p$ to $q$.
+
+To show this flow is volume-preserving recall Cartan's formula that $\mathcal{L}_XV=di_{X}V+\cancelto{0}{i_XdV}=di_XV$ since $V$ is a top-form. Thus, showing volume invariance ammounts to showing $d_XV=0$, which holds since
+\[i_{X'}fdt\wedge dx_1 \wedge \ldots\wedge dx_{n-1}=dx_1\wedge \ldots \wedge dx_{n-1}\]
+is closed.
+%\end{enumerate}
+\end{proof}
+
+\begin{thing5}{Exercise 7.5}\leavevmode
+	Prove that the group of symplectomorphisms of $(M,\omega)$ acts transitively on $M$, for any connected symplectic manifold $(M,\omega)$.
+\end{thing5}
+
+\begin{proof}[Solution]\leavevmode
+This case is similar but requires a little more work: we intend to use Darboux coordinate charts, which can only be defined locally. We will split a path joining any two points into small pieces, find the symplectomorphisms locally and the compose them.
+\begin{enumerate}
+\item \textit{\textbf{Strong local transitivity}} on $M$ means that for every point $p\in M$ and neighbourhood $U$ of $p$ there are neighbourhoods $V$ and $W$ of $p$ with $\overline{V}\subset W$ and $\overline{W} \subset U$, $\overline{W}$ compact, and for any $q \in V$ there is a symplectomorphism isotopy $\Phi_t$ of the identity map $\Phi_0$ to $\Phi_1$ such that $\Phi_1(p)=q$ and for all  $t$, $\Phi_t$ leaves fixed every point outside $\overline{W}$.
+\item If $M$ is strongly locally transitive then it is transitive by symplectomorphisms. \textit{Sketch of proof:} let $\gamma$ be a path from $p$ to $q$. For every $x \in \gamma$ choose $0<\delta'_x<\delta''_x<\varepsilon$  such that the $\delta'$ and $\delta''$ neighbourhoods of $x$ satisfy the conditions of strong local transitivity. Since $\gamma_1$ is compact, there is a finite collection of points $p_1=a_1,a_2,\ldots,a_r=q_1$ with volume-preserving diffeomorphisms mapping each point to the next. The composition of all such diffeomorphisms yields the desired volume-preserving map.
+\item It remains to show that any connected symplectic manifold is strongly locally transitive. Let $U$ be a Darboux chart of $p$ and take two neighbourhoods $V'$ and $W'$ as in the definition of strong local transitivity. For any  $y \in V'$ we can define the vector field $X$ in $\mathbb{R}^{2n}$ of vectors parallel to $yx_0$, where $x_0$ are the coordinates of $p$. The flow of this vector field takes takes $x_0$ to $y$ at $t=1$.
+
+To show that this vector field is $\omega$-invariant we use again Cartan's formula to see it's enough to show that $di_X\omega=0$. Now if $\dim M=2m$ we have
+\[i_X\omega=\sum_{i=1}^m dx^i\wedge dx^{i+m}\left(X,\cdot \right){\color{8}=0}\]
+({\color{8}I'm not sure why does it vanish…})
+\end{enumerate}
+
+
+\end{proof}
+
+\vspace{1em}
+
+{\Large Extra exercise: infinite product}\vspace{1em}
+
+\begin{thing4}{Exercise 8}[\cite{zo1}, 3.2.5, p. 148]\leavevmode
+An inifinite product $\prod_{k=1}^\infty e_k$ is said to converge if the sequence $\Pi_n=\prod_{k=1}^n e_k$ has a finite \textbf{nonzero} limit $\Pi$. We then set $\Pi=\prod_{k=1}^\infty e_k$. Show that
+\begin{enumerate}[label=(\alph*)]
+	\item[(b)]  if $\forall n \in N (e_n>0)$, then the infinite product converges $\prod_{n=1}^\infty$ converges if and only if the series  $\sum_{n=1}^\infty \operatorname{log}e_n$ converges.
+\end{enumerate}
+\end{thing4}
+
+\begin{remark}\leavevmode
+The proof is straightforward using elementary properties of the logarithm ($\operatorname{log}(ab)=\operatorname{log}a+\operatorname{log}b$) and the exponential ($\operatorname{exp}(a+b)=\operatorname{exp}a+\operatorname{exp}b$), as well as their continuity. The caveat is that if the product converges to zero, taking logarithms of the partial products gives a series diverging to $-\infty$ (we say that the product \textit{\textbf{diverges to zero}}). The following exercise is an example of this.
+\end{remark}
+
+\begin{claim}\leavevmode
+\begin{align*}
+			\prod_{n\geq 0}\left|  -1+\frac{1}{n+\frac{1}{2}}\right|=0.
+				\end{align*}
+\end{claim}			
+\begin{proof}\leavevmode
+By taking exponent of the partial sums of the following series, we see it's enough to show that
+\begin{equation}\label{eq:log}\sum_{n \geq 0}\operatorname{log}\left|  -1+\frac{1}{n+\frac{1}{2}}\right|=-\infty.
+\end{equation}
+To show this first notice that $\left|  -1+\frac{1}{n+1/2}\right|$ is just  $1-\frac{1}{n+1/2}$. We can also quickly notice that $\operatorname{log}\left(1-\frac{1}{n+1/2}\right)$ is a sequence of negative numbers convering to 0.
+
+(It was not immediate to me why the this series should diverge or converge. The following argument was provided by ChatGPT.)
+
+We can prove the series diverges if we find a divergent series that bounds it from above. Such series is $\sum\frac{-1}{n+1/2}$. Indeed, it turns out that for every number $0\leq x<1$,
+\[\operatorname{log}(1-x) \leq -x.\]
+To see why, define the function $f(x)=\operatorname{log}(1-x)+x$ and differentiate to find
+\[\frac{d}{dx}\operatorname{log}(1-x)+x=-\frac{1}{1-x}+1=\frac{1}{1-x}+\frac{1-x}{1-x}=\frac{-x}{1-x}\leq 0,\]
+and since also $f(0)=0$, we have that
+\[\operatorname{log}(1-x)+x\leq 0,\qquad 0\leq x<1.\]
+Finally just recall that $\sum_{n\geq 0}\frac{1}{n}$ diverges (and behaves like $\sum \frac{1}{n+1/2}$ for lage $n$). This confirms \cref{eq:log}.
+
+
+
+
+\end{proof}
 
 \printbibliography
-
-
-
 
 
 
