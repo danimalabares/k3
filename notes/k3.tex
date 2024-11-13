@@ -3339,4 +3339,167 @@ and a proposition that
 	\item The bundle $\Lambda^+(M)$ is trivialized by parallel sections.
 	\end{enumerate}
 \end{prop}
+
+\section{Class 21: Kähler cone and hyperkähler period space}
+
+\begin{defn}\leavevmode
+	$M$ Kähler manifold. The \textit{\textbf{Kähler cone}} is $\operatorname{Kah}(M)\subset H^{1,1}(M)$ the set of all cohomology classes of Kähler forms
+\end{defn}
+
+\begin{thm}[Demailly-Pa\u n]\leavevmode
+$M$ compact Kähler,
+\[K=\left\{\eta \in H^{1,1}(M,\mathbb{R}):\int_{Z}\eta^{\dim Z}>0 \;\forall Z\subset M\text{ subvariety} \right\}\]
+Then the Kähler cone is in one of the connected components of $K$.
+\end{thm}
+
+\begin{exercise}\leavevmode
+	We did an exercise that if signature $(1,n-1)$ form, then  if  $q(x,x)>0$ and  $q(y,y)\geq 0$ then $q(x,y)>0$.
+\end{exercise}
+
+\begin{coro}\leavevmode
+	That statement applied to curves $S_1$ and $S_2$ on a surface.
+\end{coro}
+
+\begin{thm}\leavevmode
+	$M$ Kähler surface, $S \subset M$ curve with $(S,S) \geq  0$. Then
+	\[\operatorname{Kah}(M)=\left\{ \omega \in h^{1,1}: \int_{C} \omega>0,\; \int_{C}\omega\wedge \omega>0\; \forall C\text{ curve} \right\}\]
+\end{thm}
+
+\begin{thm}\leavevmode
+$M$ K3, $\mathfrak{R}$ the set of all $(-2)$-classes on $M$. Let $\operatorname{Pos}(M)$ be the connected component of the Kähler class in $\left\{ \omega:\int_{M}\omega \wedge\omega>0 \right\} $. Then $\operatorname{Kah}(M)$ is the connected component of $\operatorname{Pos}\setminus \bigcup_{\omega \in \mathfrak{ R}} \omega^\perp$.
+
+{\color{3}We split the Kähler cone into two polyhedra by taking orthogonal complements of $(-2)$-classes.}
+\end{thm}
+
+\subsection{Gromov-Hausdorff distance}
+
+\begin{defn}\leavevmode
+	The \textit{\textbf{Gromov-Hausdorff distance }} of $X,Y \subset M$ for a metric space $M$ is the infinimum $\varepsilon$ such that $X(\varepsilon)\supset Y$ and $Y(\varepsilon) \supset X$ where these are the $\varepsilon$-neighbourhoods of $X$ and $Y$.
+\end{defn}
+
+\begin{example}\leavevmode
+	The distance between $\mathbb{Z}^n $ and $\mathbb{R}^n$ is something like $\sqrt{2} $, because it is half the distance of the center of a square to one vertex.
+\end{example}
+
+\begin{remark}\leavevmode
+	Gromov-Hausdorff distance is the infinimum $d_H(\varphi(X),\psi(Y))$ over all isometric embeddings $\varphi:X\to Z$ and $\psi:Y \to Z$. So if GH distance is zero then the metric spaces are isometric.
+\end{remark}
+
+\begin{defn}\leavevmode
+	Let $\varphi:X\longrightarrow Y$, $X$ $Y$ metric spaces. \textit{\textbf{Defect}} is how far the distance is disturbed:
+	\[\delta_\psi=\operatorname{sup}_{a,b \in X}\left| d(a,b)-d(\varphi(a),\varphi(b)) \right| \]
+Now define
+\[\hat{d}_{GH}(x,y)=\operatorname{inf}_{\substack{\varphi:X\to Y \\ \psi:Y \to X}}\operatorname{max}\Big(\delta(\psi\circ\varphi, \delta(\psi \circ \varphi)\Big)\]
+\end{defn}
+
+\begin{remark}\leavevmode
+	There is another definition: there exist $C_1,C_2$ such that \[C_1\hat{d}(x,y)\leq  d_{GH}(x,y)\leq C_2\hat{d}(x,y)\] \end{remark}
+Why do we care? This is the topology in hyperkähler Teichmüler space---and thus it is Hausdorff.
+
+\subsection{Hyperkähler period map}
+
+\[\mathbb{P}\operatorname{er}(\text{Riemannian metrics} )\longrightarrow \dfrac{\mathsf{O}(h^2(M))}{\mathsf{O}(h^+(M))\times\mathsf{O}(h^-(M))}\]
+it's a symmetric space.
+
+\section{Class 22: hyperkähler period space}
+
+\subsection{Hyperkähler metrics, induced complex structure}
+
+
+\begin{claim}\leavevmode
+	If a K3 has a metric of hyperkähler-type then there is a unique up to isotopy hk structure $(I,J,K)$.
+\end{claim}
+
+\begin{remark}\leavevmode
+	Which basically says that it's enough for us to study metrics of hyperkähler type 
+\end{remark}
+
+\begin{thm}[Calabi-Yau]\leavevmode
+	$(M,\Omega)$ compact holomorphically symplectic of Kähler type with $[\omega]$ Kähler class. Then there exists a unique Ricci flat metric $g$ that its  Kähler hclass is $\omega$.
+\end{thm}
+
+\begin{defn}\leavevmode
+	An \textit{\textbf{induced complex structure}} is a quaternion $L \in \mathbb{H}$ such that $L^2=-1$.
+\end{defn}
+
+\subsection{Hyperkähler Teichmüler space}
+
+\begin{defn}\leavevmode
+	\textit{\textbf{HK Teichmüler space}} is the space of all metrics quotiented by $\operatorname{Dif}_0$.
+\end{defn}
+
+\begin{remark}\leavevmode
+	It's possible to define a Riemannian version of Albanese map.
+\end{remark}
+
+\subsection{Period of hyperkähler}
+
+\begin{defn}\leavevmode
+	$(M,g)$ a K3 with metric of hyperkähler type, then $\mathbb{P}\operatorname{er}(g)$ is the 3-subspace in $H^{2}(M,\mathbb{R})$ given by $\omega_i, \omega_j, \omega_k$.
+\end{defn}
+
+\begin{defn}\leavevmode
+	\textit{\textbf{Hyperkähler period space}} is the subset $\mathbb{P}\operatorname{er}_h \subset \operatorname{Gr}_{+ + +}$ (which is the grassmanian of positively oriented 3-spaces in $H^{2}(M,\mathbb{R})$) consisting of $W$ such that $W^\perp$ does not contain any $(-2)$-classes.
+\end{defn}
+
+\begin{thing4}{Claim 1}\leavevmode
+	
+	Consider the hyperkähler period map
+	\[\operatorname{P er}_h:\operatorname{Teich}\longrightarrow \operatorname{Gr}_{+ + +}.\]
+	Then $\operatorname{Per}_h(\operatorname{Teich}_h) \subset \mathbb{P}\operatorname{er}_h$.
+\end{thing4}
+
+
+\begin{thing4}{Claim 2}\leavevmode
+	The peroid map is locally a homeomorphism.
+\end{thing4}
+
+\begin{proof}\leavevmode
+First extending $\operatorname{Teich}$ to $\operatorname{Teich}'$ which is the space of triples of symplectic forms that are compatible with the metric. Also extend $\mathbb{P}\operatorname{er}$ to the space of $a,b,c \in H^{2}(M,\mathbb{R})$ such that $a^2=b^2=c^2$ and orthogonality i.e.  $a\wedge b=a \wedge c=b \wedge c=0$. We get a principal bundle for each. These can be visualized using also the extendion of $\operatorname{P er}$ map to
+\[\omega_i, \omega_j, \omega_k\longmapsto [\omega_j],[\omega_j],[\omega_k]\]
+in this diagram:
+\[\begin{tikzcd}
+	\mathbb{P}\operatorname{er}'_h\arrow[r,"\operatorname{P er}"]\arrow[d,"\mathsf{SO}(3)\times\mathbb{R}_{>0}",swap]&\operatorname{Teich}'\arrow[d,"\mathsf{SO}(3)\times\mathbb{R}_{>0}"]\\
+	\mathbb{P}\operatorname{er}\arrow[r,swap,"\operatorname{P er}"]&Teich 
+\end{tikzcd}\]
+and principal bundle map is local homeomorphism iff the bottom map is as well.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
