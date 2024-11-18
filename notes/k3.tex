@@ -3465,41 +3465,159 @@ in this diagram:
 and principal bundle map is local homeomorphism iff the bottom map is as well.
 \end{proof}
 
+\section{Class 23: Metric structures associated with twistor curves}
 
+\subsection{Sub-Riemannian structures}
 
+{\color{4}\begin{quotation}
+	It's like a contact manifold
+\end{quotation}}
 
+$M$ Riemannianan, $B \subset TM$, for every $x,y \in M$ do
+\[d_B(x,y)=\operatorname{inf}L(\gamma)\]
+where the infinimum ranges over paths from $x$ to $y$ tangent on $B$. It's not very interesting because it might not be a metric, for example in $X\times Y$ because projection on one factor gives a vanishing metric.
 
+ \begin{defn}\leavevmode
+	 $B \subset TM$ subbundle satisfies \textit{\textbf{Chow-Rashevskii condition}} if by defining $B_0=B$ and $B_{i+1}:=[B_i,B_i]$ we get that $B_s = TM$ for  $s$ sufficiently large. So it's something like
+	 \[ [ [ [X_1,X_2],X_3],X_4],\ldots,X_s]\]
+	with $X_i$ section of $B$.
+\end{defn}
 
+\begin{thm}[Chow-Raschevskii, 1938, 1939]\leavevmode
+If $ B$ satisfies Chow-Raschevskii condition,  $d_B$ is finite. In this case we say $d_B$ is \textit{\textbf{sub-Riemannian}}.
+\end{thm}
 
+\subsection{Metric notions}
+\begin{defn}\leavevmode
+	If  $(M,d)$ is a metric space and $\gamma:[a,b]\to M$ is a continuos path then the \textit{\textbf{length}} of $\gamma$ is the infimum of the sums of lengths over all partitions of the interval.
+\end{defn}
 
+\begin{defn}\leavevmode
+	The \textit{\textbf{intrinsic metric}} or \textit{\textbf{path metric}} on the metric space $(M,d)$ is the infinimum over all lengths of paths joining two given points.
+\end{defn}
 
+\begin{remark}\leavevmode
+	The intrinsic metric of the intrinsic metric is just the intrinsic metric.
+\end{remark}
 
+\begin{defn}[Gromov? \textit{Structures on Riemannian and non-Riemannian. .. ?} ]\leavevmode
+	\textit{\textbf{Class of admissible paths}}  a topological space $M$ is a set of continious maps $[a,b] \to M$ such that
+\begin{enumerate}
+\item $\gamma_1,\gamma_2$ admissible then the concatenation $\gamma_1\cdot\gamma_2$ is admissible.
+\item To concatenate we need to reparametrize so we impose that the reparametrization of admissible paths is admissible. 
+\item We had gluing of paths, now we cut them. Restriction of admissible paths is admissible (to closed sub-intervals of $[a,b]$).
+\end{enumerate}
+\end{defn}
 
+\begin{defn}\leavevmode
+	\textit{\textbf{A length structure}} is a class of admissible paths along with a \textit{\textbf{length function}} $L(\gamma)$ satisfying all these axioms and that the length functions depends on $b\in [a,c]$ continuously.
+\end{defn}
 
+\begin{defn}\leavevmode
+	The \textit{\textbf{path metric}} associated with a length structure is the infimimum of the lengths given by the length function.
+\end{defn}
 
+\subsection{Finsler metric}
 
+\begin{defn}\leavevmode
+$M$ manifold and for each  $x \in M$ define a norm that depends continuously on $x$, the norm is $\nu_x$. Now define
+\[L_\nu(\gamma)=\int_{0}^1 \nu_{\gamma(t)}(\gamma'(t))dt.\]
+This defines a length functional on the class of piece-wisely smooth paThis defines a length functional on the class of piece-wisely smooth paths. The corresponding metric is called \textit{\textbf{Finsler}}.
+\end{defn}
 
+\begin{defn}\leavevmode
+Now suppose that $B \subset TM$ is a sub bundle satisfying CR. Then take the following class of admissible paths: piecewise smooth and tangent to $B$. Then the same $L(\gamma)$ as above works if $\nu_x$ are norms in  $B_x \subset T_xM$ varying continuously with $x \in M$.
+\end{defn}
 
+\subsection{Pencils of 3-spaces}
 
+\begin{defn}\leavevmode
+Let $(H,q)$ be a real quadratic space of signature  $(3,n)$. If  $W_1,W_2 \in \operatorname{Gr}_{+ + +}$, i.e. they are three dimensional positive spaces, and  $\dim W_1 \cap W_2=2$. That makes $U:= W_1+W_2$ a 4-dimensional space. Then the \textit{\textbf{pencil}} of 3-spaces in $U$ is a 1-dimensional family of 3-dimensional spaces obtained from a 2-dimensional subfamily in $U^*$.
 
+Note that $3$-dimensional subspaces in $U$ are 1-dimensional subspaces in $U^*$, so points in $\mathbb{P} U^*$. And inside there there is a projective line: $\mathbb{P} U^* \supset \mathbb{R}P^1$.
 
+So a \textit{\textbf{pencil}} is made of 3-dimensional subspaces that intersect in a 2-dimensional subspace. Not all of them are positive but the contain one.
+\end{defn}
 
+\begin{remark}\leavevmode
+	$U^*$ is a $q$-quadric space of signature $(3,1)$.
+\end{remark}
 
+\begin{claim}\leavevmode
+	The quadratic form $q$ on $\ell$ has signature $(1,1)$.
+\end{claim}
 
+\subsection{Subtwistor chains}
 
+\begin{defn}\leavevmode
+$\operatorname{Gr}_{+ + +}$ positive oriented 3-spaces in $H^{2}(M,\mathbb{R})\cong \mathbb{R}^{3,19}$, $M$ K3, $\mathbb{P}\operatorname{er}_{h}\subset \operatorname{Gr}_{+ + +}$ all $W$ such athat $W^\perp \not\ni(-2)$-vectors. A \textit{\textbf{sub-twistor}} segment is a positive segment $\gamma$ contained in $\mathbb{P}\operatorname{er}$ connecting 3-spaces $W_1$ and $W_2$ such that $W_1 \cap W_2$ is 2-dimensional and its complement $(W_1\cap W_2)^\perp$ does not contain any $(-2)$-vectors. {\color{4}So probably this $(-2)$-vector thing has some algebraic-geometric background…}
+\end{defn}
 
+\begin{defn}\leavevmode
+	A \textit{\textbf{subtwistor chain}} is a swquence of subtwistor segments connecting points
+\end{defn}
 
+\begin{exercise}\leavevmode
+\[\operatorname{Gr}_{+ + +}=\dfrac{\mathsf{SO}^+(H^{2}(M,\mathbb{R}))}{\mathsf{SO}(3)\times \mathsf{SO}(19)}\]
+admits a unique, up to a constant, $\mathsf{SO}^+(H^{2}(M,\mathbb{R}))$-invariant Riemannian metric.
+\end{exercise}
 
+\begin{proof}[Solution]\leavevmode
+It's enough to show that the representation is irreducible and then applying Schur lemma, which says that there exists a unique metric as desired. But why is is irreducible?
 
+A key observation is that
+\begin{align*}
+T_W \operatorname{Gr}(V)&=\operatorname{Hom}(W,V/W)
+\end{align*}
+And we continue it
+\begin{align*}
+T_W \operatorname{Gr}(V)&=\operatorname{Hom}(W,V/W)=W \otimes (W^\perp )^*.
+\end{align*}
+and \textit{the tensor product of irreducible is irreducible}  (argument given by Vanya).
+\end{proof}
 
+\begin{defn}\leavevmode
+A \textit{\textbf{subtwistor metric}} is the infimum of lengths of all subtwistor chains.
+\end{defn}
 
+\subsection{Cone structures}
 
+\begin{defn}\leavevmode
+$X=G/H$ homogeneous and $C \subset \operatorname{ Tot}(TX)$ a $G$-invariant and $\mathbb{R}$-invariant subset. $C \subset \overline{C}$ is called a \textit{\textbf{cone structure}} if 
+\[\bigcup_{x \in M} \overline{ C}_x=\overline{C}\]
+where $C_x = C \cap T_xM$.
+\end{defn}
 
+\begin{defn}\leavevmode
+Define a \textit{\textbf{cone metric}} on the cone as the infimimum of the Riemannian length (fix a Riemannian metric on $X$) of all paths joining $x$ and $y$ tangent to $C$.
+\end{defn}
 
+\begin{thm}[Mitia]\leavevmode
+Cone metric is sub-finsler.
+\end{thm}
 
+\begin{upshot}\leavevmode
+	We are taking the space of 3-dimensional subspaces (we are thinking of the space generated by the three Kähler forms) and fixing one and rotating the other, and this takes the problem back to the situation when we only had one form. This is what the segments represent? Fixing one and moving the other…
+\end{upshot}
 
+\subsection{A theorem on cone structures and subtwistor metric}
 
+Take $C$ to be the set of all vectors of $\operatorname{Gr}_{+ + +}$ of a $M$ K3 that are tangent to subtwistor segments.
 
+\begin{remark}[dani]\leavevmode
+	So it looks like subtwistor segments are paths in the Period space, which is perhaps a Grasmannian. So a path there is also a subbundle.
+\end{remark}
 
+\begin{claim}\leavevmode
+	$C_W \cap T_W \operatorname{Gr}_{+ + +}$ is the set of all $A \in \operatorname{Hom}(W,W^\perp)$ of rank 1, moreover $\bigcup \overline{C}_W=\overline{C} $.
+\end{claim}
+
+\begin{coro}\leavevmode
+	Subtwistor metric on $\operatorname{Gr}_{++ +}$ is Finsler.
+\end{coro}
+
+\begin{proof}\leavevmode
+By Mitia's theorem, and a bit more.
+\end{proof}
 
 \end{document}

@@ -23,21 +23,60 @@
 \begin{thing1}{Exercise 7.1}\leavevmode
 Let $M$ be a compact manifold, and $V_0,V_1$ two smooth volume forms which satifsy  $ \int_{M}V_0=\int_{M}V_1$. Prove that there exists a diffeomorphism which satisfies $\Phi^*V_0=V_1$.
 \end{thing1}
-
 \begin{proof}[Solution]\leavevmode
-We must show there is a family $V_t$ of cohomologous volume forms joining $V_0$ and $V_1$. Define
-\[V_t=tV_0+(1-t)V_1.\]
-Now since $H^n(M)$ is a real one-dimensional vector space, $[V_t]=\alpha[V_0]$ for some real number  $\alpha$.
-
-To show that $\alpha$ must be 1 we need to integrate $[V_t]$, which we may do since $V_t$ is a closed nowhere-vanishing top-form. Closedness is immediate. To see it is nowhere-vanishing just notice that both $ V_0$ and $V_1$ are, and since they integrate to the same number they are both always positive or always negative.
-
-Then
+First notice that the condition $\int_{M}V_0=\int_{M}V_1$ implies that $V_0$ and $V_1$ are cohomologous. This follows from the fact that $H^n(M)$ is a real one-dimensional vector space, so $[V_1]=a[V_0]$ for some real number  $a$. Then
 \begin{align*}
-	\int_{M}[V_t]&=t\int_{M}[V_0]+(1-t)\int_{M}[V_1]=\int_{M}[V_0]=\int_{M}[V_1]
+	\alpha\int_{M}[V_0]=\int_{M}[V_1]&=\int_{M}[V_0]
 \end{align*}
-which means that $\alpha=1$. Then by Moser's lemma there exists an isotopy $\varphi_t$ with $\varphi_t^*V_t=V_0$. Taking $t=1$ we obtain the result.
-\end{proof}
+which means that $a=1$. This means that there exists a  ($n-1$)-form $\eta$ such that
+\[V_1-V_0=d\eta.\]
+Now define
+\[V_t=V_0+t\left(V_1-V_0\right),\qquad t\in[0,1].\]
 
+Notice that $V_t$ is a nowhere-vanishing top-form. This follows since $ V_0$ and $V_1$ are nowhere-vanishing and their integrals over $M$ coincide, so they are both always positive or always negative. Now if $V_t=0$ we would have $t=1/2$ but  $V_{1/2}=1/2(V_1+V_0)$.
+
+To solve this exercise we will immitate the proof of Moser lemma given in lecture 16, which coincides with the proof in \cite{lee} and in this \href{https://math.stackexchange.com/questions/3528448/equal-volume-iff-there-is-a-diffeomorphism}{StackExchange} answer.
+
+First notice that the contraction map
+\begin{equation}\label{eq:1}
+\begin{aligned}
+	i_\bullet V_t: \mathfrak{X}(M) &\longrightarrow \Omega^{n-1}(M) \\
+	X &\longmapsto i_X V_t
+\end{aligned}
+\end{equation}
+is a bundle isomorphism for every $t$. The proof of this fact was found in yet another \href{https://math.stackexchange.com/questions/3403451/if-omega-is-a-volume-form-then-x-mapsto-i-x-omega-generates-all-n-1-fo}{StackExchange} post. First we notice that this map is an isomorphism at every point. Indeed, if $i_{X_1}V_t=i_{X_2}V_t$, then
+\[V_t(X_1-X_2,\cdot,\ldots,\cdot)=0.\]
+This is not possible since if $X_1-X_2\neq 0$, such vector can be completed to a basis where $V_t$ cannot be zero since it is a volume form. Further, $i_\bullet V_t$ is an isomorphism at every point since both $T_pM$ and $V^{n-1}(T_pM)$ have dimension $n$.
+
+We must also make sure that this operation is smooth. This can be checked in a local chart $U$ where $V_t=gdx_1\ldots dx_n$. Choose any differential form $\alpha=\sum f_idx_1\ldots\widehat{dx_i}\ldots dx_n\in\Omega^{n-1}(U)$. Smoothness follows from the fact that the coordinate functions of its corresponding vector field are also smooth. Indeed, we claim that $i_XV_t=\alpha$ for
+\[X=\sum (-1)^{i+1}\frac{f_i}{g}\partial_i,\]
+whose coordinate functions are smooth.
+
+This is most easily seen in the case $n=2$. By Leibniz rule of interior multiplication,
+\begin{align*}
+i_X(gdx_1\wedge dx_2)&=(i_Xgdx_1)\wedge dx_2-gdx_1\wedge i_Xdx_2\\
+&=f_1 dx_2- f_2 dx_1=\alpha
+\end{align*}
+A similar computation confirms the general case.
+
+Having established the isomorphism in \cref{eq:1}, we see that $-\eta \in \Omega^{n-1}(M)$ can be seen as $i_{X_t}V_t$ for some vector field $X_t$ for each  $t$. Now we will show that the pullback $\varphi^*_t \omega_t$ is constant as $t$ varies. The proof relies on the following result: 
+
+\begin{thing4}{Proposition 22.15}[\cite{lee}]\leavevmode
+	Let $\{X_t\}$ be an autonomous (time-dependent) vector field and choose for every $t$ a $k$-form $\omega_t \in \Omega^{k}(M)$. Then
+	\[\frac{d}{dt}(\varphi^* _t \omega_t)=\varphi^*\left( \mathcal{L}_{X_t}\omega_t+\frac{d}{dt}\omega_t \right),\]
+	where $\varphi_t$ is the isotopy corresponding to $\{X_t\}$, i.e. the family of flows associated to $\{X_t\}$.
+\end{thing4}
+So we have
+\begin{align*}
+\frac{d}{dt}\varphi^*_tV_t&=\varphi^*\left( \mathcal{L}_{X_t}V_t+\frac{d}{dt}V_t \right)\\
+&=\varphi^*\left( di_{X_t}V_t+\cancelto{0}{i_{X_t}dV_t}+\frac{d}{dt}\left( V_0+t(V_1-V_0) \right)\right)\\
+&=\varphi^*\left( di_{X_t}V_t+V_1-V_0 \right)\\
+&=\varphi^*\left(   d(-\eta)+d\eta\right)=0
+\end{align*}
+Evaluating at $t=1$ we see that $\varphi_1$ is the desired isomorphism since
+\[\varphi_1^*V_1=\varphi^*_0V_0=\operatorname{id}^*V_0=V_0.\]
+
+\end{proof}
 \begin{thing5}{Problem 7.2}\leavevmode
 	Let $(M,I)$ be an almost complex manifold, and $\omega_0,\omega_1$ co-homologous symplectic forms which satisfy $\omega_i(x,Ix)>0$ for any non-zero tangent vetor $x$ (such forms are called \textit{\textbf{taming}}).
 	\begin{enumerate}[label=\alph*.]
