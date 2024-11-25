@@ -1,0 +1,50 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%available at github.com/danimalabares/config
+
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{~/github/config/bibliography.bib}
+
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		K3 surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/k3}{github.com/danimalabares/k3}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 8: quaternionic Hermitian structures}
+
+\begin{defn}\leavevmode
+	An \textit{\textbf{almost hypercomplex structure}} on a manifold $M$ is a triple almost complex structures $(I,J,K)$ satisfying the quaternionic relations
+	\[I^2=J^2=K^2=-\operatorname{Id}\qquad  \text{and} \qquad I J=K=-J I.\]
+	It is called \textit{\textbf{hypercomplex}} if $I,J,K$ are integrable. An \textit{\textbf{almost hypercomplex quaternionic Hermitian structure}} on $M$ is an almost hypercomplex stricture $(I,J,K)$ and a Riemannian metric $h$ which is invariant under the action of $I,J,K$.
+\end{defn}
+
+\begin{thing4}{Exercise 8.1}\leavevmode
+	Let $(M,I,J,K,g)$ be an almost hypercomplex quaternionic Hermitian manifold, and $\omega_J:=g(J\cdot,\cdot)$, $\omega_K:=g(K\cdot,\cdot)$ its fundamental forms. Prove that $\omega_J+\sqrt{-1}\omega_K \in \Lambda^{2,0}(M,I)$.
+\end{thing4}
+
+\begin{proof}[Solution]\leavevmode
+Here's a proof from \href{https://mathoverflow.net/questions/136926/holomorphic-2-0-form-on-hyperk%C3%A4hler-manifolds}{StackExchange} using local coordinates. Recall that a $(2,0)$-form $\sigma$ is characterized by being expressible in any local holomorphic coordinate chart $(z^1,\ldots,z^n)$ as
+	\[\sigma=\sum \sigma_{ij}dz^i\wedge dz^j\]
+	where $\sigma_{ij}$ are functions and $\{dz^i,d\bar{z}^i\}_{i=1}^n$ is a base of the cotangent space (see \cite{leec}, lem. 4.1). In other words, a $(2,0)$-form has no $d\bar{z}$ factors.
+	
+Let $\sigma:=\omega_J+\sqrt{-1}\omega_K$ and $(z^1,\ldots,z^n)$ any holomorphic local chart for $I$. Showing that $\sigma$ has no $d\bar{z}$ factors is equivalent to showing that $\sigma(\partial_{\bar{z}^k},\cdot)=0$. This is indeed the case:
+\begin{align*}
+\sigma(\partial_{\bar{z}^k},\cdot)&=g(J \partial_{\bar{z}^k},\cdot)+\sqrt{-1}g(K \partial_{\bar{z}^k},\cdot)\\
+&=g(J \partial_{\bar{z}^k},\cdot)+\sqrt{-1}g(-J I \partial_{\bar{z}^k},\cdot)\\
+&=g(J \partial_{\bar{z}^k},\cdot)+\sqrt{-1}g(-J (-\sqrt{-1}) \partial_{\bar{z}^k},\cdot)\\
+&=g(J \partial_{\bar{z}^k},\cdot)-g(J\partial_{\bar{z}^k},\cdot)=0
+\end{align*}
+where in the third equality we have used that $\left{\partial_{\bar{z}^i}\right}_{i=1}^n$ is a local frame for $T^{0,1}(M,I)$, meaning that $I \partial_{\bar{z}^k}=-\sqrt{-1}\partial_{\bar{z}^k}$ (see \cite{leec}, prop. 1.56).
+\end{proof}
+
+\printbibliography
+
+\end{document}
